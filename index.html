@@ -1,926 +1,2286 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Leaf & Legend — Sovereign Rif Valley extract meets 40 years of formulation science. Solventless CBD from Ketama to clinical product.">
-  <title>Leaf &amp; Legend</title>
-
-  <!-- Preload Google Fonts -->
+  <title>Leaf & Legend — The First Unbroken Chain from Seed to Pharmacy</title>
+  <meta name="description" content="Morocco's only licensed cannabis company with sovereign custody from Rif Valley cultivation through halal extraction through GMP-aligned formulation through CHU Marrakech observation.">
+  <link rel="icon" href="img/logo.png" type="image/png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
-
-  <!-- Inline Critical CSS -->
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
   <style>
-    :root{--parchment:#F4F1EA;--parchment-dark:#EBE7DE;--moss:#1C2E23;--copper:#8B5E3C;--copper-line:rgba(28,46,35,0.12)}
-    *{box-sizing:border-box;margin:0;padding:0}
-    body{font-family:'DM Sans',sans-serif;background:var(--parchment);color:var(--moss);overflow-x:hidden}
-  </style>
+    /* ═══════════════════════════════════════════
+       DESIGN SYSTEM — Dark Cinematic
+       ═══════════════════════════════════════════ */
+    :root {
+      --background: #0B0D0C;
+      --foreground: #F2EDE4;
+      --copper: #C17F4E;
+      --copper-light: #D4944F;
+      --copper-dark: #A66B3D;
+      --copper-glow: rgba(193, 127, 78, 0.15);
+      --sage: #7B8F6B;
+      --sage-dark: #5A6E4D;
+      --sage-light: #9AAF8A;
+      --parchment: #E8D5B8;
+      --parchment-dark: #C4B199;
+      --clinical: #4A7C6B;
+      --clinical-light: #5E9A86;
+      --clinical-dark: #3A6355;
+      --surface-raised: #121413;
+      --surface-sunken: #080A09;
+      --surface-card: #0F1110;
+      --surface-elevated: #161918;
+      --text-primary: #F2EDE4;
+      --text-secondary: rgba(242, 237, 228, 0.6);
+      --text-tertiary: rgba(242, 237, 228, 0.3);
+      --text-ghost: rgba(242, 237, 228, 0.12);
+      --border-subtle: rgba(242, 237, 228, 0.04);
+      --border-light: rgba(242, 237, 228, 0.08);
+      --border-copper: rgba(193, 127, 78, 0.15);
+      --border-copper-strong: rgba(193, 127, 78, 0.3);
+    }
 
-  <link rel="stylesheet" href="./css/style.css">
+    /* ═══════════════════════════════════════════
+       RESET & BASE
+       ═══════════════════════════════════════════ */
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html {
+      scroll-behavior: smooth;
+      scrollbar-width: thin;
+      scrollbar-color: var(--copper-dark) var(--background);
+    }
+
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: var(--background); }
+    ::-webkit-scrollbar-thumb { background: var(--copper-dark); border-radius: 3px; }
+    ::-webkit-scrollbar-thumb:hover { background: var(--copper); }
+
+    ::selection { background: var(--copper); color: var(--background); }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--background);
+      color: var(--text-primary);
+      line-height: 1.6;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    img { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
+
+    /* ═══════════════════════════════════════════
+       TYPOGRAPHY
+       ═══════════════════════════════════════════ */
+    h1, h2, h3, h4 { font-family: 'Cormorant Garamond', serif; font-weight: 700; line-height: 1.1; }
+
+    .section-label {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--copper);
+      margin-bottom: 1rem;
+    }
+
+    .copper-rule {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--copper), transparent);
+      margin: 1.5rem 0;
+      border: none;
+    }
+
+    .body-text {
+      color: var(--text-secondary);
+      font-size: 1.05rem;
+      line-height: 1.75;
+      max-width: 640px;
+    }
+
+    .registry-text {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.75rem;
+      letter-spacing: 0.08em;
+      color: var(--text-tertiary);
+      text-transform: uppercase;
+    }
+
+    .data-label {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--text-tertiary);
+      margin-bottom: 0.25rem;
+    }
+
+    .data-value {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      color: var(--text-primary);
+      font-weight: 500;
+    }
+
+    /* ═══════════════════════════════════════════
+       COMPONENTS
+       ═══════════════════════════════════════════ */
+    .section-wrap {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 120px 24px;
+    }
+
+    .trust-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 14px;
+      border: 1px solid var(--border-copper);
+      border-radius: 999px;
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--copper);
+      font-weight: 500;
+      white-space: nowrap;
+    }
+
+    .trust-badge .dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--clinical-light);
+      flex-shrink: 0;
+    }
+
+    .cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--copper);
+      border: 1px solid var(--border-copper-strong);
+      padding: 14px 32px;
+      border-radius: 2px;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      background: transparent;
+    }
+
+    .cta:hover {
+      background: var(--copper-glow);
+      border-color: var(--copper);
+    }
+
+    .cta-solid {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--background);
+      background: var(--copper);
+      padding: 16px 36px;
+      border: none;
+      border-radius: 2px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .cta-solid:hover {
+      background: var(--copper-light);
+      transform: translateY(-1px);
+    }
+
+    .declaration {
+      border-left: 2px solid var(--copper);
+      padding: 2rem 2.5rem;
+      margin: 2.5rem 0;
+      background: var(--copper-glow);
+    }
+
+    .declaration p {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3rem;
+      font-style: italic;
+      color: var(--copper-light);
+      line-height: 1.6;
+    }
+
+    .arabic-moment {
+      font-family: 'Amiri', serif;
+      color: rgba(193, 127, 78, 0.2);
+      font-size: 1.5rem;
+      direction: rtl;
+      text-align: center;
+      user-select: none;
+    }
+
+    .arabic-divider {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1.5rem;
+      padding: 60px 24px;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .arabic-divider .line {
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(193, 127, 78, 0.2), transparent);
+    }
+
+    .arabic-divider .text {
+      font-family: 'Amiri', serif;
+      color: rgba(193, 127, 78, 0.25);
+      font-size: 1.25rem;
+      white-space: nowrap;
+    }
+
+    .trust-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 2rem;
+    }
+
+    /* ═══════════════════════════════════════════
+       NAVIGATION
+       ═══════════════════════════════════════════ */
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      padding: 0 24px;
+      height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: all 0.4s ease;
+    }
+
+    .nav.scrolled {
+      background: rgba(11, 13, 12, 0.85);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-shrink: 0;
+    }
+
+    .nav-brand img {
+      width: 32px;
+      height: 32px;
+    }
+
+    .nav-brand span {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      letter-spacing: 0.02em;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-secondary);
+      transition: color 0.3s;
+      position: relative;
+      padding-bottom: 4px;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background: var(--copper);
+      transition: width 0.3s ease;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--copper);
+    }
+
+    .nav-links a.active::after,
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .nav-trust {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-shrink: 0;
+    }
+
+    .nav-trust .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 4px 10px;
+      border: 1px solid var(--border-copper);
+      border-radius: 999px;
+      font-size: 0.6rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--copper);
+      white-space: nowrap;
+    }
+
+    .nav-trust .pill .dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--clinical-light);
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 8px;
+      background: none;
+      border: none;
+    }
+
+    .hamburger span {
+      width: 24px;
+      height: 1.5px;
+      background: var(--text-primary);
+      transition: all 0.3s;
+    }
+
+    .hamburger.active span:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+    .hamburger.active span:nth-child(2) {
+      opacity: 0;
+    }
+    .hamburger.active span:nth-child(3) {
+      transform: rotate(-45deg) translate(5px, -5px);
+    }
+
+    .mobile-menu {
+      position: fixed;
+      inset: 0;
+      background: var(--background);
+      z-index: 999;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 2rem;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.4s ease;
+    }
+
+    .mobile-menu.open {
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    .mobile-menu .arabic-calligraphy {
+      font-family: 'Amiri', serif;
+      font-size: 2.5rem;
+      color: rgba(193, 127, 78, 0.15);
+      margin-bottom: 2rem;
+    }
+
+    .mobile-menu a {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.8rem;
+      font-weight: 600;
+      color: var(--text-secondary);
+      transition: color 0.3s;
+    }
+
+    .mobile-menu a:hover {
+      color: var(--copper);
+    }
+
+    /* ═══════════════════════════════════════════
+       HERO — THE THRESHOLD
+       ═══════════════════════════════════════════ */
+    #threshold {
+      position: relative;
+      height: 100vh;
+      min-height: 700px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: -60px;
+      background: url('img/hero-rif-valley.jpeg') center/cover no-repeat;
+      z-index: 0;
+      will-change: transform;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(11,13,12,0.3) 0%, rgba(11,13,12,0.6) 50%, rgba(11,13,12,0.95) 85%, rgba(11,13,12,1) 100%);
+      z-index: 1;
+    }
+
+    .hero-particles {
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+      pointer-events: none;
+    }
+
+    .particle {
+      position: absolute;
+      border-radius: 50%;
+      background: var(--copper);
+      opacity: 0;
+      animation: particleDrift linear infinite;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 3;
+      text-align: center;
+      max-width: 900px;
+      padding: 0 24px;
+    }
+
+    .hero-arabic {
+      font-family: 'Amiri', serif;
+      font-size: clamp(1.5rem, 4vw, 2.8rem);
+      color: rgba(193, 127, 78, 0.2);
+      margin-bottom: 1.5rem;
+      direction: rtl;
+      animation: arabicReveal 2s ease forwards;
+    }
+
+    .hero-content h1 {
+      font-size: clamp(2.4rem, 6.5vw, 5rem);
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 1.5rem;
+      line-height: 1.05;
+    }
+
+    .hero-sub {
+      font-size: clamp(0.95rem, 1.5vw, 1.1rem);
+      color: rgba(242, 237, 228, 0.55);
+      max-width: 680px;
+      margin: 0 auto 2.5rem;
+      line-height: 1.75;
+    }
+
+    .hero-trust {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .scroll-indicator {
+      position: absolute;
+      bottom: 40px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 3;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .scroll-indicator span {
+      font-size: 0.65rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--text-tertiary);
+    }
+
+    .scroll-line {
+      width: 1px;
+      height: 40px;
+      background: linear-gradient(180deg, var(--copper), transparent);
+      animation: lineDrawH 2s ease infinite;
+    }
+
+    /* ═══════════════════════════════════════════
+       THE CHAIN
+       ═══════════════════════════════════════════ */
+    #chain {
+      background: var(--background);
+    }
+
+    .chain-steps {
+      margin-top: 3rem;
+    }
+
+    .chain-step {
+      border-bottom: 1px solid var(--border-light);
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .chain-step:hover {
+      background: var(--surface-raised);
+    }
+
+    .chain-step-header {
+      display: flex;
+      align-items: flex-start;
+      gap: 2rem;
+      padding: 2rem 0;
+    }
+
+    .chain-step-number {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 3rem;
+      font-weight: 700;
+      color: var(--copper-dark);
+      line-height: 1;
+      flex-shrink: 0;
+      min-width: 70px;
+    }
+
+    .chain-step-info {
+      flex: 1;
+    }
+
+    .chain-step-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.6rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 0.25rem;
+    }
+
+    .chain-step-location {
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--sage);
+      margin-bottom: 0.75rem;
+    }
+
+    .chain-step-desc {
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+      line-height: 1.6;
+      max-width: 600px;
+    }
+
+    .chain-step-toggle {
+      font-size: 1.4rem;
+      color: var(--copper);
+      flex-shrink: 0;
+      padding-top: 0.5rem;
+      transition: transform 0.3s;
+      align-self: center;
+    }
+
+    .chain-step.expanded .chain-step-toggle {
+      transform: rotate(45deg);
+    }
+
+    .chain-step-expand {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.5s ease, padding 0.5s ease;
+    }
+
+    .chain-step.expanded .chain-step-expand {
+      max-height: 500px;
+    }
+
+    .chain-step-expand-inner {
+      padding: 0 0 2rem 90px;
+      display: flex;
+      gap: 2rem;
+      align-items: flex-start;
+    }
+
+    .chain-step-image {
+      width: 260px;
+      height: 170px;
+      border-radius: 4px;
+      object-fit: cover;
+      border: 1px solid var(--border-light);
+      flex-shrink: 0;
+    }
+
+    .chain-step-meta {
+      flex: 1;
+    }
+
+    .chain-step-ref {
+      font-size: 0.75rem;
+      letter-spacing: 0.08em;
+      color: var(--text-tertiary);
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+      padding: 0.75rem 1rem;
+      background: var(--surface-sunken);
+      border-left: 2px solid var(--copper-dark);
+    }
+
+    .chain-step-verify {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.75rem;
+      color: var(--clinical-light);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .chain-step-verify .dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--clinical-light);
+    }
+
+    .chain-quote {
+      margin-top: 3rem;
+      text-align: center;
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 1.3rem;
+      color: var(--copper);
+      padding: 2rem 0;
+    }
+
+    /* ═══════════════════════════════════════════
+       PHARMACOPEIA
+       ═══════════════════════════════════════════ */
+    #pharmacopeia {
+      background: var(--surface-sunken);
+    }
+
+    .monographs {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .monograph {
+      background: var(--surface-card);
+      border: 1px solid var(--border-light);
+      border-radius: 4px;
+      overflow: hidden;
+      transition: border-color 0.3s;
+    }
+
+    .monograph:hover {
+      border-color: var(--border-copper-strong);
+    }
+
+    .monograph-image {
+      width: 100%;
+      height: 280px;
+      object-fit: cover;
+    }
+
+    .monograph-body {
+      padding: 2rem;
+    }
+
+    .monograph-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 1rem;
+    }
+
+    .monograph-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+
+    .monograph-arabic {
+      font-family: 'Amiri', serif;
+      font-size: 1rem;
+      color: var(--copper-dark);
+      direction: rtl;
+    }
+
+    .monograph-class {
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-tertiary);
+      margin-bottom: 0.25rem;
+    }
+
+    .monograph-format {
+      font-size: 0.75rem;
+      color: var(--text-secondary);
+      margin-bottom: 1rem;
+    }
+
+    .monograph-desc {
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+      line-height: 1.65;
+      margin-bottom: 1.5rem;
+    }
+
+    .monograph-ingredients {
+      margin-bottom: 1.5rem;
+    }
+
+    .monograph-ingredients-label {
+      font-size: 0.65rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--text-tertiary);
+      margin-bottom: 0.5rem;
+    }
+
+    .monograph-ingredients-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .monograph-ingredients-list li {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      padding: 0.3rem 0;
+      border-bottom: 1px solid var(--border-subtle);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .monograph-ingredients-list li::before {
+      content: '·';
+      color: var(--copper-dark);
+      font-weight: 700;
+    }
+
+    .monograph-batch {
+      display: flex;
+      gap: 1.5rem;
+      margin-bottom: 1.5rem;
+      padding: 0.75rem;
+      background: var(--surface-sunken);
+      border-radius: 2px;
+    }
+
+    .monograph-batch-item {
+      flex: 1;
+    }
+
+    .monograph-batch-label {
+      font-size: 0.6rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-tertiary);
+      margin-bottom: 0.15rem;
+    }
+
+    .monograph-batch-value {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.8rem;
+      color: var(--copper);
+      letter-spacing: 0.04em;
+    }
+
+    .monograph-trust {
+      display: flex;
+      gap: 8px;
+    }
+
+    /* ═══════════════════════════════════════════
+       EVIDENCE ROOM
+       ═══════════════════════════════════════════ */
+    #evidence {
+      background: var(--background);
+    }
+
+    .cert-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+
+    .cert-card {
+      background: var(--surface-card);
+      border: 1px solid var(--border-light);
+      border-radius: 4px;
+      padding: 2rem;
+      transition: all 0.3s;
+    }
+
+    .cert-card:hover {
+      border-color: var(--border-copper-strong);
+      transform: translateY(-2px);
+    }
+
+    .cert-card-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1.25rem;
+    }
+
+    .cert-type {
+      padding: 4px 12px;
+      border: 1px solid var(--border-copper);
+      border-radius: 2px;
+      font-size: 0.65rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--copper);
+    }
+
+    .cert-status {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.65rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .cert-status .dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--clinical-light);
+    }
+
+    .cert-status.ongoing .dot {
+      background: var(--copper);
+    }
+
+    .cert-status.ongoing {
+      color: var(--copper);
+    }
+
+    .cert-status:not(.ongoing) {
+      color: var(--clinical-light);
+    }
+
+    .cert-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 0.5rem;
+    }
+
+    .cert-issuer {
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+      margin-bottom: 1rem;
+    }
+
+    .cert-registry {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.75rem;
+      letter-spacing: 0.08em;
+      color: var(--text-tertiary);
+      text-transform: uppercase;
+      margin-bottom: 1.25rem;
+      padding: 0.5rem 0.75rem;
+      background: var(--surface-sunken);
+      border-radius: 2px;
+    }
+
+    .cert-verify {
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--copper);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      cursor: pointer;
+      transition: color 0.3s;
+    }
+
+    .cert-verify:hover {
+      color: var(--copper-light);
+    }
+
+    /* ═══════════════════════════════════════════
+       ALLIANCE
+       ═══════════════════════════════════════════ */
+    #alliance {
+      background: var(--surface-sunken);
+    }
+
+    .alliance-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+      margin-top: 3rem;
+    }
+
+    .alliance-image-wrap {
+      position: relative;
+    }
+
+    .alliance-image {
+      width: 100%;
+      height: 450px;
+      object-fit: cover;
+      border-radius: 4px;
+      border: 1px solid var(--border-light);
+    }
+
+    .alliance-float-card {
+      position: absolute;
+      bottom: -20px;
+      right: -20px;
+      background: var(--surface-card);
+      border: 1px solid var(--border-copper);
+      padding: 1.25rem 1.5rem;
+      border-radius: 4px;
+      max-width: 260px;
+    }
+
+    .alliance-float-card .label {
+      font-size: 0.6rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--text-tertiary);
+      margin-bottom: 0.25rem;
+    }
+
+    .alliance-float-card .value {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.85rem;
+      color: var(--copper);
+      letter-spacing: 0.04em;
+    }
+
+    .alliance-metrics {
+      display: flex;
+      gap: 2rem;
+      margin: 2rem 0;
+    }
+
+    .alliance-metric {
+      flex: 1;
+      padding: 1.25rem;
+      background: var(--surface-card);
+      border-radius: 4px;
+    }
+
+    .alliance-metric.teal {
+      border-left: 3px solid var(--clinical-light);
+    }
+
+    .alliance-metric.copper {
+      border-left: 3px solid var(--copper);
+    }
+
+    .alliance-metric .label {
+      font-size: 0.65rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-tertiary);
+      margin-bottom: 0.35rem;
+    }
+
+    .alliance-metric .value {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+
+    /* ═══════════════════════════════════════════
+       ORIGIN
+       ═══════════════════════════════════════════ */
+    #origin {
+      background: var(--background);
+    }
+
+    .origin-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+      margin-top: 3rem;
+    }
+
+    .origin-portrait-wrap {
+      position: relative;
+    }
+
+    .origin-portrait {
+      width: 100%;
+      height: 550px;
+      object-fit: cover;
+      border-radius: 4px;
+      border: 1px solid var(--border-light);
+    }
+
+    .origin-arabic-overlay {
+      position: absolute;
+      bottom: 20px;
+      right: 20px;
+      font-family: 'Amiri', serif;
+      font-size: 2rem;
+      color: rgba(193, 127, 78, 0.3);
+      direction: rtl;
+    }
+
+    .origin-data-row {
+      display: flex;
+      gap: 2.5rem;
+      margin-top: 2.5rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border-light);
+    }
+
+    .origin-data-item .data-label {
+      margin-bottom: 0.3rem;
+    }
+
+    /* ═══════════════════════════════════════════
+       PORTAL
+       ═══════════════════════════════════════════ */
+    #portal {
+      background: var(--surface-sunken);
+    }
+
+    .resource-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+
+    .resource-card {
+      background: var(--surface-card);
+      border: 1px solid var(--border-light);
+      border-radius: 4px;
+      padding: 2rem;
+      text-align: center;
+      transition: all 0.3s;
+      cursor: pointer;
+    }
+
+    .resource-card:hover {
+      border-color: var(--border-copper-strong);
+      transform: translateY(-3px);
+    }
+
+    .resource-card-icon {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: var(--copper);
+    }
+
+    .resource-card-type {
+      font-size: 0.6rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--text-tertiary);
+      margin-bottom: 0.5rem;
+    }
+
+    .resource-card-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 1rem;
+    }
+
+    .resource-card-arrow {
+      color: var(--copper);
+      font-size: 1.2rem;
+      transition: transform 0.3s;
+    }
+
+    .resource-card:hover .resource-card-arrow {
+      transform: translateX(4px);
+    }
+
+    .portal-contact {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 3rem;
+      padding: 2rem;
+      background: var(--surface-card);
+      border: 1px solid var(--border-light);
+      border-radius: 4px;
+    }
+
+    .portal-contact-email {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      letter-spacing: 0.02em;
+    }
+
+    /* ═══════════════════════════════════════════
+       FOOTER
+       ═══════════════════════════════════════════ */
+    .footer {
+      border-top: 2px solid;
+      border-image: linear-gradient(90deg, transparent, var(--copper), transparent) 1;
+    }
+
+    .footer-trust {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.5rem;
+      padding: 2rem 24px;
+      border-bottom: 1px solid var(--border-light);
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .footer-trust-item {
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-tertiary);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .footer-trust-item .dot {
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: var(--copper-dark);
+    }
+
+    .footer-main {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 3rem 24px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+    }
+
+    .footer-brand {
+      max-width: 400px;
+    }
+
+    .footer-brand-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 1rem;
+    }
+
+    .footer-brand-logo img {
+      width: 28px;
+      height: 28px;
+    }
+
+    .footer-brand-logo span {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      font-weight: 600;
+    }
+
+    .footer-brand-desc {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+      margin-bottom: 1rem;
+    }
+
+    .footer-brand-arabic {
+      font-family: 'Amiri', serif;
+      font-size: 1.3rem;
+      color: rgba(193, 127, 78, 0.2);
+      direction: rtl;
+    }
+
+    .footer-links {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 2rem;
+    }
+
+    .footer-links-col h4 {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--text-tertiary);
+      font-weight: 500;
+      margin-bottom: 1rem;
+    }
+
+    .footer-links-col a {
+      display: block;
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      margin-bottom: 0.5rem;
+      transition: color 0.3s;
+    }
+
+    .footer-links-col a:hover {
+      color: var(--copper);
+    }
+
+    .footer-regulatory {
+      font-size: 0.7rem;
+      color: var(--text-tertiary);
+      line-height: 1.7;
+      letter-spacing: 0.02em;
+    }
+
+    .footer-bottom {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 1.5rem 24px;
+      border-top: 1px solid var(--border-subtle);
+      text-align: center;
+      font-size: 0.7rem;
+      color: var(--text-ghost);
+      letter-spacing: 0.08em;
+    }
+
+    /* ═══════════════════════════════════════════
+       ANIMATIONS
+       ═══════════════════════════════════════════ */
+    @keyframes revealUp {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes revealFade {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes revealScale {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    @keyframes lineDrawH {
+      0% { opacity: 0; transform: scaleY(0); transform-origin: top; }
+      50% { opacity: 1; transform: scaleY(1); transform-origin: top; }
+      100% { opacity: 0; transform: scaleY(0); transform-origin: bottom; }
+    }
+
+    @keyframes copperPulse {
+      0%, 100% { opacity: 0.5; }
+      50% { opacity: 1; }
+    }
+
+    @keyframes particleDrift {
+      0% {
+        opacity: 0;
+        transform: translate(0, 0) scale(0.5);
+      }
+      15% {
+        opacity: 0.6;
+        transform: scale(1);
+      }
+      85% {
+        opacity: 0.4;
+      }
+      100% {
+        opacity: 0;
+        transform: translate(var(--drift-x, 40px), var(--drift-y, -200px)) scale(0.3);
+      }
+    }
+
+    @keyframes heroZoom {
+      from { transform: scale(1); }
+      to { transform: scale(1.08); }
+    }
+
+    @keyframes arabicReveal {
+      0% { opacity: 0; transform: translateY(20px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ═══════════════════════════════════════════
+       REVEAL SYSTEM
+       ═══════════════════════════════════════════ */
+    .reveal {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .reveal-fade {
+      opacity: 0;
+      transition: opacity 0.8s ease;
+    }
+
+    .reveal-fade.visible {
+      opacity: 1;
+    }
+
+    .reveal-scale {
+      opacity: 0;
+      transform: scale(0.95);
+      transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .reveal-scale.visible {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    .stagger {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .stagger.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ═══════════════════════════════════════════
+       RESPONSIVE
+       ═══════════════════════════════════════════ */
+    @media (max-width: 1024px) {
+      .alliance-grid, .origin-grid {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+      }
+
+      .resource-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .cert-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav-links, .nav-trust {
+        display: none;
+      }
+
+      .hamburger {
+        display: flex;
+      }
+
+      .section-wrap {
+        padding: 80px 20px;
+      }
+
+      .hero-content h1 {
+        font-size: clamp(2rem, 8vw, 3.5rem);
+      }
+
+      .monographs {
+        grid-template-columns: 1fr;
+      }
+
+      .chain-step-header {
+        gap: 1rem;
+      }
+
+      .chain-step-number {
+        font-size: 2rem;
+        min-width: 45px;
+      }
+
+      .chain-step-expand-inner {
+        padding-left: 0;
+        flex-direction: column;
+      }
+
+      .chain-step-image {
+        width: 100%;
+      }
+
+      .resource-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .alliance-float-card {
+        position: relative;
+        bottom: auto;
+        right: auto;
+        margin-top: 1rem;
+        max-width: 100%;
+      }
+
+      .alliance-image {
+        height: 300px;
+      }
+
+      .origin-portrait {
+        height: 380px;
+      }
+
+      .origin-data-row {
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      .portal-contact {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+      }
+
+      .footer-main {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+
+      .footer-links {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+
+      .alliance-metrics {
+        flex-direction: column;
+      }
+
+      .hero-trust {
+        gap: 6px;
+      }
+
+      .trust-badge {
+        font-size: 0.6rem;
+        padding: 4px 10px;
+      }
+    }
+  </style>
 </head>
 <body>
 
-  <div class="page-wrapper">
-
-    <!-- ======================== LEFT RAIL NAVIGATION (Desktop) ======================== -->
-    <nav class="nav-rail" aria-label="Primary navigation">
-      <div class="nav-logo">
-        <img src="./img/logo.png" alt="Leaf &amp; Legend logo" width="40" height="40">
-        <span>Leaf &amp;<br>Legend</span>
-      </div>
-      <ul class="nav-links">
-        <li><a href="#seed">The Seed</a></li>
-        <li><a href="#pact">The Pact</a></li>
-        <li><a href="#materia">Materia</a></li>
-        <li><a href="#formulary">Formulary</a></li>
-        <li><a href="#atelier">Atelier</a></li>
-        <li><a href="#path">Path</a></li>
-        <li><a href="#correspondence">Correspondence</a></li>
-      </ul>
-      <div class="nav-footer">
-        <span class="label">Leaf &amp; Legend S.A.R.L.</span>
-        <span>Tangier · Morocco</span>
-      </div>
-    </nav>
-
-    <!-- ======================== MOBILE BOTTOM PILL BAR ======================== -->
-    <nav class="nav-mobile" aria-label="Mobile navigation">
-      <ul class="nav-mobile-links">
-        <li><a href="#seed">Seed</a></li>
-        <li><a href="#pact">Pact</a></li>
-        <li><a href="#materia">Materia</a></li>
-        <li><a href="#formulary">Formulary</a></li>
-        <li><a href="#atelier">Atelier</a></li>
-        <li><a href="#path">Path</a></li>
-        <li><a href="#correspondence">Contact</a></li>
-      </ul>
-    </nav>
-
-    <!-- ======================== MAIN CONTENT ======================== -->
-    <main class="main-content">
-
-      <!-- ========== HERO ========== -->
-      <section class="hero" aria-label="Introduction">
-        <div class="hero-inner">
-          <h1 class="reveal">Leaf &amp; Legend</h1>
-          <p class="hero-tagline reveal reveal-delay-1">Sovereign Rif Valley extract meets forty years of formulation science</p>
-          <img src="./img/hero-trichomes.png" alt="Trichome detail — Rif Valley cannabis flower under magnification" class="hero-img reveal reveal-delay-2">
-          <span class="scroll-cue reveal reveal-delay-3" aria-hidden="true">Scroll to explore</span>
-        </div>
-      </section>
-
-      <div class="section-divider" aria-hidden="true"></div>
-
-      <!-- ========== SECTION: THE SEED ========== -->
-      <section id="seed" class="chapter" aria-labelledby="seed-title">
-        <header class="chapter-header reveal">
-          <span class="tag">The Seed</span>
-          <h2 id="seed-title">The Seed</h2>
-          <p class="subtitle">The translation layer. Where Rif Valley trust meets clinical formulation meets institutional validation.</p>
-        </header>
-
-        <div class="seed-intro reveal">
-          <p class="text-body"><strong>Walid Hassani</strong> operates as the indispensable functional bridge between Bob Calkin's formulation science and Leaf &amp; Legend's sovereign Rif Valley extract and CHU Marrakech's institutional clinical validation under Law 13-21. His embedded trust networks and systemic knowledge of the Rif Valley allow Bob's clinical formulations to access sovereign extract and enable CHU's institutional validation to proceed under Moroccan regulatory frameworks. He serves as the indispensable translation layer for this triad — converting relational capital into operational access and regulatory credibility into clinical pathway.</p>
-        </div>
-
-        <!-- Seed Image Gallery -->
-        <div class="seed-gallery reveal">
-          <div class="seed-gallery-main">
-            <img src="./img/seed-1.jpeg" alt="Rif Valley landscape — the origin terrain" class="seed-img">
-          </div>
-          <div class="seed-gallery-row">
-            <img src="./img/seed-2.jpeg" alt="Field operations in the Rif Valley" class="seed-img">
-            <img src="./img/seed-3.jpeg" alt="Cannabis cultivation in Ketama region" class="seed-img">
-            <img src="./img/seed-4.jpeg" alt="Harvest and processing in the Rif" class="seed-img">
-            <img src="./img/seed-5.jpeg" alt="The people and the land" class="seed-img">
-          </div>
-        </div>
-
-        <!-- Triad Relationship -->
-        <div class="seed-triad reveal">
-          <div class="triad-node">
-            <h4>Bob Calkin</h4>
-            <div class="triad-role">Formulation Science</div>
-            <p>Designs clinical formulations that require authenticated sovereign extract with verified cannabinoid profiles to perform against defined therapeutic outcomes.</p>
-          </div>
-          <div class="triad-connector">
-            <span class="triad-line"></span>
-            <span class="triad-label">Walid Hassani</span>
-            <span class="triad-line"></span>
-          </div>
-          <div class="triad-node">
-            <h4>Leaf &amp; Legend</h4>
-            <div class="triad-role">Sovereign Extract</div>
-            <p>Controls Rif Valley biomass supply through Founder's land and collective contracts — the raw material no formulation can exist without.</p>
-          </div>
-          <div class="triad-connector">
-            <span class="triad-line"></span>
-            <span class="triad-label">Walid Hassani</span>
-            <span class="triad-line"></span>
-          </div>
-          <div class="triad-node">
-            <h4>CHU Marrakech</h4>
-            <div class="triad-role">Clinical Validation</div>
-            <p>Provides institutional clinical observation under Law 13-21 — the regulatory pathway that transforms formulated product into validated medicine.</p>
-          </div>
-        </div>
-
-        <div class="reveal" style="margin-top:2rem;">
-          <p class="text-body" style="font-style:italic; color:var(--moss-faint); font-size:0.88rem;">Prepared by Walid Hassani</p>
-        </div>
-      </section>
-
-      <div class="section-divider" aria-hidden="true"></div>
-
-      <!-- ========== SECTION: THE PACT ========== -->
-      <section id="pact" class="chapter" aria-labelledby="pact-title">
-        <header class="chapter-header reveal">
-          <span class="tag">The Pact</span>
-          <h2 id="pact-title">The Pact</h2>
-          <p class="subtitle">The partnership architecture. The MOU. The operational sequence.</p>
-        </header>
-
-        <p class="partnership-statement reveal">
-          Leaf &amp; Legend produces the sovereign Rif Valley extract and holds all production and market rights in Morocco. Bob Calkin designs the formulations that make that extract perform as a validated clinical product. Neither party has what the other has. Neither can produce the final product without the other.
-        </p>
-
-        <div class="reveal">
-          <p class="text-body"><strong>Founder — Mohamed El Sghiar:</strong> Leaf &amp; Legend was founded by Mohamed El Sghiar who signs the Memorandum of Understanding with Bob Calkin on behalf of the company.</p>
-        </div>
-
-        <h3 class="sub-heading reveal">Operational Sequence</h3>
-
-        <div class="step-diagram reveal">
-          <div class="step-item">
-            <div class="step-dot" aria-hidden="true"></div>
-            <div class="step-number">Step One</div>
-            <div class="step-title">Put the plant to work</div>
-            <div class="step-desc">Begin with the raw material. Establish cultivation — secure the Rif Valley biomass supply and set up the extraction chain.</div>
-          </div>
-          <div class="step-item">
-            <div class="step-dot" aria-hidden="true"></div>
-            <div class="step-number">Step Two</div>
-            <div class="step-title">Define the road</div>
-            <div class="step-desc">With the extract in hand — define the product roadmap.</div>
-          </div>
-          <div class="step-item">
-            <div class="step-dot" aria-hidden="true"></div>
-            <div class="step-number">Step Three</div>
-            <div class="step-title">Founder signs the MOU with Bob Calkin</div>
-            <div class="step-desc">Mohamed El Sghiar signs the Memorandum of Understanding with Bob Calkin on behalf of Leaf &amp; Legend. The MOU defines: who does what — who owns what — how decisions are made.</div>
-          </div>
-          <div class="step-item">
-            <div class="step-dot" aria-hidden="true"></div>
-            <div class="step-number">Step Four</div>
-            <div class="step-title">Receive Bob's requirements list</div>
-            <div class="step-desc">Bob provides what he needs to begin formulation work: extract specifications — HPLC data — quantity requirements — sample sizes.</div>
-          </div>
-          <div class="step-item">
-            <div class="step-dot" aria-hidden="true"></div>
-            <div class="step-number">Step Five</div>
-            <div class="step-title">Find the best working model</div>
-            <div class="step-desc">Iterate on the most effective operational model through prototype batches and real results.</div>
-          </div>
-          <div class="step-item">
-            <div class="step-dot" aria-hidden="true"></div>
-            <div class="step-number">Step Six</div>
-            <div class="step-title">Organize work around the validated model</div>
-            <div class="step-desc">Structure all operations around what works.</div>
-          </div>
-        </div>
-
-        <div class="card-grid two-col">
-          <!-- Bob Calkin Role -->
-          <div class="role-card reveal">
-            <h4>Bob Calkin</h4>
-            <div class="role-subtitle">Formulation &amp; R&amp;D Partner · 40 years</div>
-            <ul>
-              <li>Designs every formulation in the 23-product portfolio</li>
-              <li>Specifies carrier systems — co-active selection — preservation</li>
-              <li>Defines the R&amp;D protocol</li>
-              <li>Authors the formulation technical section of every AMMPS notification dossier</li>
-              <li>Designs the stability programme (ICH Q1A)</li>
-              <li>Specifies clinical lot parameters</li>
-            </ul>
-          </div>
-
-          <!-- Leaf & Legend Role -->
-          <div class="role-card reveal">
-            <h4>Leaf &amp; Legend</h4>
-            <div class="role-subtitle">Production · Market · Regulatory</div>
-            <ul>
-              <li>Produces all Rif Valley biomass via collective contracts and Founder's land</li>
-              <li>Manages all extraction and production operations</li>
-              <li>Holds Moroccan market rights and distribution</li>
-              <li>Files AMMPS notifications with ANRAC</li>
-              <li>Coordinates CHU Marrakech clinical observations</li>
-              <li>Manages licensed laboratory manufacturing partnerships</li>
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      <div class="section-divider" aria-hidden="true"></div>
-
-      <!-- ========== SECTION: MATERIA ========== -->
-      <section id="materia" class="chapter" aria-labelledby="materia-title">
-        <header class="chapter-header reveal">
-          <span class="tag">Materia</span>
-          <h2 id="materia-title">Rif Valley Biomass</h2>
-          <p class="subtitle">The sovereign raw material. Two supply channels. One terroir that cannot be replicated.</p>
-        </header>
-
-        <!-- Key Metrics as Contemplative Cards -->
-        <div class="card-grid reveal">
-          <div class="card" role="button" tabindex="0" aria-expanded="false" aria-label="CBD Target details">
-            <span class="card-icon" aria-hidden="true">&#x1F33F;</span>
-            <div class="card-poem">Potency born from altitude</div>
-            <span class="tag">CBD Target</span>
-            <div class="card-body">
-              <table class="kv-table">
-                <tr><td>Target CBD</td><td>8–15%</td></tr>
-                <tr><td>THC Ceiling</td><td>Sub-0.3% THC</td></tr>
-                <tr><td>Selection</td><td>High-CBD selected lines</td></tr>
-              </table>
-              <button class="card-collapse" type="button" aria-label="Collapse">Collapse <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 2L10 7H2L6 2Z" fill="currentColor"/></svg></button>
-            </div>
-          </div>
-
-          <div class="card" role="button" tabindex="0" aria-expanded="false" aria-label="Altitude details">
-            <span class="card-icon" aria-hidden="true">&#x26F0;</span>
-            <div class="card-poem">Where UV writes its signature</div>
-            <span class="tag">Altitude</span>
-            <div class="card-body">
-              <table class="kv-table">
-                <tr><td>Elevation</td><td>1200–2000m</td></tr>
-                <tr><td>Region</td><td>Ketama — Rif Mountains — Morocco</td></tr>
-              </table>
-              <button class="card-collapse" type="button" aria-label="Collapse">Collapse <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 2L10 7H2L6 2Z" fill="currentColor"/></svg></button>
-            </div>
-          </div>
-
-          <div class="card" role="button" tabindex="0" aria-expanded="false" aria-label="Supply Channels details">
-            <span class="card-icon" aria-hidden="true">&#x1F5FA;</span>
-            <div class="card-poem">Two paths — one origin</div>
-            <span class="tag">Supply Channels</span>
-            <div class="card-body">
-              <table class="kv-table">
-                <tr><td>Channels</td><td>Two</td></tr>
-                <tr><td>Channel 1</td><td>Collective contracts</td></tr>
-                <tr><td>Channel 2</td><td>Founder's land holdings</td></tr>
-              </table>
-              <button class="card-collapse" type="button" aria-label="Collapse">Collapse <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 2L10 7H2L6 2Z" fill="currentColor"/></svg></button>
-            </div>
-          </div>
-        </div>
-
-        <!-- Terroir Thesis Highlight -->
-        <div class="highlight-box reveal">
-          <p><strong>The terroir thesis.</strong> Altitude drives exceptional trichome density as a UV-stress response — the same mechanism behind the Rif's historical resin output now redirected into high-CBD lines. Intense daytime UV followed by cool nights produces an unusually complex terpene profile: elevated myrcene — β-caryophyllene — pinene — and linalool concentrations. This is not a marketing claim. It is the agrological basis for the scientific differentiation Bob Calkin's formulation work builds on.</p>
-        </div>
-
-        <!-- Supply Channel Cards -->
-        <h3 class="sub-heading reveal">Supply Channels</h3>
-
-        <div class="channel-card reveal">
-          <h4>Channel 1 — Collective Contracts</h4>
-          <p>ANRAC-licensed cooperative contracts. Bulk biomass supply from multiple licensed Rif Valley cultivators under Law 13-21. Specifies: CBD target — THC ceiling — harvest timing — drying protocol — delivery format (whole flower or trim). Volume security for industrial production. Spot quality audits at delivery.</p>
-        </div>
-
-        <div class="channel-card reveal">
-          <h4>Channel 2 — Founder's Land Holdings</h4>
-          <p>Founder — Mohamed El Sghiar personal family land in Ketama. Proprietary terroir. Full control over cultivation protocol: planting density — irrigation — harvest timing — post-harvest handling. Produces the premium Grade A whole flower used for bubble hash and the highest-tier finished products. This is the storytelling biomass — the origin narrative no competitor can appropriate.</p>
-        </div>
-
-        <!-- Biomass Grades -->
-        <h3 class="sub-heading reveal">Biomass Grades</h3>
-
-        <div class="card-grid reveal">
-          <div class="card" role="button" tabindex="0" aria-expanded="false" aria-label="Grade A details">
-            <span class="card-icon" aria-hidden="true">&#x2728;</span>
-            <div class="card-poem">The whole flower — sovereign grade</div>
-            <span class="tag">Grade A — Whole Flower</span>
-            <div class="card-body">
-              <table class="kv-table">
-                <tr><td>Use</td><td>Bubble hash production — Premium rosin</td></tr>
-                <tr><td>Terpene</td><td>Highest terpene retention</td></tr>
-                <tr><td>Products</td><td>Le Baume and L'Élixir clinical lots</td></tr>
-                <tr><td>Source</td><td>Founder's land only</td></tr>
-              </table>
-              <button class="card-collapse" type="button" aria-label="Collapse">Collapse <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 2L10 7H2L6 2Z" fill="currentColor"/></svg></button>
-            </div>
-          </div>
-
-          <div class="card" role="button" tabindex="0" aria-expanded="false" aria-label="Grade B details">
-            <span class="card-icon" aria-hidden="true">&#x1F33F;</span>
-            <div class="card-poem">Manicured trim — production workhorse</div>
-            <span class="tag">Grade B — Manicured Trim</span>
-            <div class="card-body">
-              <table class="kv-table">
-                <tr><td>Use</td><td>Bubble hash (second wash) — Quality rosin</td></tr>
-                <tr><td>Products</td><td>Commercial product lots</td></tr>
-                <tr><td>Source</td><td>Collective contract supply</td></tr>
-              </table>
-              <button class="card-collapse" type="button" aria-label="Collapse">Collapse <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 2L10 7H2L6 2Z" fill="currentColor"/></svg></button>
-            </div>
-          </div>
-
-          <div class="card" role="button" tabindex="0" aria-expanded="false" aria-label="Grade C details">
-            <span class="card-icon" aria-hidden="true">&#x2699;</span>
-            <div class="card-poem">Machine trim — bulk utility</div>
-            <span class="tag">Grade C — Machine Trim</span>
-            <div class="card-body">
-              <table class="kv-table">
-                <tr><td>Use</td><td>Dry sift production — B2B bulk extract</td></tr>
-                <tr><td>Products</td><td>Kief for commercial derivatives</td></tr>
-                <tr><td>Source</td><td>Collective contract supply</td></tr>
-              </table>
-              <button class="card-collapse" type="button" aria-label="Collapse">Collapse <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 2L10 7H2L6 2Z" fill="currentColor"/></svg></button>
-            </div>
-          </div>
-        </div>
-
-        <div class="channel-card reveal">
-          <h4>Fan Leaves + Stalks</h4>
-          <p>Composted. No extraction value for premium products. Return to soil.</p>
-        </div>
-
-        <!-- Harvest Protocol -->
-        <h3 class="sub-heading reveal">Harvest Protocol</h3>
-
-        <div class="card-grid two-col reveal">
-          <div class="card" role="button" tabindex="0" aria-expanded="false" aria-label="Harvest timing details">
-            <span class="card-icon" aria-hidden="true">&#x231B;</span>
-            <div class="card-poem">Read the trichomes — not the calendar</div>
-            <span class="tag">Harvest Timing</span>
-            <div class="card-body">
-              <table class="kv-table">
-                <tr><td>Trichome Target</td><td>60–70% cloudy — 20–30% amber</td></tr>
-                <tr><td>Tool</td><td>Jeweler's loupe or portable trichome scope (30×)</td></tr>
-              </table>
-              <button class="card-collapse" type="button" aria-label="Collapse">Collapse <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 2L10 7H2L6 2Z" fill="currentColor"/></svg></button>
-            </div>
-          </div>
-
-          <div class="card" role="button" tabindex="0" aria-expanded="false" aria-label="Drying environment details">
-            <span class="card-icon" aria-hidden="true">&#x1F32B;</span>
-            <div class="card-poem">Slow air — dark room — patience</div>
-            <span class="tag">Drying Environment</span>
-            <div class="card-body">
-              <table class="kv-table">
-                <tr><td>Temperature</td><td>18–20°C</td></tr>
-                <tr><td>Humidity</td><td>55–65% RH</td></tr>
-                <tr><td>Light</td><td>Dark</td></tr>
-                <tr><td>Airflow</td><td>Continuous</td></tr>
-                <tr><td>Duration</td><td>10–14 days</td></tr>
-              </table>
-              <button class="card-collapse" type="button" aria-label="Collapse">Collapse <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 2L10 7H2L6 2Z" fill="currentColor"/></svg></button>
-            </div>
-          </div>
-
-          <div class="card" role="button" tabindex="0" aria-expanded="false" aria-label="Curing details">
-            <span class="card-icon" aria-hidden="true">&#x1F9EA;</span>
-            <div class="card-poem">Grade A demands its own patience</div>
-            <span class="tag">Curing (Grade A)</span>
-            <div class="card-body">
-              <table class="kv-table">
-                <tr><td>Vessels</td><td>Airtight glass or food-grade vessels</td></tr>
-                <tr><td>Humidity</td><td>62% RH packs</td></tr>
-                <tr><td>Temperature</td><td>21–23°C</td></tr>
-                <tr><td>Duration</td><td>Minimum 2 weeks</td></tr>
-              </table>
-              <button class="card-collapse" type="button" aria-label="Collapse">Collapse <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 2L10 7H2L6 2Z" fill="currentColor"/></svg></button>
-            </div>
-          </div>
-
-          <div class="card" role="button" tabindex="0" aria-expanded="false" aria-label="Moisture and storage details">
-            <span class="card-icon" aria-hidden="true">&#x2744;</span>
-            <div class="card-poem">Cold biomass separates cleaner</div>
-            <span class="tag">Moisture &amp; Storage</span>
-            <div class="card-body">
-              <table class="kv-table">
-                <tr><td>Moisture — Dry Sift</td><td>10–12%</td></tr>
-                <tr><td>Moisture — Ice Water</td><td>6–8%</td></tr>
-                <tr><td>Cold Storage</td><td>−20°C vacuum-sealed</td></tr>
-                <tr><td>Rationale</td><td>Cold biomass = better mechanical trichome separation</td></tr>
-              </table>
-              <button class="card-collapse" type="button" aria-label="Collapse">Collapse <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 2L10 7H2L6 2Z" fill="currentColor"/></svg></button>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <div class="section-divider" aria-hidden="true"></div>
-
-      <!-- ========== SECTION: FORMULARY ========== -->
-      <section id="formulary" class="chapter" aria-labelledby="formulary-title">
-        <header class="chapter-header reveal">
-          <span class="tag">Formulary</span>
-          <h2 id="formulary-title">The Formulary</h2>
-          <p class="subtitle">Bob Calkin's domain. 40 years of cannabis product development applied to Rif Valley full-spectrum rosin.</p>
-        </header>
-
-        <div class="highlight-box reveal">
-          <p>Bob Calkin does not work with biomass extraction or production logistics. He receives the HPLC-certified Rif Valley rosin extract and converts it into formulations that perform against a defined clinical outcome.</p>
-        </div>
-
-        <div class="reveal">
-          <p class="text-body" style="font-style:italic; color:var(--moss-faint); font-size:0.88rem;"><strong>Conceptual framework note:</strong> The ingredient matrices shown represent working ideas — not locked specifications. Bob Calkin will define the definitive formulations.</p>
-        </div>
-
-        <!-- Le Baume -->
-        <h3 class="sub-heading reveal">Le Baume Cicatrisant CBD — 50ml jar</h3>
-
-        <div class="form-block reveal">
-          <div class="form-subtitle">Topical · Partial Decarb · THC &lt;0.03%</div>
-          <table class="kv-table">
-            <tr><td>Full-Spectrum Rosin</td><td>500mg CBD/unit (10mg/ml) · Partial decarb</td></tr>
-            <tr><td>Shea Butter</td><td>20% w/w · Base emollient</td></tr>
-            <tr><td>Argan Oil (Moroccan)</td><td>12% w/w · Rif region sourcing</td></tr>
-            <tr><td>Beeswax</td><td>8% w/w · Structural agent</td></tr>
-            <tr><td>Calendula Extract</td><td>3% w/w · Anti-inflammatory co-active</td></tr>
-            <tr><td>Allantoin</td><td>0.5% w/w · Cicatrizing co-active</td></tr>
-            <tr><td>Vitamin E</td><td>1% w/w · Antioxidant</td></tr>
-            <tr><td>Preservation</td><td>Phenylpropanediol 1% · No parabens</td></tr>
-          </table>
-        </div>
-
-        <!-- L'Élixir -->
-        <h3 class="sub-heading reveal">L'Élixir Phytocannabinoïde — 20ml dropper</h3>
-
-        <div class="form-block reveal">
-          <div class="form-subtitle">Sublingual · Full Decarb · THC &lt;0.03%</div>
-          <table class="kv-table">
-            <tr><td>Full-Spectrum Rosin (Decarbed)</td><td>500mg CBD/unit (25mg/ml)</td></tr>
-            <tr><td>MCT Oil</td><td>Food grade fractionated coconut</td></tr>
-            <tr><td>Peppermint EO (Option A)</td><td>0.3–0.5% or Unflavored (Option B)</td></tr>
-            <tr><td>Vitamin E</td><td>0.5% · Antioxidant</td></tr>
-            <tr><td>Nitrogen Flush</td><td>Mandatory</td></tr>
-          </table>
-        </div>
-
-        <!-- R&D Cycle -->
-        <h3 class="sub-heading reveal">R&amp;D Cycle</h3>
-        <div class="rd-cycle reveal">
-          <span class="rd-step">Extract Characterisation</span>
-          <span class="rd-arrow" aria-hidden="true">→</span>
-          <span class="rd-step">Prototype + Evaluation</span>
-          <span class="rd-arrow" aria-hidden="true">→</span>
-          <span class="rd-step">Stability + Lock</span>
-        </div>
-
-        <!-- 23-Product Portfolio -->
-        <h3 class="sub-heading reveal">23-Product Portfolio</h3>
-
-        <div class="filter-pills reveal">
-          <button class="filter-pill active" data-filter="all">All</button>
-          <button class="filter-pill" data-filter="topical">Topical</button>
-          <button class="filter-pill" data-filter="sublingual">Sublingual</button>
-          <button class="filter-pill" data-filter="oral">Oral</button>
-          <button class="filter-pill" data-filter="clinical">Clinical Anchor</button>
-          <button class="filter-pill" data-filter="future">Future</button>
-          <button class="filter-pill" data-filter="b2b">B2B</button>
-        </div>
-
-        <!-- Tier 1 -->
-        <div class="tier-label reveal">Tier 1 — Clinical Anchors</div>
-        <div class="product-grid reveal">
-          <div class="product-card" data-category="topical clinical">
-            <h5>Le Baume Cicatrisant CBD</h5>
-            <div class="product-tags"><span class="tag">Topical</span><span class="tag">Clinical Anchor</span></div>
-          </div>
-          <div class="product-card" data-category="sublingual clinical">
-            <h5>L'Élixir Phytocannabinoïde</h5>
-            <div class="product-tags"><span class="tag">Sublingual</span><span class="tag">Clinical Anchor</span></div>
-          </div>
-        </div>
-
-        <!-- Tier 2 Topicals -->
-        <div class="tier-label reveal">Tier 2 — Topicals</div>
-        <div class="product-grid reveal">
-          <div class="product-card" data-category="topical">
-            <h5>Baume Sport CBD</h5>
-            <div class="product-tags"><span class="tag">Topical</span></div>
-          </div>
-          <div class="product-card" data-category="topical">
-            <h5>Baume Nuit CBD</h5>
-            <div class="product-tags"><span class="tag">Topical</span></div>
-          </div>
-          <div class="product-card" data-category="topical">
-            <h5>Baume Bébé CBD</h5>
-            <div class="product-tags"><span class="tag">Topical</span></div>
-          </div>
-          <div class="product-card" data-category="topical">
-            <h5>Salve Apaisante CBD</h5>
-            <div class="product-tags"><span class="tag">Topical</span></div>
-          </div>
-        </div>
-
-        <!-- Tier 2 Sublinguals -->
-        <div class="tier-label reveal">Tier 2 — Sublinguals</div>
-        <div class="product-grid reveal">
-          <div class="product-card" data-category="sublingual">
-            <h5>Élixir Sleep CBD+CBN</h5>
-            <div class="product-tags"><span class="tag">Sublingual</span></div>
-          </div>
-          <div class="product-card" data-category="sublingual">
-            <h5>Élixir Focus CBD+CBG</h5>
-            <div class="product-tags"><span class="tag">Sublingual</span></div>
-          </div>
-          <div class="product-card" data-category="sublingual">
-            <h5>Élixir Immunité CBD</h5>
-            <div class="product-tags"><span class="tag">Sublingual</span></div>
-          </div>
-        </div>
-
-        <!-- Tier 3 Oral -->
-        <div class="tier-label reveal">Tier 3 — Oral</div>
-        <div class="product-grid reveal">
-          <div class="product-card" data-category="oral">
-            <h5>Gélules CBD 25mg</h5>
-            <div class="product-tags"><span class="tag">Oral</span></div>
-          </div>
-          <div class="product-card" data-category="oral">
-            <h5>Gélules CBD+CBG</h5>
-            <div class="product-tags"><span class="tag">Oral</span></div>
-          </div>
-          <div class="product-card" data-category="oral">
-            <h5>Miel CBD Rif</h5>
-            <div class="product-tags"><span class="tag">Oral</span></div>
-          </div>
-          <div class="product-card" data-category="oral">
-            <h5>Huile de Cuisine CBD</h5>
-            <div class="product-tags"><span class="tag">Oral</span></div>
-          </div>
-        </div>
-
-        <!-- Tier 3 Clinical -->
-        <div class="tier-label reveal">Tier 3 — Clinical</div>
-        <div class="product-grid reveal">
-          <div class="product-card" data-category="topical clinical">
-            <h5>Baume Eczéma CBD</h5>
-            <div class="product-tags"><span class="tag">Topical</span><span class="tag">Clinical</span></div>
-          </div>
-          <div class="product-card" data-category="sublingual clinical">
-            <h5>Élixir Anxiété CBD</h5>
-            <div class="product-tags"><span class="tag">Sublingual</span><span class="tag">Clinical</span></div>
-          </div>
-          <div class="product-card" data-category="topical clinical">
-            <h5>Baume Psoriasis CBD</h5>
-            <div class="product-tags"><span class="tag">Topical</span><span class="tag">Clinical</span></div>
-          </div>
-          <div class="product-card" data-category="sublingual clinical">
-            <h5>Élixir Douleur CBD</h5>
-            <div class="product-tags"><span class="tag">Sublingual</span><span class="tag">Clinical</span></div>
-          </div>
-        </div>
-
-        <!-- Tier 3 Future -->
-        <div class="tier-label reveal">Tier 3 — Future</div>
-        <div class="product-grid reveal">
-          <div class="product-card" data-category="future">
-            <h5>Suppositoire CBD</h5>
-            <div class="product-tags"><span class="tag">Future</span></div>
-          </div>
-          <div class="product-card" data-category="future">
-            <h5>Patch Transdermique CBD</h5>
-            <div class="product-tags"><span class="tag">Future</span></div>
-          </div>
-          <div class="product-card" data-category="future">
-            <h5>Vaginal CBD Suppository</h5>
-            <div class="product-tags"><span class="tag">Future</span></div>
-          </div>
-          <div class="product-card" data-category="future">
-            <h5>Cosmetic Serum CBD</h5>
-            <div class="product-tags"><span class="tag">Future</span></div>
-          </div>
-        </div>
-
-        <!-- Tier 4 B2B -->
-        <div class="tier-label reveal">Tier 4 — B2B</div>
-        <div class="product-grid reveal">
-          <div class="product-card" data-category="b2b">
-            <h5>Bulk Rosin (B2B)</h5>
-            <div class="product-tags"><span class="tag">B2B</span></div>
-          </div>
-          <div class="product-card" data-category="b2b">
-            <h5>Bulk Kief (B2B)</h5>
-            <div class="product-tags"><span class="tag">B2B</span></div>
-          </div>
-          <div class="product-card" data-category="b2b">
-            <h5>White Label Program</h5>
-            <div class="product-tags"><span class="tag">B2B</span></div>
-          </div>
-          <div class="product-card" data-category="b2b">
-            <h5>Education Kit</h5>
-            <div class="product-tags"><span class="tag">B2B</span></div>
-          </div>
-        </div>
-      </section>
-
-      <div class="section-divider" aria-hidden="true"></div>
-
-      <!-- ========== SECTION: ATELIER ========== -->
-      <section id="atelier" class="chapter" aria-labelledby="atelier-title">
-        <header class="chapter-header reveal">
-          <span class="tag">Atelier</span>
-          <h2 id="atelier-title">The Atelier</h2>
-          <p class="subtitle">Every machine and every process from harvest to finished product.</p>
-        </header>
-
-        <!-- Equipment Suite Cards -->
-        <h3 class="sub-heading reveal">Equipment Suites</h3>
-
-        <div class="equipment-suite reveal" role="button" tabindex="0" aria-expanded="false" aria-label="Extraction Suite details">
-          <div class="equipment-suite-header">
-            <h4>Extraction Suite</h4>
-            <span class="chevron" aria-hidden="true">&#x25BC;</span>
-          </div>
-          <div class="equipment-suite-body">
-            <div class="equipment-suite-body-inner">
-              <div class="equipment-item">
-                <span class="eq-name">Bubble hash wash bags (1–220μ full set)</span>
-                <span class="eq-price">$800–2500</span>
-              </div>
-              <div class="equipment-item">
-                <span class="eq-name">Rosin press (20-ton pneumatic)</span>
-                <span class="eq-price">$3500–8000</span>
-              </div>
-              <div class="equipment-item">
-                <span class="eq-name">Dry sift tumblers</span>
-                <span class="eq-price">$1500–4000</span>
-              </div>
-              <div class="equipment-item">
-                <span class="eq-name">Freeze dryer</span>
-                <span class="eq-price">$5000–12000</span>
-              </div>
-              <div class="equipment-item">
-                <span class="eq-name">Trichome scope (30× digital)</span>
-                <span class="eq-price">$200–600</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="equipment-suite reveal" role="button" tabindex="0" aria-expanded="false" aria-label="Testing Suite details">
-          <div class="equipment-suite-header">
-            <h4>Testing Suite</h4>
-            <span class="chevron" aria-hidden="true">&#x25BC;</span>
-          </div>
-          <div class="equipment-suite-body">
-            <div class="equipment-suite-body-inner">
-              <div class="equipment-item">
-                <span class="eq-name">HPLC system (Agilent/Shimadzu) Phase 3</span>
-                <span class="eq-price">$25000–60000</span>
-              </div>
-              <div class="equipment-item">
-                <span class="eq-name">Third-party CoA per batch</span>
-                <span class="eq-price">$150–350</span>
-              </div>
-              <div class="equipment-item">
-                <span class="eq-name">Grain moisture meter</span>
-                <span class="eq-price">$80–200</span>
-              </div>
-              <div class="equipment-item">
-                <span class="eq-name">pH meter (bench)</span>
-                <span class="eq-price">$300–800</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="equipment-suite reveal" role="button" tabindex="0" aria-expanded="false" aria-label="Packaging Suite details">
-          <div class="equipment-suite-header">
-            <h4>Packaging Suite</h4>
-            <span class="chevron" aria-hidden="true">&#x25BC;</span>
-          </div>
-          <div class="equipment-suite-body">
-            <div class="equipment-suite-body-inner">
-              <div class="equipment-item">
-                <span class="eq-name">Filling machine (semi-auto)</span>
-                <span class="eq-price">$3000–8000</span>
-              </div>
-              <div class="equipment-item">
-                <span class="eq-name">Label printer</span>
-                <span class="eq-price">$500–1500</span>
-              </div>
-              <div class="equipment-item">
-                <span class="eq-name">Nitrogen flush system</span>
-                <span class="eq-price">$1000–3000</span>
-              </div>
-              <div class="equipment-item">
-                <span class="eq-name">Desiccant inserter</span>
-                <span class="eq-price">$500–1200</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Three Solventless Extraction Routes -->
-        <h3 class="sub-heading reveal">Three Solventless Extraction Routes</h3>
-
-        <div class="card-grid reveal">
-          <div class="card" role="button" tabindex="0" aria-expanded="false" aria-label="Route A details">
-            <span class="card-icon" aria-hidden="true">&#x1F527;</span>
-            <div class="card-poem">The budget door into solventless</div>
-            <span class="tag">Route A — Dry Sift → Rosin</span>
-            <div class="card-body">
-              <p style="font-size:0.88rem; color:var(--moss-light); line-height:1.7;">Budget entry pathway. Dry sift tumblers separate trichome heads from biomass — then rosin press converts sift into pressable extract. Lower start-up cost — suitable for initial production runs and B2B bulk output.</p>
-              <button class="card-collapse" type="button" aria-label="Collapse">Collapse <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 2L10 7H2L6 2Z" fill="currentColor"/></svg></button>
-            </div>
-          </div>
-
-          <div class="card" role="button" tabindex="0" aria-expanded="false" aria-label="Route B details">
-            <span class="card-icon" aria-hidden="true">&#x1F48E;</span>
-            <div class="card-poem">The premium standard — Le Baume and L'Élixir</div>
-            <span class="tag">Route B — Bubble Hash → Full-Spectrum Rosin</span>
-            <div class="card-body">
-              <p style="font-size:0.88rem; color:var(--moss-light); line-height:1.7; margin-bottom:1rem;">Premium standard — this is the production standard for Le Baume and L'Élixir.</p>
-              <ol class="route-steps">
-                <li>Freeze biomass (−20°C minimum 4h)</li>
-                <li>Ice water wash (1–220μ bags in sequence)</li>
-                <li>Collect and drain each wash separately</li>
-                <li>Freeze-dry collected hash (24–48h at −40°C)</li>
-                <li>Press into rosin (20-ton press — 85–105°C — 30–90s)</li>
-                <li>Collect rosin — purge residual moisture (35°C vacuum — 24–72h)</li>
-                <li>HPLC test (CoA: CBD mg/g — THC panel — terpenes — pesticides — heavy metals)</li>
-                <li>Ship certified extract to Bob Calkin for formulation</li>
-              </ol>
-              <button class="card-collapse" type="button" aria-label="Collapse">Collapse <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 2L10 7H2L6 2Z" fill="currentColor"/></svg></button>
-            </div>
-          </div>
-
-          <div class="card" role="button" tabindex="0" aria-expanded="false" aria-label="Route C details">
-            <span class="card-icon" aria-hidden="true">&#x1F4E6;</span>
-            <div class="card-poem">Bulk kief for bulk markets</div>
-            <span class="tag">Route C — Dry Sift → Kief Press</span>
-            <div class="card-body">
-              <p style="font-size:0.88rem; color:var(--moss-light); line-height:1.7;">B2B bulk pathway. Dry sift tumblers produce kief — then hydraulic press compresses into blocks for wholesale. Lowest processing complexity — highest volume throughput — serves bulk buyers and white-label programs.</p>
-              <button class="card-collapse" type="button" aria-label="Collapse">Collapse <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 2L10 7H2L6 2Z" fill="currentColor"/></svg></button>
-            </div>
-          </div>
-        </div>
-
-        <!-- Decarboxylation -->
-        <h3 class="sub-heading reveal">Decarboxylation</h3>
-
-        <div class="card-grid two-col reveal">
-          <div class="card" role="button" tabindex="0" aria-expanded="false" aria-label="Le Baume decarboxylation details">
-            <span class="card-icon" aria-hidden="true">&#x1F9EC;</span>
-            <div class="card-poem">Partial activation for topical delivery</div>
-            <span class="tag">Le Baume (Topical)</span>
-            <div class="card-body">
-              <table class="kv-table">
-                <tr><td>Method</td><td>Partial decarb</td></tr>
-                <tr><td>Temperature</td><td>95°C</td></tr>
-                <tr><td>Duration</td><td>20 min</td></tr>
-                <tr><td>Vessel</td><td>Sealed vessel</td></tr>
-              </table>
-              <button class="card-collapse" type="button" aria-label="Collapse">Collapse <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 2L10 7H2L6 2Z" fill="currentColor"/></svg></button>
-            </div>
-          </div>
-
-          <div class="card" role="button" tabindex="0" aria-expanded="false" aria-label="L'Élixir decarboxylation details">
-            <span class="card-icon" aria-hidden="true">&#x1F504;</span>
-            <div class="card-poem">Full activation for systemic delivery</div>
-            <span class="tag">L'Élixir (Sublingual)</span>
-            <div class="card-body">
-              <table class="kv-table">
-                <tr><td>Method</td><td>Full decarb</td></tr>
-                <tr><td>Temperature</td><td>110°C</td></tr>
-                <tr><td>Duration</td><td>45–60 min</td></tr>
-                <tr><td>Vessel</td><td>Sealed stainless vessel</td></tr>
-              </table>
-              <button class="card-collapse" type="button" aria-label="Collapse">Collapse <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 2L10 7H2L6 2Z" fill="currentColor"/></svg></button>
-            </div>
-          </div>
-        </div>
-
-        <div class="channel-card reveal">
-          <h4>B2B Decarboxylation</h4>
-          <p>Customer specifies decarboxylation parameters for all B2B extract orders.</p>
-        </div>
-      </section>
-
-      <div class="section-divider" aria-hidden="true"></div>
-
-      <!-- ========== SECTION: PATH ========== -->
-      <section id="path" class="chapter" aria-labelledby="path-title">
-        <header class="chapter-header reveal">
-          <span class="tag">Path</span>
-          <h2 id="path-title">The Path</h2>
-          <p class="subtitle">Regulatory pathway. Clinical partnerships. Licensed laboratory manufacturing.</p>
-        </header>
-
-        <!-- Regulatory Steps -->
-        <h3 class="sub-heading reveal">Regulatory Pathway</h3>
-
-        <div class="reveal">
-          <div class="path-step">
-            <div class="path-step-num">1</div>
-            <div class="path-step-content">
-              <h4>Law 13-21 Registration (ANRAC)</h4>
-              <p>Legal cultivation and processing.</p>
-            </div>
-          </div>
-          <div class="path-step">
-            <div class="path-step-num">2</div>
-            <div class="path-step-content">
-              <h4>AMMPS Notification</h4>
-              <p>Product registration with Moroccan health authority.</p>
-            </div>
-          </div>
-          <div class="path-step">
-            <div class="path-step-num">3</div>
-            <div class="path-step-content">
-              <h4>HPLC Certification per Batch</h4>
-              <p>Every product batch tested and certified.</p>
-            </div>
-          </div>
-          <div class="path-step">
-            <div class="path-step-num">4</div>
-            <div class="path-step-content">
-              <h4>CHU Marrakech Clinical Observation</h4>
-              <p>University hospital partnership for real patient data.</p>
-            </div>
-          </div>
-          <div class="path-step">
-            <div class="path-step-num">5</div>
-            <div class="path-step-content">
-              <h4>EU Compliance (Export)</h4>
-              <p>GMP certification for European market entry.</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- CHU Marrakech -->
-        <h3 class="sub-heading reveal">CHU Marrakech Partnership</h3>
-
-        <div class="highlight-box reveal">
-          <p>Clinical observation agreement with Centre Hospitalier Universitaire Marrakech. Dermatology department observes patient outcomes with Le Baume (wound healing — cicatrization) and L'Élixir (anxiety — sleep). Data feeds back into formulation refinement and regulatory dossiers.</p>
-        </div>
-
-        <!-- Licensed Laboratory -->
-        <h3 class="sub-heading reveal">Licensed Laboratory Partnerships</h3>
-
-        <div class="card-grid two-col reveal">
-          <div class="card" role="button" tabindex="0" aria-expanded="false" aria-label="Laboratory provides details">
-            <span class="card-icon" aria-hidden="true">&#x1F52C;</span>
-            <div class="card-poem">GMP walls around our extract</div>
-            <span class="tag">Laboratory Provides</span>
-            <div class="card-body">
-              <ul style="list-style:none; padding:0; font-size:0.88rem; color:var(--moss-light); line-height:1.8;">
-                <li style="padding-left:1rem; position:relative;"><span style="position:absolute; left:0; color:var(--copper);">&#x2022;</span>GMP-standard production environment</li>
-                <li style="padding-left:1rem; position:relative;"><span style="position:absolute; left:0; color:var(--copper);">&#x2022;</span>Qualified equipment</li>
-                <li style="padding-left:1rem; position:relative;"><span style="position:absolute; left:0; color:var(--copper);">&#x2022;</span>Batch documentation</li>
-                <li style="padding-left:1rem; position:relative;"><span style="position:absolute; left:0; color:var(--copper);">&#x2022;</span>Stability chambers</li>
-              </ul>
-              <button class="card-collapse" type="button" aria-label="Collapse">Collapse <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 2L10 7H2L6 2Z" fill="currentColor"/></svg></button>
-            </div>
-          </div>
-
-          <div class="card" role="button" tabindex="0" aria-expanded="false" aria-label="Leaf & Legend provides details">
-            <span class="card-icon" aria-hidden="true">&#x1F33F;</span>
-            <div class="card-poem">The sovereign extract enters the lab</div>
-            <span class="tag">Leaf &amp; Legend Provides</span>
-            <div class="card-body">
-              <ul style="list-style:none; padding:0; font-size:0.88rem; color:var(--moss-light); line-height:1.8;">
-                <li style="padding-left:1rem; position:relative;"><span style="position:absolute; left:0; color:var(--copper);">&#x2022;</span>Certified extract</li>
-                <li style="padding-left:1rem; position:relative;"><span style="position:absolute; left:0; color:var(--copper);">&#x2022;</span>Bob Calkin's formulation SOP</li>
-                <li style="padding-left:1rem; position:relative;"><span style="position:absolute; left:0; color:var(--copper);">&#x2022;</span>Quality specifications</li>
-              </ul>
-              <button class="card-collapse" type="button" aria-label="Collapse">Collapse <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 2L10 7H2L6 2Z" fill="currentColor"/></svg></button>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <div class="section-divider" aria-hidden="true"></div>
-
-      <!-- ========== SECTION: CORRESPONDENCE ========== -->
-      <section id="correspondence" class="chapter" aria-labelledby="correspondence-title">
-        <header class="chapter-header reveal">
-          <span class="tag">Correspondence</span>
-          <h2 id="correspondence-title">Correspondence</h2>
-          <p class="subtitle">How to reach us.</p>
-        </header>
-
-        <div class="correspondence-card reveal">
-          <h3>Leaf &amp; Legend S.A.R.L.</h3>
-          <div class="detail">
-            <strong>Prepared by Walid Hassani</strong><br>
-            Leaf &amp; Legend S.A.R.L.<br>
-            Tangier · Morocco<br>
-            Law 13-21 · ANRAC
-          </div>
-        </div>
-      </section>
-
-    </main>
+  <!-- ═══════════════════════════════════════════
+       NAVIGATION
+       ═══════════════════════════════════════════ -->
+  <nav class="nav" id="nav">
+    <div class="nav-brand">
+      <img src="img/logo.png" alt="Leaf & Legend">
+      <span>Leaf & Legend</span>
+    </div>
+
+    <ul class="nav-links">
+      <li><a href="#chain">The Chain</a></li>
+      <li><a href="#pharmacopeia">Pharmacopeia</a></li>
+      <li><a href="#evidence">Evidence</a></li>
+      <li><a href="#alliance">Alliance</a></li>
+      <li><a href="#origin">Origin</a></li>
+      <li><a href="#portal">Portal</a></li>
+    </ul>
+
+    <div class="nav-trust">
+      <span class="pill">Law 13-21</span>
+      <span class="pill">Halal Certified</span>
+      <span class="pill">GMP Aligned</span>
+      <span class="pill"><span class="dot"></span>CHU Validated</span>
+    </div>
+
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <div class="arabic-calligraphy">ورقة وأسطورة</div>
+    <a href="#chain" class="mobile-link">The Chain</a>
+    <a href="#pharmacopeia" class="mobile-link">Pharmacopeia</a>
+    <a href="#evidence" class="mobile-link">Evidence</a>
+    <a href="#alliance" class="mobile-link">Alliance</a>
+    <a href="#origin" class="mobile-link">Origin</a>
+    <a href="#portal" class="mobile-link">Portal</a>
   </div>
 
-  <script src="./js/main.js"></script>
+  <!-- ═══════════════════════════════════════════
+       SECTION 1: THE THRESHOLD (Hero)
+       ═══════════════════════════════════════════ -->
+  <section id="threshold">
+    <div class="hero-bg" id="heroBg"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-particles" id="heroParticles"></div>
+    <div class="hero-content">
+      <div class="hero-arabic">ورقة وأسطورة</div>
+      <h1>The First Unbroken Chain from Seed to Pharmacy</h1>
+      <p class="hero-sub">Morocco's only licensed cannabis company with sovereign custody from Rif Valley cultivation through halal extraction through GMP-aligned formulation through CHU Marrakech observation. The chain is unbroken.</p>
+      <div class="hero-trust">
+        <span class="trust-badge">Law 13-21</span>
+        <span class="trust-badge">Halal Certified</span>
+        <span class="trust-badge">GMP Aligned</span>
+        <span class="trust-badge"><span class="dot"></span>CHU Marrakech</span>
+      </div>
+    </div>
+    <div class="scroll-indicator">
+      <span>Scroll to Enter</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- Arabic Divider -->
+  <div class="arabic-divider reveal-fade">
+    <div class="line"></div>
+    <span class="text">من البذرة إلى الصيدلية</span>
+    <div class="line"></div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════
+       SECTION 2: THE CHAIN
+       ═══════════════════════════════════════════ -->
+  <section id="chain">
+    <div class="section-wrap">
+      <div class="section-label reveal">01 — The Chain</div>
+      <hr class="copper-rule reveal">
+      <h2 class="reveal" style="font-size: clamp(1.8rem, 4vw, 2.8rem); margin-bottom: 1.5rem;">Five Steps. Unbroken Custody. Zero Compromise.</h2>
+      <p class="body-text reveal">Every Leaf &amp; Legend product follows a single custody chain — from licensed cultivation in the Rif Valley to pharmacy dispensation under ANRPT oversight. No gaps. No third-party handoffs. No unverifiable claims. The chain is either unbroken or it does not exist.</p>
+
+      <div class="chain-steps">
+        <!-- Step 1 -->
+        <div class="chain-step reveal" data-step="1">
+          <div class="chain-step-header">
+            <span class="chain-step-number">01</span>
+            <div class="chain-step-info">
+              <div class="chain-step-title">Cultivation</div>
+              <div class="chain-step-location">Rif Valley, Ketama</div>
+              <div class="chain-step-desc">Licensed under Law 13-21. Three generations of Rif Valley stewardship by the El Sghiar family.</div>
+            </div>
+            <span class="chain-step-toggle">+</span>
+          </div>
+          <div class="chain-step-expand">
+            <div class="chain-step-expand-inner">
+              <img src="img/hero-rif-valley.jpeg" alt="Rif Valley cultivation" class="chain-step-image">
+              <div class="chain-step-meta">
+                <div class="chain-step-ref">Ref: Law 13-21, Art. 4 — Autorisation de Culture</div>
+                <div class="chain-step-verify"><span class="dot"></span> Verification: ANRPT Licensed</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="chain-step reveal" data-step="2">
+          <div class="chain-step-header">
+            <span class="chain-step-number">02</span>
+            <div class="chain-step-info">
+              <div class="chain-step-title">Extraction</div>
+              <div class="chain-step-location">CO₂ &amp; Solventless</div>
+              <div class="chain-step-desc">Facility-graded extraction producing full-spectrum extract under halal compliance.</div>
+            </div>
+            <span class="chain-step-toggle">+</span>
+          </div>
+          <div class="chain-step-expand">
+            <div class="chain-step-expand-inner">
+              <img src="img/extraction-facility-real.jpeg" alt="Extraction facility" class="chain-step-image">
+              <div class="chain-step-meta">
+                <div class="chain-step-ref">Ref: Extraction Protocol EP-2024 · Halal Compliance Cert.</div>
+                <div class="chain-step-verify"><span class="dot"></span> Verification: Halal Certified</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="chain-step reveal" data-step="3">
+          <div class="chain-step-header">
+            <span class="chain-step-number">03</span>
+            <div class="chain-step-info">
+              <div class="chain-step-title">Formulation</div>
+              <div class="chain-step-location">GMP-Aligned Laboratory</div>
+              <div class="chain-step-desc">Bob Calkin, formulation scientist. GMP-aligned laboratory protocols with full quality control.</div>
+            </div>
+            <span class="chain-step-toggle">+</span>
+          </div>
+          <div class="chain-step-expand">
+            <div class="chain-step-expand-inner">
+              <img src="img/research-lab-real.jpeg" alt="Research laboratory" class="chain-step-image">
+              <div class="chain-step-meta">
+                <div class="chain-step-ref">Ref: GMP Compliance Certificate · QC Protocol v3.1</div>
+                <div class="chain-step-verify"><span class="dot"></span> Verification: GMP Aligned</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 4 -->
+        <div class="chain-step reveal" data-step="4">
+          <div class="chain-step-header">
+            <span class="chain-step-number">04</span>
+            <div class="chain-step-info">
+              <div class="chain-step-title">Product</div>
+              <div class="chain-step-location">Pharmacy-Ready Output</div>
+              <div class="chain-step-desc">ANRPT oversight ensures every product is pharmacy-dispensed, not retail-sold.</div>
+            </div>
+            <span class="chain-step-toggle">+</span>
+          </div>
+          <div class="chain-step-expand">
+            <div class="chain-step-expand-inner">
+              <img src="img/pharmacy-interior-real.jpeg" alt="Pharmacy interior" class="chain-step-image">
+              <div class="chain-step-meta">
+                <div class="chain-step-ref">Ref: ANRPT Distribution License · Pharmacy Protocol PP-2024</div>
+                <div class="chain-step-verify"><span class="dot"></span> Verification: ANRPT Licensed</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 5 -->
+        <div class="chain-step reveal" data-step="5">
+          <div class="chain-step-header">
+            <span class="chain-step-number">05</span>
+            <div class="chain-step-info">
+              <div class="chain-step-title">Observation</div>
+              <div class="chain-step-location">CHU Marrakech</div>
+              <div class="chain-step-desc">Clinical observation alliance with CHU Marrakech — hospital-grade validation, not marketing claims.</div>
+            </div>
+            <span class="chain-step-toggle">+</span>
+          </div>
+          <div class="chain-step-expand">
+            <div class="chain-step-expand-inner">
+              <img src="img/trichome-macro-real.jpeg" alt="Trichome macro" class="chain-step-image">
+              <div class="chain-step-meta">
+                <div class="chain-step-ref">Ref: CHU Marrakech Observation Protocol · Ethics Committee Approval</div>
+                <div class="chain-step-verify"><span class="dot"></span> Verification: CHU Ongoing</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="chain-quote reveal">
+        "The chain is either unbroken or it is not. There is no partial custody."
+      </div>
+    </div>
+  </section>
+
+  <!-- Arabic Divider -->
+  <div class="arabic-divider reveal-fade">
+    <div class="line"></div>
+    <span class="text">الأدوية لا الكلمات</span>
+    <div class="line"></div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════
+       SECTION 3: THE PHARMACOPEIA
+       ═══════════════════════════════════════════ -->
+  <section id="pharmacopeia">
+    <div class="section-wrap">
+      <div class="section-label reveal">02 — The Pharmacopeia</div>
+      <hr class="copper-rule reveal">
+      <h2 class="reveal" style="font-size: clamp(1.8rem, 4vw, 2.8rem); margin-bottom: 1.5rem;">Not Products. Formulations.</h2>
+      <p class="body-text reveal">Each formulation is a pharmacy-grade preparation with a full chain of custody, halal certification, and batch-level certificate of analysis. No marketing language. No unsubstantiated claims. Only registry numbers and botanical science.</p>
+
+      <div class="monographs">
+        <!-- Skin Balm -->
+        <div class="monograph reveal-scale">
+          <img src="img/product-skin-balm-real.jpeg" alt="Skin Balm" class="monograph-image">
+          <div class="monograph-body">
+            <div class="monograph-header">
+              <div>
+                <div class="monograph-title">Skin Balm</div>
+                <div class="monograph-arabic">مرهم للبشرة</div>
+              </div>
+            </div>
+            <div class="monograph-class">Topical Formulation</div>
+            <div class="monograph-format">Format: 50ml aluminium tube</div>
+            <p class="monograph-desc">Full-spectrum botanical extract in a base of cold-pressed argan oil, shea butter, and beeswax.</p>
+            <div class="monograph-ingredients">
+              <div class="monograph-ingredients-label">Ingredients</div>
+              <ul class="monograph-ingredients-list">
+                <li>Full-spectrum cannabis extract (CO₂)</li>
+                <li>Cold-pressed Argania spinosa oil</li>
+                <li>Vitellaria paradoxa (shea) butter</li>
+                <li>Cera alba (beeswax)</li>
+                <li>Tocopherol (Vitamin E)</li>
+              </ul>
+            </div>
+            <div class="monograph-batch">
+              <div class="monograph-batch-item">
+                <div class="monograph-batch-label">Batch</div>
+                <div class="monograph-batch-value">SB-2025-0042</div>
+              </div>
+              <div class="monograph-batch-item">
+                <div class="monograph-batch-label">COA</div>
+                <div class="monograph-batch-value">COA-SB-0042-2025</div>
+              </div>
+            </div>
+            <div class="monograph-trust">
+              <span class="trust-badge">Pharmacy-Dispensed</span>
+              <span class="trust-badge">Halal Certified</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sleep Supplement -->
+        <div class="monograph reveal-scale">
+          <img src="img/product-sleep-real.jpeg" alt="Sleep Supplement" class="monograph-image">
+          <div class="monograph-body">
+            <div class="monograph-header">
+              <div>
+                <div class="monograph-title">Sleep Supplement</div>
+                <div class="monograph-arabic">مكمل للنوم</div>
+              </div>
+            </div>
+            <div class="monograph-class">Oral Formulation</div>
+            <div class="monograph-format">Format: 30 capsule blister pack</div>
+            <p class="monograph-desc">Full-spectrum extract micro-dosed for sleep architecture support.</p>
+            <div class="monograph-ingredients">
+              <div class="monograph-ingredients-label">Ingredients</div>
+              <ul class="monograph-ingredients-list">
+                <li>Full-spectrum cannabis extract (CO₂)</li>
+                <li>Valeriana officinalis root extract</li>
+                <li>Melissa officinalis leaf extract</li>
+                <li>Magnesium glycinate</li>
+                <li>HPMC capsule (halal)</li>
+              </ul>
+            </div>
+            <div class="monograph-batch">
+              <div class="monograph-batch-item">
+                <div class="monograph-batch-label">Batch</div>
+                <div class="monograph-batch-value">SS-2025-0038</div>
+              </div>
+              <div class="monograph-batch-item">
+                <div class="monograph-batch-label">COA</div>
+                <div class="monograph-batch-value">COA-SS-0038-2025</div>
+              </div>
+            </div>
+            <div class="monograph-trust">
+              <span class="trust-badge">Pharmacy-Dispensed</span>
+              <span class="trust-badge">Halal Certified</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Arabic Divider -->
+  <div class="arabic-divider reveal-fade">
+    <div class="line"></div>
+    <span class="text">كل ادعاء له رقم</span>
+    <div class="line"></div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════
+       SECTION 4: THE EVIDENCE ROOM
+       ═══════════════════════════════════════════ -->
+  <section id="evidence">
+    <div class="section-wrap">
+      <div class="section-label reveal">03 — The Evidence Room</div>
+      <hr class="copper-rule reveal">
+      <h2 class="reveal" style="font-size: clamp(1.8rem, 4vw, 2.8rem); margin-bottom: 1.5rem;">Every Claim Here Has a Registry Number</h2>
+      <p class="body-text reveal">No influencer endorsements. No before-and-after photos. No anonymous testimonials. Only certificates, licenses, and protocols — each with an issuer, a number, and a status.</p>
+
+      <div class="cert-grid">
+        <!-- Card 1 -->
+        <div class="cert-card stagger">
+          <div class="cert-card-top">
+            <span class="cert-type">License</span>
+            <span class="cert-status"><span class="dot"></span> Active</span>
+          </div>
+          <div class="cert-title">Law 13-21 Cultivation Authorization</div>
+          <div class="cert-issuer">ANRPT</div>
+          <div class="cert-registry">L13-21-001</div>
+          <span class="cert-verify">Verify →</span>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="cert-card stagger">
+          <div class="cert-card-top">
+            <span class="cert-type">Certification</span>
+            <span class="cert-status"><span class="dot"></span> Active</span>
+          </div>
+          <div class="cert-title">Halal Compliance Certificate</div>
+          <div class="cert-issuer">Certified Halal Authority</div>
+          <div class="cert-registry">HC-2024-1847</div>
+          <span class="cert-verify">Verify →</span>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="cert-card stagger">
+          <div class="cert-card-top">
+            <span class="cert-type">Compliance</span>
+            <span class="cert-status"><span class="dot"></span> Active</span>
+          </div>
+          <div class="cert-title">GMP Alignment Certificate</div>
+          <div class="cert-issuer">White-label GMP-aligned laboratory</div>
+          <div class="cert-registry">GMP-AL-2024-092</div>
+          <span class="cert-verify">Verify →</span>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="cert-card stagger">
+          <div class="cert-card-top">
+            <span class="cert-type">Observation</span>
+            <span class="cert-status ongoing"><span class="dot"></span> Ongoing</span>
+          </div>
+          <div class="cert-title">CHU Marrakech Clinical Observation Protocol</div>
+          <div class="cert-issuer">CHU Mohammed VI</div>
+          <div class="cert-registry">CHU-OBS-2024-015</div>
+          <span class="cert-verify">Verify →</span>
+        </div>
+
+        <!-- Card 5 -->
+        <div class="cert-card stagger">
+          <div class="cert-card-top">
+            <span class="cert-type">Quality</span>
+            <span class="cert-status"><span class="dot"></span> Current</span>
+          </div>
+          <div class="cert-title">Certificate of Analysis</div>
+          <div class="cert-issuer">Independent third-party laboratory</div>
+          <div class="cert-registry">COA-2025-SB-0042</div>
+          <span class="cert-verify">Verify →</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Arabic Divider -->
+  <div class="arabic-divider reveal-fade">
+    <div class="line"></div>
+    <span class="text">تحالف لا شراكة</span>
+    <div class="line"></div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════
+       SECTION 5: THE ALLIANCE
+       ═══════════════════════════════════════════ -->
+  <section id="alliance">
+    <div class="section-wrap">
+      <div class="section-label reveal">04 — The Alliance</div>
+      <hr class="copper-rule reveal">
+
+      <div class="alliance-grid">
+        <div class="alliance-image-wrap reveal-scale">
+          <img src="img/research-lab-real.jpeg" alt="Research laboratory" class="alliance-image">
+          <div class="alliance-float-card">
+            <div class="label">Clinical Protocol</div>
+            <div class="value">CHU-OBS-2024-015</div>
+          </div>
+        </div>
+
+        <div class="reveal">
+          <h2 style="font-size: clamp(1.6rem, 3.5vw, 2.5rem); margin-bottom: 1.5rem;">Hospital-Grade Validation. Not Influencer-Grade.</h2>
+          <p class="body-text" style="margin-bottom: 2rem;">Leaf &amp; Legend operates under a clinical observation alliance with CHU Marrakech — Morocco's premier university hospital. This is not a sponsorship. It is not a paid endorsement. It is a structured observation protocol reviewed and approved by an ethics committee, designed to document outcomes under real dispensation conditions.</p>
+          <p class="body-text">The alliance means every formulation is monitored beyond the pharmacy counter — into the hands of patients, under the supervision of physicians and researchers who answer to an institutional review board, not a marketing department.</p>
+
+          <div class="alliance-metrics">
+            <div class="alliance-metric teal">
+              <div class="label">Observation Status</div>
+              <div class="value">Active</div>
+            </div>
+            <div class="alliance-metric copper">
+              <div class="label">Ethics Approval</div>
+              <div class="value">Secured</div>
+            </div>
+          </div>
+
+          <a href="#" class="cta-solid" style="margin-top: 1rem;">Request Clinical Documentation</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Arabic Divider -->
+  <div class="arabic-divider reveal-fade">
+    <div class="line"></div>
+    <span class="text">ثلاثة أجيال</span>
+    <div class="line"></div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════
+       SECTION 6: THE ORIGIN
+       ═══════════════════════════════════════════ -->
+  <section id="origin">
+    <div class="section-wrap">
+      <div class="section-label reveal">05 — The Origin</div>
+      <hr class="copper-rule reveal">
+
+      <div class="origin-grid">
+        <div class="origin-portrait-wrap reveal-scale">
+          <img src="img/founder-portrait.jpeg" alt="Walid Hassani" class="origin-portrait">
+          <div class="origin-arabic-overlay">وليد حساني</div>
+        </div>
+
+        <div class="reveal">
+          <h2 style="font-size: clamp(1.6rem, 3.5vw, 2.5rem); margin-bottom: 1.5rem;">Three Generations. One Conviction.</h2>
+          <p class="body-text" style="margin-bottom: 1.5rem;">Walid Hassani was not searching for an industry. He was stewarding one. Born into the El Sghiar family of Ketama — three generations of Rif Valley cultivators — Hassani grew up inside the tradition that Morocco's Law 13-21 would eventually recognize and regulate.</p>
+          <p class="body-text" style="margin-bottom: 1.5rem;">When the law opened a path from ancestral cultivation to pharmaceutical formulation, Hassani did not see a business opportunity. He saw a responsibility — to prove that the Rif's botanical heritage could meet the highest standards of modern medicine without losing its identity, its integrity, or its chain of custody.</p>
+          <p class="body-text">Leaf &amp; Legend is that proof. Not a brand built on story, but a company built on traceability — from seed to pharmacy, from tradition to protocol, from conviction to observation.</p>
+
+          <div class="declaration">
+            <p>"If you cannot trace your product from the field where it grew to the pharmacy where it is dispensed, you do not have a product. You have a story."</p>
+          </div>
+
+          <div class="origin-data-row">
+            <div class="origin-data-item">
+              <div class="data-label">Founder</div>
+              <div class="data-value">Walid Hassani</div>
+            </div>
+            <div class="origin-data-item">
+              <div class="data-label">Heritage</div>
+              <div class="data-value">El Sghiar Family, Ketama</div>
+            </div>
+            <div class="origin-data-item">
+              <div class="data-label">Generations</div>
+              <div class="data-value">Three</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       SECTION 7: PROFESSIONAL PORTAL
+       ═══════════════════════════════════════════ -->
+  <section id="portal">
+    <div class="section-wrap">
+      <div class="section-label reveal">06 — Professional Portal</div>
+      <hr class="copper-rule reveal">
+      <h2 class="reveal" style="font-size: clamp(1.8rem, 4vw, 2.8rem); margin-bottom: 1.5rem;">For Pharmacists. For Physicians. For Professionals.</h2>
+      <p class="body-text reveal">Access clinical monographs, regulatory compliance documentation, ordering protocols, and CHU Marrakech observation data. All resources require professional verification.</p>
+
+      <div class="resource-grid">
+        <div class="resource-card stagger">
+          <div class="resource-card-icon">📋</div>
+          <div class="resource-card-type">Documentation</div>
+          <div class="resource-card-title">Clinical Monographs</div>
+          <div class="resource-card-arrow">→</div>
+        </div>
+
+        <div class="resource-card stagger">
+          <div class="resource-card-icon">🛡</div>
+          <div class="resource-card-type">Compliance</div>
+          <div class="resource-card-title">Regulatory Compliance Dossier</div>
+          <div class="resource-card-arrow">→</div>
+        </div>
+
+        <div class="resource-card stagger">
+          <div class="resource-card-icon">📦</div>
+          <div class="resource-card-type">Operations</div>
+          <div class="resource-card-title">Ordering &amp; Distribution Protocol</div>
+          <div class="resource-card-arrow">→</div>
+        </div>
+
+        <div class="resource-card stagger">
+          <div class="resource-card-icon">🔬</div>
+          <div class="resource-card-type">Clinical</div>
+          <div class="resource-card-title">CHU Marrakech Observation Data</div>
+          <div class="resource-card-arrow">→</div>
+        </div>
+      </div>
+
+      <div class="portal-contact reveal">
+        <div class="portal-contact-email">contact@leafandlegend.com</div>
+        <a href="mailto:contact@leafandlegend.com" class="cta-solid">Contact the Team</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       FOOTER
+       ═══════════════════════════════════════════ -->
+  <footer class="footer">
+    <div class="footer-trust">
+      <span class="footer-trust-item"><span class="dot"></span> Law 13-21 Licensed</span>
+      <span class="footer-trust-item"><span class="dot"></span> Halal Certified</span>
+      <span class="footer-trust-item"><span class="dot"></span> GMP Aligned</span>
+      <span class="footer-trust-item"><span class="dot"></span> COA Per Batch</span>
+      <span class="footer-trust-item"><span class="dot"></span> CHU Marrakech Alliance</span>
+    </div>
+
+    <div class="footer-main">
+      <div class="footer-brand">
+        <div class="footer-brand-logo">
+          <img src="img/logo.png" alt="Leaf & Legend">
+          <span>Leaf &amp; Legend</span>
+        </div>
+        <p class="footer-brand-desc">Morocco's only licensed cannabis company with sovereign custody from Rif Valley cultivation through halal extraction through GMP-aligned formulation through CHU Marrakech observation. The chain is unbroken.</p>
+        <div class="footer-brand-arabic">ورقة وأسطورة</div>
+      </div>
+
+      <div class="footer-links">
+        <div class="footer-links-col">
+          <h4>Navigate</h4>
+          <a href="#chain">The Chain</a>
+          <a href="#pharmacopeia">Pharmacopeia</a>
+          <a href="#evidence">Evidence Room</a>
+          <a href="#alliance">Alliance</a>
+          <a href="#origin">Origin</a>
+          <a href="#portal">Professional Portal</a>
+        </div>
+        <div class="footer-links-col">
+          <h4>Contact</h4>
+          <a href="mailto:contact@leafandlegend.com">contact@leafandlegend.com</a>
+          <a href="#portal">Professional Portal</a>
+          <a href="#portal">Request Documentation</a>
+        </div>
+        <div class="footer-links-col">
+          <h4>Regulatory</h4>
+          <div class="footer-regulatory">
+            ANRPT License No. L13-21-001<br>
+            ONSSA Registration<br>
+            Ministry of Health Authorization
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      © 2026 Leaf &amp; Legend &nbsp;|&nbsp; Law 13-21 · Ministry of Health · ONSSA · ANRPT
+    </div>
+  </footer>
+
+  <!-- ═══════════════════════════════════════════
+       JAVASCRIPT
+       ═══════════════════════════════════════════ -->
+  <script>
+    // ─── Particle System ───
+    (function() {
+      const container = document.getElementById('heroParticles');
+      const count = 20;
+      for (let i = 0; i < count; i++) {
+        const p = document.createElement('div');
+        p.className = 'particle';
+        const size = Math.random() * 5 + 3; // 3-8px
+        const left = Math.random() * 100;
+        const top = Math.random() * 100;
+        const duration = Math.random() * 12 + 8; // 8-20s
+        const delay = Math.random() * duration;
+        const driftX = (Math.random() - 0.5) * 100;
+        const driftY = -(Math.random() * 200 + 100);
+        p.style.cssText = `
+          width: ${size}px;
+          height: ${size}px;
+          left: ${left}%;
+          top: ${top}%;
+          --drift-x: ${driftX}px;
+          --drift-y: ${driftY}px;
+          animation-duration: ${duration}s;
+          animation-delay: -${delay}s;
+          opacity: ${Math.random() * 0.3 + 0.1};
+        `;
+        container.appendChild(p);
+      }
+    })();
+
+    // ─── Scroll Reveal (IntersectionObserver) ───
+    (function() {
+      const revealElements = document.querySelectorAll('.reveal, .reveal-fade, .reveal-scale, .stagger');
+      const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry, index) {
+          if (entry.isIntersecting) {
+            // Add stagger delay for .stagger elements
+            const el = entry.target;
+            if (el.classList.contains('stagger')) {
+              const siblings = el.parentElement.querySelectorAll('.stagger');
+              let staggerIndex = 0;
+              siblings.forEach(function(sib, i) {
+                if (sib === el) staggerIndex = i;
+              });
+              setTimeout(function() {
+                el.classList.add('visible');
+              }, staggerIndex * 120);
+            } else {
+              el.classList.add('visible');
+            }
+            observer.unobserve(el);
+          }
+        });
+      }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+      revealElements.forEach(function(el) {
+        observer.observe(el);
+      });
+    })();
+
+    // ─── Parallax Hero ───
+    (function() {
+      const heroBg = document.getElementById('heroBg');
+      const hero = document.getElementById('threshold');
+      let ticking = false;
+
+      function updateParallax() {
+        const scrolled = window.pageYOffset;
+        const heroHeight = hero.offsetHeight;
+        if (scrolled < heroHeight) {
+          const translateY = scrolled * 0.35;
+          const scale = 1 + scrolled * 0.0003;
+          const opacity = 1 - (scrolled / heroHeight) * 0.5;
+          heroBg.style.transform = 'translateY(' + translateY + 'px) scale(' + scale + ')';
+          heroBg.style.opacity = opacity;
+        }
+        ticking = false;
+      }
+
+      window.addEventListener('scroll', function() {
+        if (!ticking) {
+          requestAnimationFrame(updateParallax);
+          ticking = true;
+        }
+      });
+    })();
+
+    // ─── Chain Step Expand/Collapse ───
+    (function() {
+      const steps = document.querySelectorAll('.chain-step');
+      steps.forEach(function(step) {
+        const header = step.querySelector('.chain-step-header');
+        header.addEventListener('click', function() {
+          const isExpanded = step.classList.contains('expanded');
+          // Close all
+          steps.forEach(function(s) {
+            s.classList.remove('expanded');
+          });
+          // Open clicked if it wasn't already expanded
+          if (!isExpanded) {
+            step.classList.add('expanded');
+          }
+        });
+      });
+    })();
+
+    // ─── Navigation: Scroll Spy ───
+    (function() {
+      const sections = document.querySelectorAll('section[id]');
+      const navLinks = document.querySelectorAll('.nav-links a');
+
+      const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            const id = entry.target.getAttribute('id');
+            navLinks.forEach(function(link) {
+              link.classList.remove('active');
+              if (link.getAttribute('href') === '#' + id) {
+                link.classList.add('active');
+              }
+            });
+          }
+        });
+      }, { threshold: 0.2, rootMargin: '-72px 0px -40% 0px' });
+
+      sections.forEach(function(section) {
+        observer.observe(section);
+      });
+    })();
+
+    // ─── Navigation: Smooth Scroll ───
+    (function() {
+      document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
+        anchor.addEventListener('click', function(e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute('href'));
+          if (target) {
+            const offset = 72; // nav height
+            const top = target.getBoundingClientRect().top + window.pageYOffset - offset;
+            window.scrollTo({ top: top, behavior: 'smooth' });
+            // Close mobile menu if open
+            document.getElementById('mobileMenu').classList.remove('open');
+            document.getElementById('hamburger').classList.remove('active');
+          }
+        });
+      });
+    })();
+
+    // ─── Navigation: Background on Scroll ───
+    (function() {
+      const nav = document.getElementById('nav');
+      let ticking = false;
+
+      function updateNav() {
+        if (window.pageYOffset > 50) {
+          nav.classList.add('scrolled');
+        } else {
+          nav.classList.remove('scrolled');
+        }
+        ticking = false;
+      }
+
+      window.addEventListener('scroll', function() {
+        if (!ticking) {
+          requestAnimationFrame(updateNav);
+          ticking = true;
+        }
+      });
+    })();
+
+    // ─── Mobile Menu ───
+    (function() {
+      const hamburger = document.getElementById('hamburger');
+      const mobileMenu = document.getElementById('mobileMenu');
+      const mobileLinks = mobileMenu.querySelectorAll('a');
+
+      hamburger.addEventListener('click', function() {
+        hamburger.classList.toggle('active');
+        mobileMenu.classList.toggle('open');
+        document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
+      });
+
+      mobileLinks.forEach(function(link) {
+        link.addEventListener('click', function() {
+          hamburger.classList.remove('active');
+          mobileMenu.classList.remove('open');
+          document.body.style.overflow = '';
+        });
+      });
+    })();
+  </script>
 </body>
 </html>
