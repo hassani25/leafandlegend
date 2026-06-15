@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Leaf & Legend — The First Unbroken Chain from Seed to Pharmacy</title>
-  <meta name="description" content="Morocco's only licensed cannabis company with sovereign custody from Rif Valley cultivation through halal extraction through GMP-aligned formulation through CHU Marrakech observation.">
+  <title>Leaf &amp; Legend — Moroccan Cannabis Product Development</title>
+  <meta name="description" content="Leaf & Legend is a Moroccan product-development company building finished cannabis consumer products. Concepts under development. Moving Morocco's cannabis industry up the value chain.">
   <link rel="icon" href="img/logo.png" type="image/png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -35,11 +35,10 @@
       --text-primary: #F2EDE4;
       --text-secondary: rgba(242, 237, 228, 0.6);
       --text-tertiary: rgba(242, 237, 228, 0.3);
-      --text-ghost: rgba(242, 237, 228, 0.12);
-      --border-subtle: rgba(242, 237, 228, 0.04);
-      --border-light: rgba(242, 237, 228, 0.08);
-      --border-copper: rgba(193, 127, 78, 0.15);
-      --border-copper-strong: rgba(193, 127, 78, 0.3);
+      --text-copper: #C17F4E;
+      --font-serif: 'Cormorant Garamond', Georgia, serif;
+      --font-sans: 'DM Sans', system-ui, sans-serif;
+      --font-arabic: 'Amiri', serif;
     }
 
     /* ═══════════════════════════════════════════
@@ -47,27 +46,28 @@
        ═══════════════════════════════════════════ */
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
-    html {
-      scroll-behavior: smooth;
-      scrollbar-width: thin;
-      scrollbar-color: var(--copper-dark) var(--background);
+    ::selection {
+      background: rgba(193, 127, 78, 0.35);
+      color: var(--foreground);
     }
 
     ::-webkit-scrollbar { width: 6px; }
-    ::-webkit-scrollbar-track { background: var(--background); }
+    ::-webkit-scrollbar-track { background: var(--surface-sunken); }
     ::-webkit-scrollbar-thumb { background: var(--copper-dark); border-radius: 3px; }
     ::-webkit-scrollbar-thumb:hover { background: var(--copper); }
 
-    ::selection { background: var(--copper); color: var(--background); }
-
-    body {
-      font-family: 'DM Sans', sans-serif;
-      background: var(--background);
-      color: var(--text-primary);
-      line-height: 1.6;
-      overflow-x: hidden;
+    html {
+      scroll-behavior: smooth;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      background: var(--background);
+      color: var(--foreground);
+      line-height: 1.6;
+      overflow-x: hidden;
     }
 
     img { max-width: 100%; display: block; }
@@ -76,186 +76,73 @@
     /* ═══════════════════════════════════════════
        TYPOGRAPHY
        ═══════════════════════════════════════════ */
-    h1, h2, h3, h4 { font-family: 'Cormorant Garamond', serif; font-weight: 700; line-height: 1.1; }
+    .font-serif { font-family: var(--font-serif); }
+    .font-sans { font-family: var(--font-sans); }
+    .font-arabic { font-family: var(--font-arabic); }
+
+    h1, h2, h3 {
+      font-family: var(--font-serif);
+      font-weight: 600;
+      line-height: 1.15;
+      color: var(--foreground);
+    }
+
+    h1 { font-size: clamp(2.2rem, 5vw, 3.8rem); }
+    h2 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+    h3 { font-size: clamp(1.2rem, 2vw, 1.5rem); }
+
+    .text-copper { color: var(--copper); }
+    .text-sage { color: var(--sage); }
+    .text-clinical { color: var(--clinical); }
+    .text-secondary { color: var(--text-secondary); }
+    .text-tertiary { color: var(--text-tertiary); }
+
+    .arabic-overlay {
+      font-family: var(--font-arabic);
+      color: rgba(193, 127, 78, 0.08);
+      font-size: clamp(5rem, 12vw, 10rem);
+      line-height: 1;
+      pointer-events: none;
+      user-select: none;
+    }
+
+    /* ═══════════════════════════════════════════
+       LAYOUT
+       ═══════════════════════════════════════════ */
+    .section {
+      position: relative;
+      padding: 6rem 1.5rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .section-full {
+      position: relative;
+      padding: 0;
+    }
 
     .section-label {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 0.75rem;
-      font-weight: 500;
+      font-family: var(--font-sans);
+      font-size: 0.7rem;
       letter-spacing: 0.2em;
       text-transform: uppercase;
       color: var(--copper);
       margin-bottom: 1rem;
+      font-weight: 500;
     }
 
-    .copper-rule {
+    .divider {
+      width: 60px;
       height: 1px;
+      background: linear-gradient(90deg, var(--copper), transparent);
+      margin: 2rem 0;
+    }
+
+    .divider-center {
+      margin-left: auto;
+      margin-right: auto;
       background: linear-gradient(90deg, transparent, var(--copper), transparent);
-      margin: 1.5rem 0;
-      border: none;
-    }
-
-    .body-text {
-      color: var(--text-secondary);
-      font-size: 1.05rem;
-      line-height: 1.75;
-      max-width: 640px;
-    }
-
-    .registry-text {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 0.75rem;
-      letter-spacing: 0.08em;
-      color: var(--text-tertiary);
-      text-transform: uppercase;
-    }
-
-    .data-label {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 0.7rem;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--text-tertiary);
-      margin-bottom: 0.25rem;
-    }
-
-    .data-value {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.1rem;
-      color: var(--text-primary);
-      font-weight: 500;
-    }
-
-    /* ═══════════════════════════════════════════
-       COMPONENTS
-       ═══════════════════════════════════════════ */
-    .section-wrap {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 120px 24px;
-    }
-
-    .trust-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 6px 14px;
-      border: 1px solid var(--border-copper);
-      border-radius: 999px;
-      font-size: 0.7rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--copper);
-      font-weight: 500;
-      white-space: nowrap;
-    }
-
-    .trust-badge .dot {
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: var(--clinical-light);
-      flex-shrink: 0;
-    }
-
-    .cta {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      font-family: 'DM Sans', sans-serif;
-      font-size: 0.8rem;
-      font-weight: 500;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--copper);
-      border: 1px solid var(--border-copper-strong);
-      padding: 14px 32px;
-      border-radius: 2px;
-      transition: all 0.3s ease;
-      cursor: pointer;
-      background: transparent;
-    }
-
-    .cta:hover {
-      background: var(--copper-glow);
-      border-color: var(--copper);
-    }
-
-    .cta-solid {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      font-family: 'DM Sans', sans-serif;
-      font-size: 0.8rem;
-      font-weight: 500;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--background);
-      background: var(--copper);
-      padding: 16px 36px;
-      border: none;
-      border-radius: 2px;
-      cursor: pointer;
-      transition: all 0.3s ease;
-    }
-
-    .cta-solid:hover {
-      background: var(--copper-light);
-      transform: translateY(-1px);
-    }
-
-    .declaration {
-      border-left: 2px solid var(--copper);
-      padding: 2rem 2.5rem;
-      margin: 2.5rem 0;
-      background: var(--copper-glow);
-    }
-
-    .declaration p {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.3rem;
-      font-style: italic;
-      color: var(--copper-light);
-      line-height: 1.6;
-    }
-
-    .arabic-moment {
-      font-family: 'Amiri', serif;
-      color: rgba(193, 127, 78, 0.2);
-      font-size: 1.5rem;
-      direction: rtl;
-      text-align: center;
-      user-select: none;
-    }
-
-    .arabic-divider {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 1.5rem;
-      padding: 60px 24px;
-      max-width: 800px;
-      margin: 0 auto;
-    }
-
-    .arabic-divider .line {
-      flex: 1;
-      height: 1px;
-      background: linear-gradient(90deg, transparent, rgba(193, 127, 78, 0.2), transparent);
-    }
-
-    .arabic-divider .text {
-      font-family: 'Amiri', serif;
-      color: rgba(193, 127, 78, 0.25);
-      font-size: 1.25rem;
-      white-space: nowrap;
-    }
-
-    .trust-bar {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 2rem;
+      width: 120px;
     }
 
     /* ═══════════════════════════════════════════
@@ -267,62 +154,62 @@
       left: 0;
       right: 0;
       z-index: 1000;
-      padding: 0 24px;
-      height: 72px;
+      padding: 1.2rem 2rem;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      transition: all 0.4s ease;
+      transition: background 0.4s ease, padding 0.4s ease, backdrop-filter 0.4s ease;
     }
 
     .nav.scrolled {
-      background: rgba(11, 13, 12, 0.85);
+      background: rgba(11, 13, 12, 0.92);
       backdrop-filter: blur(20px);
       -webkit-backdrop-filter: blur(20px);
-      border-bottom: 1px solid var(--border-subtle);
+      padding: 0.8rem 2rem;
+      border-bottom: 1px solid rgba(193, 127, 78, 0.08);
     }
 
-    .nav-brand {
+    .nav-logo {
       display: flex;
       align-items: center;
-      gap: 10px;
-      flex-shrink: 0;
+      gap: 0.75rem;
     }
 
-    .nav-brand img {
-      width: 32px;
+    .nav-logo img {
       height: 32px;
+      width: auto;
     }
 
-    .nav-brand span {
-      font-family: 'Cormorant Garamond', serif;
+    .nav-logo-text {
+      font-family: var(--font-serif);
       font-size: 1.15rem;
       font-weight: 600;
-      color: var(--text-primary);
-      letter-spacing: 0.02em;
+      color: var(--foreground);
+      letter-spacing: 0.03em;
     }
 
     .nav-links {
       display: flex;
       align-items: center;
-      gap: 32px;
+      gap: 2rem;
       list-style: none;
     }
 
     .nav-links a {
-      font-size: 0.75rem;
-      letter-spacing: 0.1em;
+      font-family: var(--font-sans);
+      font-size: 0.8rem;
+      letter-spacing: 0.08em;
       text-transform: uppercase;
       color: var(--text-secondary);
-      transition: color 0.3s;
+      transition: color 0.3s ease;
+      font-weight: 400;
       position: relative;
-      padding-bottom: 4px;
     }
 
     .nav-links a::after {
       content: '';
       position: absolute;
-      bottom: 0;
+      bottom: -4px;
       left: 0;
       width: 0;
       height: 1px;
@@ -332,74 +219,50 @@
 
     .nav-links a:hover,
     .nav-links a.active {
-      color: var(--copper);
+      color: var(--copper-light);
     }
 
-    .nav-links a.active::after,
-    .nav-links a:hover::after {
+    .nav-links a.active::after {
       width: 100%;
     }
 
-    .nav-trust {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      flex-shrink: 0;
-    }
-
-    .nav-trust .pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 4px;
-      padding: 4px 10px;
-      border: 1px solid var(--border-copper);
-      border-radius: 999px;
-      font-size: 0.6rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--copper);
-      white-space: nowrap;
-    }
-
-    .nav-trust .pill .dot {
-      width: 5px;
-      height: 5px;
-      border-radius: 50%;
-      background: var(--clinical-light);
-    }
-
-    .hamburger {
+    .nav-mobile-toggle {
       display: none;
       flex-direction: column;
       gap: 5px;
-      cursor: pointer;
-      padding: 8px;
       background: none;
       border: none;
+      cursor: pointer;
+      padding: 4px;
     }
 
-    .hamburger span {
+    .nav-mobile-toggle span {
+      display: block;
       width: 24px;
       height: 1.5px;
-      background: var(--text-primary);
-      transition: all 0.3s;
+      background: var(--foreground);
+      transition: all 0.3s ease;
     }
 
-    .hamburger.active span:nth-child(1) {
-      transform: rotate(45deg) translate(5px, 5px);
+    .nav-mobile-toggle.open span:nth-child(1) {
+      transform: rotate(45deg) translate(4px, 5px);
     }
-    .hamburger.active span:nth-child(2) {
+
+    .nav-mobile-toggle.open span:nth-child(2) {
       opacity: 0;
     }
-    .hamburger.active span:nth-child(3) {
-      transform: rotate(-45deg) translate(5px, -5px);
+
+    .nav-mobile-toggle.open span:nth-child(3) {
+      transform: rotate(-45deg) translate(4px, -5px);
     }
 
-    .mobile-menu {
+    /* Mobile overlay */
+    .mobile-overlay {
       position: fixed;
       inset: 0;
-      background: var(--background);
       z-index: 999;
+      background: rgba(8, 10, 9, 0.97);
+      backdrop-filter: blur(30px);
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -410,37 +273,36 @@
       transition: opacity 0.4s ease;
     }
 
-    .mobile-menu.open {
+    .mobile-overlay.open {
       opacity: 1;
       pointer-events: all;
     }
 
-    .mobile-menu .arabic-calligraphy {
-      font-family: 'Amiri', serif;
-      font-size: 2.5rem;
-      color: rgba(193, 127, 78, 0.15);
-      margin-bottom: 2rem;
+    .mobile-overlay a {
+      font-family: var(--font-serif);
+      font-size: 1.6rem;
+      color: var(--foreground);
+      transition: color 0.3s ease;
     }
 
-    .mobile-menu a {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.8rem;
-      font-weight: 600;
-      color: var(--text-secondary);
-      transition: color 0.3s;
+    .mobile-overlay a:hover {
+      color: var(--copper-light);
     }
 
-    .mobile-menu a:hover {
+    .mobile-overlay .arabic-mobile {
+      font-family: var(--font-arabic);
+      font-size: 1.2rem;
       color: var(--copper);
+      opacity: 0.5;
+      margin-top: 1rem;
     }
 
     /* ═══════════════════════════════════════════
-       HERO — THE THRESHOLD
+       SECTION 1: THE VISION (HERO)
        ═══════════════════════════════════════════ */
-    #threshold {
+    .hero {
       position: relative;
-      height: 100vh;
-      min-height: 700px;
+      min-height: 100vh;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -449,16 +311,29 @@
 
     .hero-bg {
       position: absolute;
-      inset: -60px;
-      background: url('img/hero-rif-valley.jpeg') center/cover no-repeat;
+      inset: 0;
       z-index: 0;
+    }
+
+    .hero-bg img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: brightness(0.35) saturate(0.7);
+      transform: scale(1.05);
       will-change: transform;
     }
 
-    .hero-overlay {
+    .hero-gradient {
       position: absolute;
       inset: 0;
-      background: linear-gradient(180deg, rgba(11,13,12,0.3) 0%, rgba(11,13,12,0.6) 50%, rgba(11,13,12,0.95) 85%, rgba(11,13,12,1) 100%);
+      background:
+        linear-gradient(180deg,
+          rgba(11, 13, 12, 0.5) 0%,
+          rgba(11, 13, 12, 0.3) 30%,
+          rgba(11, 13, 12, 0.6) 70%,
+          rgba(11, 13, 12, 0.95) 100%
+        );
       z-index: 1;
     }
 
@@ -467,14 +342,30 @@
       inset: 0;
       z-index: 2;
       pointer-events: none;
+      overflow: hidden;
     }
 
     .particle {
       position: absolute;
+      width: 3px;
+      height: 3px;
       border-radius: 50%;
       background: var(--copper);
       opacity: 0;
-      animation: particleDrift linear infinite;
+      animation: particle-float linear infinite;
+    }
+
+    @keyframes particle-float {
+      0% {
+        opacity: 0;
+        transform: translateY(100vh) scale(0);
+      }
+      10% { opacity: 0.6; transform: scale(1); }
+      90% { opacity: 0.3; }
+      100% {
+        opacity: 0;
+        transform: translateY(-10vh) scale(0.5);
+      }
     }
 
     .hero-content {
@@ -482,1026 +373,887 @@
       z-index: 3;
       text-align: center;
       max-width: 900px;
-      padding: 0 24px;
+      padding: 0 2rem;
     }
 
     .hero-arabic {
-      font-family: 'Amiri', serif;
-      font-size: clamp(1.5rem, 4vw, 2.8rem);
-      color: rgba(193, 127, 78, 0.2);
+      font-family: var(--font-arabic);
+      font-size: clamp(1.5rem, 3vw, 2.2rem);
+      color: var(--copper);
+      opacity: 0.7;
       margin-bottom: 1.5rem;
-      direction: rtl;
-      animation: arabicReveal 2s ease forwards;
+      letter-spacing: 0.05em;
     }
 
-    .hero-content h1 {
-      font-size: clamp(2.4rem, 6.5vw, 5rem);
-      font-weight: 700;
-      color: var(--text-primary);
+    .hero h1 {
       margin-bottom: 1.5rem;
-      line-height: 1.05;
+      text-shadow: 0 2px 40px rgba(0, 0, 0, 0.5);
+    }
+
+    .hero h1 .accent {
+      color: var(--copper-light);
+      font-style: italic;
     }
 
     .hero-sub {
-      font-size: clamp(0.95rem, 1.5vw, 1.1rem);
-      color: rgba(242, 237, 228, 0.55);
-      max-width: 680px;
+      font-family: var(--font-sans);
+      font-size: clamp(0.95rem, 1.5vw, 1.15rem);
+      color: var(--text-secondary);
+      max-width: 640px;
       margin: 0 auto 2.5rem;
-      line-height: 1.75;
+      line-height: 1.7;
+      font-weight: 300;
     }
 
-    .hero-trust {
+    .hero-tags {
       display: flex;
       flex-wrap: wrap;
+      gap: 0.75rem;
       justify-content: center;
-      gap: 10px;
     }
 
-    .scroll-indicator {
+    .hero-tag {
+      font-family: var(--font-sans);
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--copper-light);
+      border: 1px solid rgba(193, 127, 78, 0.25);
+      padding: 0.5rem 1.2rem;
+      border-radius: 2px;
+      transition: all 0.3s ease;
+    }
+
+    .hero-tag:hover {
+      background: rgba(193, 127, 78, 0.08);
+      border-color: rgba(193, 127, 78, 0.4);
+    }
+
+    .hero-scroll {
       position: absolute;
-      bottom: 40px;
+      bottom: 2rem;
       left: 50%;
       transform: translateX(-50%);
       z-index: 3;
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 12px;
-    }
-
-    .scroll-indicator span {
+      gap: 0.5rem;
+      color: var(--text-tertiary);
       font-size: 0.65rem;
-      letter-spacing: 0.25em;
+      letter-spacing: 0.2em;
       text-transform: uppercase;
-      color: var(--text-tertiary);
+      animation: hero-scroll-pulse 2s ease-in-out infinite;
     }
 
-    .scroll-line {
+    .hero-scroll-line {
       width: 1px;
-      height: 40px;
+      height: 30px;
       background: linear-gradient(180deg, var(--copper), transparent);
-      animation: lineDrawH 2s ease infinite;
+    }
+
+    @keyframes hero-scroll-pulse {
+      0%, 100% { opacity: 0.4; }
+      50% { opacity: 0.8; }
     }
 
     /* ═══════════════════════════════════════════
-       THE CHAIN
+       SECTION 2: THE PROBLEM
        ═══════════════════════════════════════════ */
-    #chain {
-      background: var(--background);
-    }
-
-    .chain-steps {
-      margin-top: 3rem;
-    }
-
-    .chain-step {
-      border-bottom: 1px solid var(--border-light);
-      cursor: pointer;
-      transition: background 0.3s;
-    }
-
-    .chain-step:hover {
-      background: var(--surface-raised);
-    }
-
-    .chain-step-header {
-      display: flex;
-      align-items: flex-start;
-      gap: 2rem;
-      padding: 2rem 0;
-    }
-
-    .chain-step-number {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 3rem;
-      font-weight: 700;
-      color: var(--copper-dark);
-      line-height: 1;
-      flex-shrink: 0;
-      min-width: 70px;
-    }
-
-    .chain-step-info {
-      flex: 1;
-    }
-
-    .chain-step-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.6rem;
-      font-weight: 600;
-      color: var(--text-primary);
-      margin-bottom: 0.25rem;
-    }
-
-    .chain-step-location {
-      font-size: 0.75rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--sage);
-      margin-bottom: 0.75rem;
-    }
-
-    .chain-step-desc {
-      color: var(--text-secondary);
-      font-size: 0.95rem;
-      line-height: 1.6;
-      max-width: 600px;
-    }
-
-    .chain-step-toggle {
-      font-size: 1.4rem;
-      color: var(--copper);
-      flex-shrink: 0;
-      padding-top: 0.5rem;
-      transition: transform 0.3s;
-      align-self: center;
-    }
-
-    .chain-step.expanded .chain-step-toggle {
-      transform: rotate(45deg);
-    }
-
-    .chain-step-expand {
-      max-height: 0;
+    .problem-section {
+      background: var(--surface-sunken);
+      position: relative;
       overflow: hidden;
-      transition: max-height 0.5s ease, padding 0.5s ease;
     }
 
-    .chain-step.expanded .chain-step-expand {
-      max-height: 500px;
+    .problem-section .arabic-watermark {
+      position: absolute;
+      top: 50%;
+      right: -5%;
+      transform: translateY(-50%);
+      font-family: var(--font-arabic);
+      font-size: clamp(8rem, 20vw, 16rem);
+      color: rgba(193, 127, 78, 0.03);
+      pointer-events: none;
+      user-select: none;
+      line-height: 1;
     }
 
-    .chain-step-expand-inner {
-      padding: 0 0 2rem 90px;
-      display: flex;
-      gap: 2rem;
-      align-items: flex-start;
-    }
-
-    .chain-step-image {
-      width: 260px;
-      height: 170px;
-      border-radius: 4px;
-      object-fit: cover;
-      border: 1px solid var(--border-light);
-      flex-shrink: 0;
-    }
-
-    .chain-step-meta {
-      flex: 1;
-    }
-
-    .chain-step-ref {
-      font-size: 0.75rem;
-      letter-spacing: 0.08em;
-      color: var(--text-tertiary);
-      text-transform: uppercase;
-      margin-bottom: 1rem;
-      padding: 0.75rem 1rem;
-      background: var(--surface-sunken);
-      border-left: 2px solid var(--copper-dark);
-    }
-
-    .chain-step-verify {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      font-size: 0.75rem;
-      color: var(--clinical-light);
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-
-    .chain-step-verify .dot {
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: var(--clinical-light);
-    }
-
-    .chain-quote {
-      margin-top: 3rem;
-      text-align: center;
-      font-family: 'Cormorant Garamond', serif;
-      font-style: italic;
-      font-size: 1.3rem;
-      color: var(--copper);
-      padding: 2rem 0;
-    }
-
-    /* ═══════════════════════════════════════════
-       PHARMACOPEIA
-       ═══════════════════════════════════════════ */
-    #pharmacopeia {
-      background: var(--surface-sunken);
-    }
-
-    .monographs {
+    .problem-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 2rem;
-      margin-top: 3rem;
+      gap: 4rem;
+      align-items: center;
     }
 
-    .monograph {
+    .problem-stat-row {
+      display: flex;
+      gap: 2.5rem;
+      margin-top: 2rem;
+    }
+
+    .problem-stat {
+      text-align: left;
+    }
+
+    .problem-stat-value {
+      font-family: var(--font-serif);
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--copper);
+      line-height: 1;
+    }
+
+    .problem-stat-label {
+      font-family: var(--font-sans);
+      font-size: 0.75rem;
+      color: var(--text-secondary);
+      margin-top: 0.4rem;
+      letter-spacing: 0.05em;
+    }
+
+    .problem-quote {
+      font-family: var(--font-serif);
+      font-size: clamp(1.1rem, 2vw, 1.4rem);
+      font-style: italic;
+      color: var(--foreground);
+      border-left: 2px solid var(--copper);
+      padding-left: 1.5rem;
+      margin-top: 2rem;
+      line-height: 1.6;
+    }
+
+    .problem-text {
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+      line-height: 1.75;
+      font-weight: 300;
+    }
+
+    /* ═══════════════════════════════════════════
+       SECTION 3: THE PRODUCTS
+       ═══════════════════════════════════════════ */
+    .products-section {
+      position: relative;
+    }
+
+    .products-disclaimer {
+      background: rgba(193, 127, 78, 0.06);
+      border: 1px solid rgba(193, 127, 78, 0.15);
+      border-radius: 3px;
+      padding: 1rem 1.5rem;
+      margin-bottom: 3rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+    }
+
+    .products-disclaimer-icon {
+      color: var(--copper);
+      font-size: 1rem;
+      flex-shrink: 0;
+      margin-top: 0.1rem;
+    }
+
+    .products-disclaimer-text {
+      font-size: 0.82rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    .products-disclaimer-text strong {
+      color: var(--copper-light);
+      font-weight: 500;
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2.5rem;
+    }
+
+    .product-card {
       background: var(--surface-card);
-      border: 1px solid var(--border-light);
+      border: 1px solid rgba(242, 237, 228, 0.04);
       border-radius: 4px;
       overflow: hidden;
-      transition: border-color 0.3s;
+      transition: all 0.4s ease;
     }
 
-    .monograph:hover {
-      border-color: var(--border-copper-strong);
+    .product-card:hover {
+      border-color: rgba(193, 127, 78, 0.15);
+      transform: translateY(-4px);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
     }
 
-    .monograph-image {
-      width: 100%;
+    .product-image-wrap {
+      position: relative;
       height: 280px;
-      object-fit: cover;
+      overflow: hidden;
     }
 
-    .monograph-body {
+    .product-image-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: brightness(0.7) saturate(0.8);
+      transition: all 0.5s ease;
+    }
+
+    .product-card:hover .product-image-wrap img {
+      filter: brightness(0.8) saturate(0.9);
+      transform: scale(1.04);
+    }
+
+    .product-category-tag {
+      position: absolute;
+      top: 1rem;
+      left: 1rem;
+      font-family: var(--font-sans);
+      font-size: 0.6rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--copper-light);
+      background: rgba(11, 13, 12, 0.8);
+      backdrop-filter: blur(10px);
+      padding: 0.4rem 0.8rem;
+      border: 1px solid rgba(193, 127, 78, 0.2);
+      border-radius: 2px;
+    }
+
+    .product-body {
       padding: 2rem;
     }
 
-    .monograph-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
+    .product-body h3 {
+      margin-bottom: 0.6rem;
+    }
+
+    .product-purpose {
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+      line-height: 1.6;
       margin-bottom: 1rem;
+      font-weight: 300;
     }
 
-    .monograph-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.5rem;
-      font-weight: 600;
-      color: var(--text-primary);
+    .product-approach {
+      font-size: 0.82rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+      margin-bottom: 1.2rem;
+      font-weight: 300;
     }
 
-    .monograph-arabic {
-      font-family: 'Amiri', serif;
+    .product-approach-label {
+      color: var(--sage);
+      font-weight: 500;
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 0.3rem;
+    }
+
+    .product-status {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: var(--font-sans);
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--copper);
+      background: rgba(193, 127, 78, 0.06);
+      border: 1px solid rgba(193, 127, 78, 0.15);
+      padding: 0.4rem 0.9rem;
+      border-radius: 2px;
+    }
+
+    .product-status-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--copper);
+      animation: status-pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes status-pulse {
+      0%, 100% { opacity: 0.4; }
+      50% { opacity: 1; }
+    }
+
+    /* ═══════════════════════════════════════════
+       SECTION 4: THE APPROACH
+       ═══════════════════════════════════════════ */
+    .approach-section {
+      background: var(--surface-sunken);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .approach-section::before {
+      content: '';
+      position: absolute;
+      top: -200px;
+      right: -200px;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(193, 127, 78, 0.04), transparent 70%);
+      pointer-events: none;
+    }
+
+    .approach-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .approach-pillar {
+      background: var(--surface-card);
+      border: 1px solid rgba(242, 237, 228, 0.04);
+      border-radius: 4px;
+      padding: 2.5rem 2rem;
+      transition: all 0.4s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .approach-pillar::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--copper), transparent);
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+
+    .approach-pillar:hover {
+      border-color: rgba(193, 127, 78, 0.12);
+      transform: translateY(-3px);
+    }
+
+    .approach-pillar:hover::before {
+      opacity: 1;
+    }
+
+    .pillar-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: rgba(193, 127, 78, 0.08);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.5rem;
       font-size: 1rem;
-      color: var(--copper-dark);
-      direction: rtl;
     }
 
-    .monograph-class {
+    .approach-pillar h3 {
+      margin-bottom: 0.75rem;
+      font-size: 1.15rem;
+    }
+
+    .pillar-text {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      line-height: 1.7;
+      font-weight: 300;
+    }
+
+    .pillar-text .honest-label {
+      display: inline-block;
+      font-size: 0.65rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.2rem 0.5rem;
+      border-radius: 2px;
+      margin-top: 0.8rem;
+      font-weight: 500;
+    }
+
+    .label-planned {
+      color: var(--copper);
+      background: rgba(193, 127, 78, 0.08);
+      border: 1px solid rgba(193, 127, 78, 0.15);
+    }
+
+    .label-current {
+      color: var(--sage);
+      background: rgba(123, 143, 107, 0.08);
+      border: 1px solid rgba(123, 143, 107, 0.15);
+    }
+
+    /* ═══════════════════════════════════════════
+       SECTION 5: THE HERITAGE
+       ═══════════════════════════════════════════ */
+    .heritage-section {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .heritage-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .heritage-image-wrap {
+      position: relative;
+      border-radius: 4px;
+      overflow: hidden;
+    }
+
+    .heritage-image-wrap img {
+      width: 100%;
+      height: 500px;
+      object-fit: cover;
+      filter: brightness(0.75) saturate(0.85);
+      transition: all 0.5s ease;
+    }
+
+    .heritage-image-wrap:hover img {
+      filter: brightness(0.85) saturate(0.9);
+    }
+
+    .heritage-image-arabic {
+      position: absolute;
+      bottom: 1.5rem;
+      left: 1.5rem;
+      font-family: var(--font-arabic);
+      font-size: clamp(2rem, 4vw, 3rem);
+      color: rgba(193, 127, 78, 0.5);
+      text-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);
+    }
+
+    .heritage-content .section-label {
+      margin-bottom: 0.75rem;
+    }
+
+    .heritage-quote {
+      font-family: var(--font-serif);
+      font-size: clamp(1.05rem, 1.8vw, 1.25rem);
+      font-style: italic;
+      color: var(--foreground);
+      border-left: 2px solid var(--copper);
+      padding-left: 1.5rem;
+      margin: 2rem 0;
+      line-height: 1.65;
+    }
+
+    .heritage-data-row {
+      display: flex;
+      gap: 2.5rem;
+      margin-top: 2rem;
+    }
+
+    .heritage-datum {
+      text-align: left;
+    }
+
+    .heritage-datum-value {
+      font-family: var(--font-serif);
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--copper-light);
+    }
+
+    .heritage-datum-label {
       font-size: 0.7rem;
       letter-spacing: 0.1em;
       text-transform: uppercase;
       color: var(--text-tertiary);
-      margin-bottom: 0.25rem;
+      margin-top: 0.25rem;
     }
 
-    .monograph-format {
+    /* ═══════════════════════════════════════════
+       SECTION 6: THE AMBITION (TIMELINE)
+       ═══════════════════════════════════════════ */
+    .ambition-section {
+      background: var(--surface-sunken);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .timeline {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 2rem;
+      margin-top: 3rem;
+      position: relative;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      top: 3.5rem;
+      left: 16.67%;
+      right: 16.67%;
+      height: 1px;
+      background: linear-gradient(90deg, var(--copper), var(--sage), var(--clinical));
+      opacity: 0.3;
+    }
+
+    .timeline-stage {
+      position: relative;
+      text-align: center;
+    }
+
+    .timeline-marker {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      margin: 0 auto 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-serif);
       font-size: 0.75rem;
-      color: var(--text-secondary);
-      margin-bottom: 1rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      position: relative;
+      z-index: 1;
     }
 
-    .monograph-desc {
-      color: var(--text-secondary);
-      font-size: 0.9rem;
-      line-height: 1.65;
-      margin-bottom: 1.5rem;
+    .timeline-marker.now {
+      background: var(--background);
+      border: 2px solid var(--copper);
+      color: var(--copper);
+      box-shadow: 0 0 20px rgba(193, 127, 78, 0.2);
     }
 
-    .monograph-ingredients {
-      margin-bottom: 1.5rem;
+    .timeline-marker.next {
+      background: var(--background);
+      border: 2px solid var(--sage);
+      color: var(--sage);
     }
 
-    .monograph-ingredients-label {
+    .timeline-marker.future {
+      background: var(--background);
+      border: 2px solid var(--clinical);
+      color: var(--clinical);
+    }
+
+    .timeline-stage-label {
+      font-family: var(--font-sans);
       font-size: 0.65rem;
-      letter-spacing: 0.15em;
+      letter-spacing: 0.2em;
       text-transform: uppercase;
-      color: var(--text-tertiary);
       margin-bottom: 0.5rem;
     }
 
-    .monograph-ingredients-list {
+    .timeline-stage.now .timeline-stage-label { color: var(--copper); }
+    .timeline-stage.next .timeline-stage-label { color: var(--sage); }
+    .timeline-stage.future .timeline-stage-label { color: var(--clinical); }
+
+    .timeline-stage h3 {
+      font-size: 1.1rem;
+      margin-bottom: 1rem;
+    }
+
+    .timeline-items {
       list-style: none;
+      text-align: left;
       padding: 0;
     }
 
-    .monograph-ingredients-list li {
-      font-size: 0.85rem;
+    .timeline-items li {
+      font-size: 0.82rem;
       color: var(--text-secondary);
-      padding: 0.3rem 0;
-      border-bottom: 1px solid var(--border-subtle);
-      display: flex;
-      align-items: center;
-      gap: 8px;
+      line-height: 1.6;
+      padding: 0.4rem 0;
+      padding-left: 1rem;
+      position: relative;
+      font-weight: 300;
     }
 
-    .monograph-ingredients-list li::before {
-      content: '·';
-      color: var(--copper-dark);
-      font-weight: 700;
+    .timeline-items li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0.85rem;
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
     }
 
-    .monograph-batch {
-      display: flex;
-      gap: 1.5rem;
-      margin-bottom: 1.5rem;
-      padding: 0.75rem;
-      background: var(--surface-sunken);
-      border-radius: 2px;
-    }
-
-    .monograph-batch-item {
-      flex: 1;
-    }
-
-    .monograph-batch-label {
-      font-size: 0.6rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--text-tertiary);
-      margin-bottom: 0.15rem;
-    }
-
-    .monograph-batch-value {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 0.8rem;
-      color: var(--copper);
-      letter-spacing: 0.04em;
-    }
-
-    .monograph-trust {
-      display: flex;
-      gap: 8px;
-    }
+    .timeline-stage.now .timeline-items li::before { background: var(--copper); }
+    .timeline-stage.next .timeline-items li::before { background: var(--sage); }
+    .timeline-stage.future .timeline-items li::before { background: var(--clinical); }
 
     /* ═══════════════════════════════════════════
-       EVIDENCE ROOM
+       SECTION 7: CONTACT
        ═══════════════════════════════════════════ */
-    #evidence {
-      background: var(--background);
+    .contact-section {
+      position: relative;
+      overflow: hidden;
+      text-align: center;
     }
 
-    .cert-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-      gap: 1.5rem;
-      margin-top: 3rem;
+    .contact-section::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at center, rgba(193, 127, 78, 0.03), transparent 70%);
+      pointer-events: none;
     }
 
-    .cert-card {
-      background: var(--surface-card);
-      border: 1px solid var(--border-light);
-      border-radius: 4px;
-      padding: 2rem;
-      transition: all 0.3s;
+    .contact-email {
+      font-family: var(--font-serif);
+      font-size: clamp(1.1rem, 2vw, 1.4rem);
+      color: var(--copper-light);
+      margin: 1.5rem 0 2.5rem;
+      letter-spacing: 0.02em;
     }
 
-    .cert-card:hover {
-      border-color: var(--border-copper-strong);
-      transform: translateY(-2px);
+    .contact-email a {
+      color: var(--copper-light);
+      border-bottom: 1px solid rgba(193, 127, 78, 0.3);
+      transition: all 0.3s ease;
     }
 
-    .cert-card-top {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 1.25rem;
+    .contact-email a:hover {
+      border-bottom-color: var(--copper);
     }
 
-    .cert-type {
-      padding: 4px 12px;
-      border: 1px solid var(--border-copper);
-      border-radius: 2px;
-      font-size: 0.65rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--copper);
-    }
-
-    .cert-status {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      font-size: 0.65rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-    }
-
-    .cert-status .dot {
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: var(--clinical-light);
-    }
-
-    .cert-status.ongoing .dot {
-      background: var(--copper);
-    }
-
-    .cert-status.ongoing {
-      color: var(--copper);
-    }
-
-    .cert-status:not(.ongoing) {
-      color: var(--clinical-light);
-    }
-
-    .cert-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.2rem;
-      font-weight: 600;
-      color: var(--text-primary);
-      margin-bottom: 0.5rem;
-    }
-
-    .cert-issuer {
-      font-size: 0.8rem;
-      color: var(--text-secondary);
-      margin-bottom: 1rem;
-    }
-
-    .cert-registry {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 0.75rem;
-      letter-spacing: 0.08em;
-      color: var(--text-tertiary);
-      text-transform: uppercase;
-      margin-bottom: 1.25rem;
-      padding: 0.5rem 0.75rem;
-      background: var(--surface-sunken);
-      border-radius: 2px;
-    }
-
-    .cert-verify {
-      font-size: 0.75rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--copper);
+    .cta-button {
       display: inline-flex;
       align-items: center;
-      gap: 6px;
-      cursor: pointer;
-      transition: color 0.3s;
-    }
-
-    .cert-verify:hover {
-      color: var(--copper-light);
-    }
-
-    /* ═══════════════════════════════════════════
-       ALLIANCE
-       ═══════════════════════════════════════════ */
-    #alliance {
-      background: var(--surface-sunken);
-    }
-
-    .alliance-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 4rem;
-      align-items: center;
-      margin-top: 3rem;
-    }
-
-    .alliance-image-wrap {
-      position: relative;
-    }
-
-    .alliance-image {
-      width: 100%;
-      height: 450px;
-      object-fit: cover;
-      border-radius: 4px;
-      border: 1px solid var(--border-light);
-    }
-
-    .alliance-float-card {
-      position: absolute;
-      bottom: -20px;
-      right: -20px;
-      background: var(--surface-card);
-      border: 1px solid var(--border-copper);
-      padding: 1.25rem 1.5rem;
-      border-radius: 4px;
-      max-width: 260px;
-    }
-
-    .alliance-float-card .label {
-      font-size: 0.6rem;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--text-tertiary);
-      margin-bottom: 0.25rem;
-    }
-
-    .alliance-float-card .value {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 0.85rem;
-      color: var(--copper);
-      letter-spacing: 0.04em;
-    }
-
-    .alliance-metrics {
-      display: flex;
-      gap: 2rem;
-      margin: 2rem 0;
-    }
-
-    .alliance-metric {
-      flex: 1;
-      padding: 1.25rem;
-      background: var(--surface-card);
-      border-radius: 4px;
-    }
-
-    .alliance-metric.teal {
-      border-left: 3px solid var(--clinical-light);
-    }
-
-    .alliance-metric.copper {
-      border-left: 3px solid var(--copper);
-    }
-
-    .alliance-metric .label {
-      font-size: 0.65rem;
+      gap: 0.75rem;
+      font-family: var(--font-sans);
+      font-size: 0.8rem;
       letter-spacing: 0.12em;
       text-transform: uppercase;
-      color: var(--text-tertiary);
-      margin-bottom: 0.35rem;
-    }
-
-    .alliance-metric .value {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.2rem;
-      font-weight: 600;
-      color: var(--text-primary);
-    }
-
-    /* ═══════════════════════════════════════════
-       ORIGIN
-       ═══════════════════════════════════════════ */
-    #origin {
-      background: var(--background);
-    }
-
-    .origin-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 4rem;
-      align-items: center;
-      margin-top: 3rem;
-    }
-
-    .origin-portrait-wrap {
-      position: relative;
-    }
-
-    .origin-portrait {
-      width: 100%;
-      height: 550px;
-      object-fit: cover;
-      border-radius: 4px;
-      border: 1px solid var(--border-light);
-    }
-
-    .origin-arabic-overlay {
-      position: absolute;
-      bottom: 20px;
-      right: 20px;
-      font-family: 'Amiri', serif;
-      font-size: 2rem;
-      color: rgba(193, 127, 78, 0.3);
-      direction: rtl;
-    }
-
-    .origin-data-row {
-      display: flex;
-      gap: 2.5rem;
-      margin-top: 2.5rem;
-      padding-top: 2rem;
-      border-top: 1px solid var(--border-light);
-    }
-
-    .origin-data-item .data-label {
-      margin-bottom: 0.3rem;
-    }
-
-    /* ═══════════════════════════════════════════
-       PORTAL
-       ═══════════════════════════════════════════ */
-    #portal {
-      background: var(--surface-sunken);
-    }
-
-    .resource-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 1.5rem;
-      margin-top: 3rem;
-    }
-
-    .resource-card {
-      background: var(--surface-card);
-      border: 1px solid var(--border-light);
-      border-radius: 4px;
-      padding: 2rem;
-      text-align: center;
-      transition: all 0.3s;
+      color: var(--background);
+      background: var(--copper);
+      padding: 1rem 2.5rem;
+      border: none;
+      border-radius: 2px;
       cursor: pointer;
+      transition: all 0.3s ease;
+      font-weight: 500;
     }
 
-    .resource-card:hover {
-      border-color: var(--border-copper-strong);
-      transform: translateY(-3px);
+    .cta-button:hover {
+      background: var(--copper-light);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 30px rgba(193, 127, 78, 0.25);
     }
 
-    .resource-card-icon {
-      font-size: 2rem;
-      margin-bottom: 1rem;
-      color: var(--copper);
-    }
-
-    .resource-card-type {
-      font-size: 0.6rem;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--text-tertiary);
-      margin-bottom: 0.5rem;
-    }
-
-    .resource-card-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.2rem;
-      font-weight: 600;
-      color: var(--text-primary);
-      margin-bottom: 1rem;
-    }
-
-    .resource-card-arrow {
-      color: var(--copper);
-      font-size: 1.2rem;
-      transition: transform 0.3s;
-    }
-
-    .resource-card:hover .resource-card-arrow {
-      transform: translateX(4px);
-    }
-
-    .portal-contact {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-top: 3rem;
-      padding: 2rem;
-      background: var(--surface-card);
-      border: 1px solid var(--border-light);
-      border-radius: 4px;
-    }
-
-    .portal-contact-email {
-      font-size: 0.9rem;
-      color: var(--text-secondary);
-      letter-spacing: 0.02em;
+    .cta-button svg {
+      width: 16px;
+      height: 16px;
     }
 
     /* ═══════════════════════════════════════════
        FOOTER
        ═══════════════════════════════════════════ */
     .footer {
-      border-top: 2px solid;
-      border-image: linear-gradient(90deg, transparent, var(--copper), transparent) 1;
+      background: var(--surface-sunken);
+      border-top: 1px solid rgba(242, 237, 228, 0.04);
+      padding: 4rem 2rem 2rem;
     }
 
-    .footer-trust {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 1.5rem;
-      padding: 2rem 24px;
-      border-bottom: 1px solid var(--border-light);
+    .footer-inner {
       max-width: 1200px;
       margin: 0 auto;
-    }
-
-    .footer-trust-item {
-      font-size: 0.7rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--text-tertiary);
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-
-    .footer-trust-item .dot {
-      width: 4px;
-      height: 4px;
-      border-radius: 50%;
-      background: var(--copper-dark);
-    }
-
-    .footer-main {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 3rem 24px;
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 2fr 1fr;
       gap: 4rem;
     }
 
-    .footer-brand {
-      max-width: 400px;
-    }
-
-    .footer-brand-logo {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      margin-bottom: 1rem;
-    }
-
-    .footer-brand-logo img {
-      width: 28px;
-      height: 28px;
-    }
-
-    .footer-brand-logo span {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.1rem;
-      font-weight: 600;
-    }
-
-    .footer-brand-desc {
+    .footer-brand p {
       font-size: 0.85rem;
       color: var(--text-secondary);
-      line-height: 1.6;
-      margin-bottom: 1rem;
+      line-height: 1.7;
+      max-width: 400px;
+      font-weight: 300;
     }
 
-    .footer-brand-arabic {
-      font-family: 'Amiri', serif;
-      font-size: 1.3rem;
-      color: rgba(193, 127, 78, 0.2);
-      direction: rtl;
+    .footer-brand .arabic-footer {
+      font-family: var(--font-arabic);
+      font-size: 1.1rem;
+      color: var(--copper);
+      opacity: 0.4;
+      margin-top: 1rem;
     }
 
-    .footer-links {
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      gap: 2rem;
-    }
-
-    .footer-links-col h4 {
-      font-family: 'DM Sans', sans-serif;
+    .footer-nav h4 {
+      font-family: var(--font-sans);
       font-size: 0.7rem;
       letter-spacing: 0.15em;
       text-transform: uppercase;
       color: var(--text-tertiary);
-      font-weight: 500;
       margin-bottom: 1rem;
     }
 
-    .footer-links-col a {
-      display: block;
+    .footer-nav ul {
+      list-style: none;
+    }
+
+    .footer-nav ul li {
+      margin-bottom: 0.5rem;
+    }
+
+    .footer-nav ul a {
       font-size: 0.85rem;
       color: var(--text-secondary);
-      margin-bottom: 0.5rem;
-      transition: color 0.3s;
+      transition: color 0.3s ease;
     }
 
-    .footer-links-col a:hover {
-      color: var(--copper);
-    }
-
-    .footer-regulatory {
-      font-size: 0.7rem;
-      color: var(--text-tertiary);
-      line-height: 1.7;
-      letter-spacing: 0.02em;
+    .footer-nav ul a:hover {
+      color: var(--copper-light);
     }
 
     .footer-bottom {
       max-width: 1200px;
-      margin: 0 auto;
-      padding: 1.5rem 24px;
-      border-top: 1px solid var(--border-subtle);
-      text-align: center;
-      font-size: 0.7rem;
-      color: var(--text-ghost);
-      letter-spacing: 0.08em;
+      margin: 3rem auto 0;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(242, 237, 228, 0.04);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer-bottom p {
+      font-size: 0.72rem;
+      color: var(--text-tertiary);
+      letter-spacing: 0.04em;
     }
 
     /* ═══════════════════════════════════════════
-       ANIMATIONS
-       ═══════════════════════════════════════════ */
-    @keyframes revealUp {
-      from { opacity: 0; transform: translateY(40px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    @keyframes revealFade {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-
-    @keyframes revealScale {
-      from { opacity: 0; transform: scale(0.95); }
-      to { opacity: 1; transform: scale(1); }
-    }
-
-    @keyframes lineDrawH {
-      0% { opacity: 0; transform: scaleY(0); transform-origin: top; }
-      50% { opacity: 1; transform: scaleY(1); transform-origin: top; }
-      100% { opacity: 0; transform: scaleY(0); transform-origin: bottom; }
-    }
-
-    @keyframes copperPulse {
-      0%, 100% { opacity: 0.5; }
-      50% { opacity: 1; }
-    }
-
-    @keyframes particleDrift {
-      0% {
-        opacity: 0;
-        transform: translate(0, 0) scale(0.5);
-      }
-      15% {
-        opacity: 0.6;
-        transform: scale(1);
-      }
-      85% {
-        opacity: 0.4;
-      }
-      100% {
-        opacity: 0;
-        transform: translate(var(--drift-x, 40px), var(--drift-y, -200px)) scale(0.3);
-      }
-    }
-
-    @keyframes heroZoom {
-      from { transform: scale(1); }
-      to { transform: scale(1.08); }
-    }
-
-    @keyframes arabicReveal {
-      0% { opacity: 0; transform: translateY(20px); }
-      100% { opacity: 1; transform: translateY(0); }
-    }
-
-    /* ═══════════════════════════════════════════
-       REVEAL SYSTEM
+       SCROLL REVEAL ANIMATION
        ═══════════════════════════════════════════ */
     .reveal {
       opacity: 0;
-      transform: translateY(40px);
-      transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-
-    .reveal.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .reveal-fade {
-      opacity: 0;
-      transition: opacity 0.8s ease;
-    }
-
-    .reveal-fade.visible {
-      opacity: 1;
-    }
-
-    .reveal-scale {
-      opacity: 0;
-      transform: scale(0.95);
-      transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-
-    .reveal-scale.visible {
-      opacity: 1;
-      transform: scale(1);
-    }
-
-    .stagger {
-      opacity: 0;
       transform: translateY(30px);
-      transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+      transition: opacity 0.8s ease, transform 0.8s ease;
     }
 
-    .stagger.visible {
+    .reveal.revealed {
       opacity: 1;
       transform: translateY(0);
     }
+
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+    .reveal-delay-4 { transition-delay: 0.4s; }
 
     /* ═══════════════════════════════════════════
        RESPONSIVE
        ═══════════════════════════════════════════ */
     @media (max-width: 1024px) {
-      .alliance-grid, .origin-grid {
+      .section { padding: 4.5rem 1.5rem; }
+
+      .problem-grid,
+      .heritage-grid {
         grid-template-columns: 1fr;
         gap: 2.5rem;
       }
 
-      .resource-grid {
-        grid-template-columns: 1fr 1fr;
-      }
-
-      .cert-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    @media (max-width: 768px) {
-      .nav-links, .nav-trust {
-        display: none;
-      }
-
-      .hamburger {
-        display: flex;
-      }
-
-      .section-wrap {
-        padding: 80px 20px;
-      }
-
-      .hero-content h1 {
-        font-size: clamp(2rem, 8vw, 3.5rem);
-      }
-
-      .monographs {
-        grid-template-columns: 1fr;
-      }
-
-      .chain-step-header {
-        gap: 1rem;
-      }
-
-      .chain-step-number {
-        font-size: 2rem;
-        min-width: 45px;
-      }
-
-      .chain-step-expand-inner {
-        padding-left: 0;
-        flex-direction: column;
-      }
-
-      .chain-step-image {
-        width: 100%;
-      }
-
-      .resource-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .alliance-float-card {
-        position: relative;
-        bottom: auto;
-        right: auto;
-        margin-top: 1rem;
-        max-width: 100%;
-      }
-
-      .alliance-image {
-        height: 300px;
-      }
-
-      .origin-portrait {
-        height: 380px;
-      }
-
-      .origin-data-row {
-        flex-direction: column;
-        gap: 1rem;
-      }
-
-      .portal-contact {
-        flex-direction: column;
-        gap: 1rem;
-        text-align: center;
-      }
-
-      .footer-main {
+      .product-grid {
         grid-template-columns: 1fr;
         gap: 2rem;
       }
 
-      .footer-links {
+      .approach-grid {
         grid-template-columns: 1fr;
         gap: 1.5rem;
       }
 
-      .alliance-metrics {
-        flex-direction: column;
+      .timeline {
+        grid-template-columns: 1fr;
+        gap: 3rem;
       }
 
-      .hero-trust {
-        gap: 6px;
+      .timeline::before {
+        top: 0;
+        bottom: 0;
+        left: 28px;
+        right: auto;
+        width: 1px;
+        height: auto;
+        background: linear-gradient(180deg, var(--copper), var(--sage), var(--clinical));
       }
 
-      .trust-badge {
+      .timeline-stage {
+        text-align: left;
+        padding-left: 4.5rem;
+      }
+
+      .timeline-marker {
+        position: absolute;
+        left: 0;
+        top: 0;
+        margin: 0;
+      }
+
+      .footer-inner {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .nav-mobile-toggle { display: flex; }
+
+      .hero h1 { font-size: clamp(1.8rem, 6vw, 2.8rem); }
+
+      .hero-tags {
+        gap: 0.5rem;
+      }
+
+      .hero-tag {
         font-size: 0.6rem;
-        padding: 4px 10px;
+        padding: 0.4rem 0.8rem;
       }
+
+      .problem-stat-row {
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      .heritage-image-wrap img {
+        height: 350px;
+      }
+
+      .heritage-data-row {
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      .product-image-wrap {
+        height: 220px;
+      }
+
+      .timeline-stage {
+        padding-left: 4rem;
+      }
+
+      .timeline-marker {
+        width: 44px;
+        height: 44px;
+        font-size: 0.65rem;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+        gap: 0.5rem;
+        text-align: center;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .section { padding: 3rem 1rem; }
+
+      .hero-content { padding: 0 1rem; }
+      .hero-sub { font-size: 0.9rem; }
     }
   </style>
 </head>
@@ -1511,475 +1263,96 @@
        NAVIGATION
        ═══════════════════════════════════════════ -->
   <nav class="nav" id="nav">
-    <div class="nav-brand">
-      <img src="img/logo.png" alt="Leaf & Legend">
-      <span>Leaf & Legend</span>
+    <div class="nav-logo">
+      <img src="img/logo.png" alt="Leaf &amp; Legend" />
+      <span class="nav-logo-text">Leaf &amp; Legend</span>
     </div>
-
     <ul class="nav-links">
-      <li><a href="#chain">The Chain</a></li>
-      <li><a href="#pharmacopeia">Pharmacopeia</a></li>
-      <li><a href="#evidence">Evidence</a></li>
-      <li><a href="#alliance">Alliance</a></li>
-      <li><a href="#origin">Origin</a></li>
-      <li><a href="#portal">Portal</a></li>
+      <li><a href="#vision" data-section="vision">Vision</a></li>
+      <li><a href="#problem" data-section="problem">Problem</a></li>
+      <li><a href="#products" data-section="products">Products</a></li>
+      <li><a href="#approach" data-section="approach">Approach</a></li>
+      <li><a href="#heritage" data-section="heritage">Heritage</a></li>
+      <li><a href="#ambition" data-section="ambition">Ambition</a></li>
+      <li><a href="#contact" data-section="contact">Contact</a></li>
     </ul>
-
-    <div class="nav-trust">
-      <span class="pill">Law 13-21</span>
-      <span class="pill">Halal Certified</span>
-      <span class="pill">GMP Aligned</span>
-      <span class="pill"><span class="dot"></span>CHU Validated</span>
-    </div>
-
-    <button class="hamburger" id="hamburger" aria-label="Menu">
+    <button class="nav-mobile-toggle" id="mobileToggle" aria-label="Toggle menu">
       <span></span>
       <span></span>
       <span></span>
     </button>
   </nav>
 
-  <!-- Mobile Menu -->
-  <div class="mobile-menu" id="mobileMenu">
-    <div class="arabic-calligraphy">ورقة وأسطورة</div>
-    <a href="#chain" class="mobile-link">The Chain</a>
-    <a href="#pharmacopeia" class="mobile-link">Pharmacopeia</a>
-    <a href="#evidence" class="mobile-link">Evidence</a>
-    <a href="#alliance" class="mobile-link">Alliance</a>
-    <a href="#origin" class="mobile-link">Origin</a>
-    <a href="#portal" class="mobile-link">Portal</a>
+  <!-- Mobile overlay -->
+  <div class="mobile-overlay" id="mobileOverlay">
+    <a href="#vision" class="mobile-link">Vision</a>
+    <a href="#problem" class="mobile-link">Problem</a>
+    <a href="#products" class="mobile-link">Products</a>
+    <a href="#approach" class="mobile-link">Approach</a>
+    <a href="#heritage" class="mobile-link">Heritage</a>
+    <a href="#ambition" class="mobile-link">Ambition</a>
+    <a href="#contact" class="mobile-link">Contact</a>
+    <span class="arabic-mobile">ورقة وأسطورة</span>
   </div>
 
   <!-- ═══════════════════════════════════════════
-       SECTION 1: THE THRESHOLD (Hero)
+       SECTION 1: THE VISION (HERO)
        ═══════════════════════════════════════════ -->
-  <section id="threshold">
-    <div class="hero-bg" id="heroBg"></div>
-    <div class="hero-overlay"></div>
+  <section class="hero section-full" id="vision">
+    <div class="hero-bg">
+      <img src="img/hero-rif-valley.jpeg" alt="Rif Valley landscape" id="heroBg" />
+    </div>
+    <div class="hero-gradient"></div>
     <div class="hero-particles" id="heroParticles"></div>
     <div class="hero-content">
       <div class="hero-arabic">ورقة وأسطورة</div>
-      <h1>The First Unbroken Chain from Seed to Pharmacy</h1>
-      <p class="hero-sub">Morocco's only licensed cannabis company with sovereign custody from Rif Valley cultivation through halal extraction through GMP-aligned formulation through CHU Marrakech observation. The chain is unbroken.</p>
-      <div class="hero-trust">
-        <span class="trust-badge">Law 13-21</span>
-        <span class="trust-badge">Halal Certified</span>
-        <span class="trust-badge">GMP Aligned</span>
-        <span class="trust-badge"><span class="dot"></span>CHU Marrakech</span>
+      <h1>Morocco's Cannabis Industry<br>Deserves <span class="accent">Better</span> Than Raw Material</h1>
+      <p class="hero-sub">
+        Leaf &amp; Legend is a product-development company &mdash; not a plantation, not a flower brand, not a trading house. We exist to move Morocco's cannabis industry up the value chain, from exporting biomass to creating finished consumer products that solve real problems.
+      </p>
+      <div class="hero-tags">
+        <span class="hero-tag">Product Development</span>
+        <span class="hero-tag">Formulation Focus</span>
+        <span class="hero-tag">Consumer Value</span>
+        <span class="hero-tag">Moroccan Innovation</span>
       </div>
     </div>
-    <div class="scroll-indicator">
-      <span>Scroll to Enter</span>
-      <div class="scroll-line"></div>
-    </div>
-  </section>
-
-  <!-- Arabic Divider -->
-  <div class="arabic-divider reveal-fade">
-    <div class="line"></div>
-    <span class="text">من البذرة إلى الصيدلية</span>
-    <div class="line"></div>
-  </div>
-
-  <!-- ═══════════════════════════════════════════
-       SECTION 2: THE CHAIN
-       ═══════════════════════════════════════════ -->
-  <section id="chain">
-    <div class="section-wrap">
-      <div class="section-label reveal">01 — The Chain</div>
-      <hr class="copper-rule reveal">
-      <h2 class="reveal" style="font-size: clamp(1.8rem, 4vw, 2.8rem); margin-bottom: 1.5rem;">Five Steps. Unbroken Custody. Zero Compromise.</h2>
-      <p class="body-text reveal">Every Leaf &amp; Legend product follows a single custody chain — from licensed cultivation in the Rif Valley to pharmacy dispensation under ANRPT oversight. No gaps. No third-party handoffs. No unverifiable claims. The chain is either unbroken or it does not exist.</p>
-
-      <div class="chain-steps">
-        <!-- Step 1 -->
-        <div class="chain-step reveal" data-step="1">
-          <div class="chain-step-header">
-            <span class="chain-step-number">01</span>
-            <div class="chain-step-info">
-              <div class="chain-step-title">Cultivation</div>
-              <div class="chain-step-location">Rif Valley, Ketama</div>
-              <div class="chain-step-desc">Licensed under Law 13-21. Three generations of Rif Valley stewardship by the El Sghiar family.</div>
-            </div>
-            <span class="chain-step-toggle">+</span>
-          </div>
-          <div class="chain-step-expand">
-            <div class="chain-step-expand-inner">
-              <img src="img/hero-rif-valley.jpeg" alt="Rif Valley cultivation" class="chain-step-image">
-              <div class="chain-step-meta">
-                <div class="chain-step-ref">Ref: Law 13-21, Art. 4 — Autorisation de Culture</div>
-                <div class="chain-step-verify"><span class="dot"></span> Verification: ANRPT Licensed</div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Step 2 -->
-        <div class="chain-step reveal" data-step="2">
-          <div class="chain-step-header">
-            <span class="chain-step-number">02</span>
-            <div class="chain-step-info">
-              <div class="chain-step-title">Extraction</div>
-              <div class="chain-step-location">CO₂ &amp; Solventless</div>
-              <div class="chain-step-desc">Facility-graded extraction producing full-spectrum extract under halal compliance.</div>
-            </div>
-            <span class="chain-step-toggle">+</span>
-          </div>
-          <div class="chain-step-expand">
-            <div class="chain-step-expand-inner">
-              <img src="img/extraction-facility-real.jpeg" alt="Extraction facility" class="chain-step-image">
-              <div class="chain-step-meta">
-                <div class="chain-step-ref">Ref: Extraction Protocol EP-2024 · Halal Compliance Cert.</div>
-                <div class="chain-step-verify"><span class="dot"></span> Verification: Halal Certified</div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Step 3 -->
-        <div class="chain-step reveal" data-step="3">
-          <div class="chain-step-header">
-            <span class="chain-step-number">03</span>
-            <div class="chain-step-info">
-              <div class="chain-step-title">Formulation</div>
-              <div class="chain-step-location">GMP-Aligned Laboratory</div>
-              <div class="chain-step-desc">Bob Calkin, formulation scientist. GMP-aligned laboratory protocols with full quality control.</div>
-            </div>
-            <span class="chain-step-toggle">+</span>
-          </div>
-          <div class="chain-step-expand">
-            <div class="chain-step-expand-inner">
-              <img src="img/research-lab-real.jpeg" alt="Research laboratory" class="chain-step-image">
-              <div class="chain-step-meta">
-                <div class="chain-step-ref">Ref: GMP Compliance Certificate · QC Protocol v3.1</div>
-                <div class="chain-step-verify"><span class="dot"></span> Verification: GMP Aligned</div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Step 4 -->
-        <div class="chain-step reveal" data-step="4">
-          <div class="chain-step-header">
-            <span class="chain-step-number">04</span>
-            <div class="chain-step-info">
-              <div class="chain-step-title">Product</div>
-              <div class="chain-step-location">Pharmacy-Ready Output</div>
-              <div class="chain-step-desc">ANRPT oversight ensures every product is pharmacy-dispensed, not retail-sold.</div>
-            </div>
-            <span class="chain-step-toggle">+</span>
-          </div>
-          <div class="chain-step-expand">
-            <div class="chain-step-expand-inner">
-              <img src="img/pharmacy-interior-real.jpeg" alt="Pharmacy interior" class="chain-step-image">
-              <div class="chain-step-meta">
-                <div class="chain-step-ref">Ref: ANRPT Distribution License · Pharmacy Protocol PP-2024</div>
-                <div class="chain-step-verify"><span class="dot"></span> Verification: ANRPT Licensed</div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Step 5 -->
-        <div class="chain-step reveal" data-step="5">
-          <div class="chain-step-header">
-            <span class="chain-step-number">05</span>
-            <div class="chain-step-info">
-              <div class="chain-step-title">Observation</div>
-              <div class="chain-step-location">CHU Marrakech</div>
-              <div class="chain-step-desc">Clinical observation alliance with CHU Marrakech — hospital-grade validation, not marketing claims.</div>
-            </div>
-            <span class="chain-step-toggle">+</span>
-          </div>
-          <div class="chain-step-expand">
-            <div class="chain-step-expand-inner">
-              <img src="img/trichome-macro-real.jpeg" alt="Trichome macro" class="chain-step-image">
-              <div class="chain-step-meta">
-                <div class="chain-step-ref">Ref: CHU Marrakech Observation Protocol · Ethics Committee Approval</div>
-                <div class="chain-step-verify"><span class="dot"></span> Verification: CHU Ongoing</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="chain-quote reveal">
-        "The chain is either unbroken or it is not. There is no partial custody."
-      </div>
+    <div class="hero-scroll">
+      <span>Scroll</span>
+      <div class="hero-scroll-line"></div>
     </div>
   </section>
 
-  <!-- Arabic Divider -->
-  <div class="arabic-divider reveal-fade">
-    <div class="line"></div>
-    <span class="text">الأدوية لا الكلمات</span>
-    <div class="line"></div>
-  </div>
-
   <!-- ═══════════════════════════════════════════
-       SECTION 3: THE PHARMACOPEIA
+       SECTION 2: THE PROBLEM
        ═══════════════════════════════════════════ -->
-  <section id="pharmacopeia">
-    <div class="section-wrap">
-      <div class="section-label reveal">02 — The Pharmacopeia</div>
-      <hr class="copper-rule reveal">
-      <h2 class="reveal" style="font-size: clamp(1.8rem, 4vw, 2.8rem); margin-bottom: 1.5rem;">Not Products. Formulations.</h2>
-      <p class="body-text reveal">Each formulation is a pharmacy-grade preparation with a full chain of custody, halal certification, and batch-level certificate of analysis. No marketing language. No unsubstantiated claims. Only registry numbers and botanical science.</p>
-
-      <div class="monographs">
-        <!-- Skin Balm -->
-        <div class="monograph reveal-scale">
-          <img src="img/product-skin-balm-real.jpeg" alt="Skin Balm" class="monograph-image">
-          <div class="monograph-body">
-            <div class="monograph-header">
-              <div>
-                <div class="monograph-title">Skin Balm</div>
-                <div class="monograph-arabic">مرهم للبشرة</div>
-              </div>
-            </div>
-            <div class="monograph-class">Topical Formulation</div>
-            <div class="monograph-format">Format: 50ml aluminium tube</div>
-            <p class="monograph-desc">Full-spectrum botanical extract in a base of cold-pressed argan oil, shea butter, and beeswax.</p>
-            <div class="monograph-ingredients">
-              <div class="monograph-ingredients-label">Ingredients</div>
-              <ul class="monograph-ingredients-list">
-                <li>Full-spectrum cannabis extract (CO₂)</li>
-                <li>Cold-pressed Argania spinosa oil</li>
-                <li>Vitellaria paradoxa (shea) butter</li>
-                <li>Cera alba (beeswax)</li>
-                <li>Tocopherol (Vitamin E)</li>
-              </ul>
-            </div>
-            <div class="monograph-batch">
-              <div class="monograph-batch-item">
-                <div class="monograph-batch-label">Batch</div>
-                <div class="monograph-batch-value">SB-2025-0042</div>
-              </div>
-              <div class="monograph-batch-item">
-                <div class="monograph-batch-label">COA</div>
-                <div class="monograph-batch-value">COA-SB-0042-2025</div>
-              </div>
-            </div>
-            <div class="monograph-trust">
-              <span class="trust-badge">Pharmacy-Dispensed</span>
-              <span class="trust-badge">Halal Certified</span>
-            </div>
-          </div>
+  <section class="problem-section" id="problem">
+    <div class="arabic-watermark">قيمة</div>
+    <div class="section">
+      <div class="problem-grid">
+        <div>
+          <div class="section-label reveal">The Problem</div>
+          <h2 class="reveal reveal-delay-1">An Industry Stuck at the Beginning of Its Own Value Chain</h2>
+          <div class="divider reveal reveal-delay-2"></div>
+          <p class="problem-text reveal reveal-delay-2">
+            For generations, Morocco has been one of the world's largest producers of cannabis resin &mdash; yet the country captures only a fraction of the value its plant creates. The raw material is grown here, harvested here, and then exported abroad, where others transform it into finished products sold at many times the original price. Morocco imports back the very products made from its own plant.
+          </p>
+          <p class="problem-text reveal reveal-delay-3" style="margin-top: 1rem;">
+            The 2021 legalization law created a framework for legal cannabis activity, but the industry remains overwhelmingly focused on cultivation and raw material supply. The next step &mdash; the one that creates lasting value, skilled jobs, and exportable intellectual property &mdash; is product development. That step has barely begun.
+          </p>
         </div>
-
-        <!-- Sleep Supplement -->
-        <div class="monograph reveal-scale">
-          <img src="img/product-sleep-real.jpeg" alt="Sleep Supplement" class="monograph-image">
-          <div class="monograph-body">
-            <div class="monograph-header">
-              <div>
-                <div class="monograph-title">Sleep Supplement</div>
-                <div class="monograph-arabic">مكمل للنوم</div>
-              </div>
+        <div>
+          <div class="problem-quote reveal reveal-delay-2">
+            A country that grows the raw material should not be a spectator in the products made from it.
+          </div>
+          <div class="problem-stat-row reveal reveal-delay-3">
+            <div class="problem-stat">
+              <div class="problem-stat-value">~1%</div>
+              <div class="problem-stat-label">Value captured domestically<br>from cannabis end-products</div>
             </div>
-            <div class="monograph-class">Oral Formulation</div>
-            <div class="monograph-format">Format: 30 capsule blister pack</div>
-            <p class="monograph-desc">Full-spectrum extract micro-dosed for sleep architecture support.</p>
-            <div class="monograph-ingredients">
-              <div class="monograph-ingredients-label">Ingredients</div>
-              <ul class="monograph-ingredients-list">
-                <li>Full-spectrum cannabis extract (CO₂)</li>
-                <li>Valeriana officinalis root extract</li>
-                <li>Melissa officinalis leaf extract</li>
-                <li>Magnesium glycinate</li>
-                <li>HPMC capsule (halal)</li>
-              </ul>
-            </div>
-            <div class="monograph-batch">
-              <div class="monograph-batch-item">
-                <div class="monograph-batch-label">Batch</div>
-                <div class="monograph-batch-value">SS-2025-0038</div>
-              </div>
-              <div class="monograph-batch-item">
-                <div class="monograph-batch-label">COA</div>
-                <div class="monograph-batch-value">COA-SS-0038-2025</div>
-              </div>
-            </div>
-            <div class="monograph-trust">
-              <span class="trust-badge">Pharmacy-Dispensed</span>
-              <span class="trust-badge">Halal Certified</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Arabic Divider -->
-  <div class="arabic-divider reveal-fade">
-    <div class="line"></div>
-    <span class="text">كل ادعاء له رقم</span>
-    <div class="line"></div>
-  </div>
-
-  <!-- ═══════════════════════════════════════════
-       SECTION 4: THE EVIDENCE ROOM
-       ═══════════════════════════════════════════ -->
-  <section id="evidence">
-    <div class="section-wrap">
-      <div class="section-label reveal">03 — The Evidence Room</div>
-      <hr class="copper-rule reveal">
-      <h2 class="reveal" style="font-size: clamp(1.8rem, 4vw, 2.8rem); margin-bottom: 1.5rem;">Every Claim Here Has a Registry Number</h2>
-      <p class="body-text reveal">No influencer endorsements. No before-and-after photos. No anonymous testimonials. Only certificates, licenses, and protocols — each with an issuer, a number, and a status.</p>
-
-      <div class="cert-grid">
-        <!-- Card 1 -->
-        <div class="cert-card stagger">
-          <div class="cert-card-top">
-            <span class="cert-type">License</span>
-            <span class="cert-status"><span class="dot"></span> Active</span>
-          </div>
-          <div class="cert-title">Law 13-21 Cultivation Authorization</div>
-          <div class="cert-issuer">ANRPT</div>
-          <div class="cert-registry">L13-21-001</div>
-          <span class="cert-verify">Verify →</span>
-        </div>
-
-        <!-- Card 2 -->
-        <div class="cert-card stagger">
-          <div class="cert-card-top">
-            <span class="cert-type">Certification</span>
-            <span class="cert-status"><span class="dot"></span> Active</span>
-          </div>
-          <div class="cert-title">Halal Compliance Certificate</div>
-          <div class="cert-issuer">Certified Halal Authority</div>
-          <div class="cert-registry">HC-2024-1847</div>
-          <span class="cert-verify">Verify →</span>
-        </div>
-
-        <!-- Card 3 -->
-        <div class="cert-card stagger">
-          <div class="cert-card-top">
-            <span class="cert-type">Compliance</span>
-            <span class="cert-status"><span class="dot"></span> Active</span>
-          </div>
-          <div class="cert-title">GMP Alignment Certificate</div>
-          <div class="cert-issuer">White-label GMP-aligned laboratory</div>
-          <div class="cert-registry">GMP-AL-2024-092</div>
-          <span class="cert-verify">Verify →</span>
-        </div>
-
-        <!-- Card 4 -->
-        <div class="cert-card stagger">
-          <div class="cert-card-top">
-            <span class="cert-type">Observation</span>
-            <span class="cert-status ongoing"><span class="dot"></span> Ongoing</span>
-          </div>
-          <div class="cert-title">CHU Marrakech Clinical Observation Protocol</div>
-          <div class="cert-issuer">CHU Mohammed VI</div>
-          <div class="cert-registry">CHU-OBS-2024-015</div>
-          <span class="cert-verify">Verify →</span>
-        </div>
-
-        <!-- Card 5 -->
-        <div class="cert-card stagger">
-          <div class="cert-card-top">
-            <span class="cert-type">Quality</span>
-            <span class="cert-status"><span class="dot"></span> Current</span>
-          </div>
-          <div class="cert-title">Certificate of Analysis</div>
-          <div class="cert-issuer">Independent third-party laboratory</div>
-          <div class="cert-registry">COA-2025-SB-0042</div>
-          <span class="cert-verify">Verify →</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Arabic Divider -->
-  <div class="arabic-divider reveal-fade">
-    <div class="line"></div>
-    <span class="text">تحالف لا شراكة</span>
-    <div class="line"></div>
-  </div>
-
-  <!-- ═══════════════════════════════════════════
-       SECTION 5: THE ALLIANCE
-       ═══════════════════════════════════════════ -->
-  <section id="alliance">
-    <div class="section-wrap">
-      <div class="section-label reveal">04 — The Alliance</div>
-      <hr class="copper-rule reveal">
-
-      <div class="alliance-grid">
-        <div class="alliance-image-wrap reveal-scale">
-          <img src="img/research-lab-real.jpeg" alt="Research laboratory" class="alliance-image">
-          <div class="alliance-float-card">
-            <div class="label">Clinical Protocol</div>
-            <div class="value">CHU-OBS-2024-015</div>
-          </div>
-        </div>
-
-        <div class="reveal">
-          <h2 style="font-size: clamp(1.6rem, 3.5vw, 2.5rem); margin-bottom: 1.5rem;">Hospital-Grade Validation. Not Influencer-Grade.</h2>
-          <p class="body-text" style="margin-bottom: 2rem;">Leaf &amp; Legend operates under a clinical observation alliance with CHU Marrakech — Morocco's premier university hospital. This is not a sponsorship. It is not a paid endorsement. It is a structured observation protocol reviewed and approved by an ethics committee, designed to document outcomes under real dispensation conditions.</p>
-          <p class="body-text">The alliance means every formulation is monitored beyond the pharmacy counter — into the hands of patients, under the supervision of physicians and researchers who answer to an institutional review board, not a marketing department.</p>
-
-          <div class="alliance-metrics">
-            <div class="alliance-metric teal">
-              <div class="label">Observation Status</div>
-              <div class="value">Active</div>
-            </div>
-            <div class="alliance-metric copper">
-              <div class="label">Ethics Approval</div>
-              <div class="value">Secured</div>
-            </div>
-          </div>
-
-          <a href="#" class="cta-solid" style="margin-top: 1rem;">Request Clinical Documentation</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Arabic Divider -->
-  <div class="arabic-divider reveal-fade">
-    <div class="line"></div>
-    <span class="text">ثلاثة أجيال</span>
-    <div class="line"></div>
-  </div>
-
-  <!-- ═══════════════════════════════════════════
-       SECTION 6: THE ORIGIN
-       ═══════════════════════════════════════════ -->
-  <section id="origin">
-    <div class="section-wrap">
-      <div class="section-label reveal">05 — The Origin</div>
-      <hr class="copper-rule reveal">
-
-      <div class="origin-grid">
-        <div class="origin-portrait-wrap reveal-scale">
-          <img src="img/founder-portrait.jpeg" alt="Walid Hassani" class="origin-portrait">
-          <div class="origin-arabic-overlay">وليد حساني</div>
-        </div>
-
-        <div class="reveal">
-          <h2 style="font-size: clamp(1.6rem, 3.5vw, 2.5rem); margin-bottom: 1.5rem;">Three Generations. One Conviction.</h2>
-          <p class="body-text" style="margin-bottom: 1.5rem;">Walid Hassani was not searching for an industry. He was stewarding one. Born into the El Sghiar family of Ketama — three generations of Rif Valley cultivators — Hassani grew up inside the tradition that Morocco's Law 13-21 would eventually recognize and regulate.</p>
-          <p class="body-text" style="margin-bottom: 1.5rem;">When the law opened a path from ancestral cultivation to pharmaceutical formulation, Hassani did not see a business opportunity. He saw a responsibility — to prove that the Rif's botanical heritage could meet the highest standards of modern medicine without losing its identity, its integrity, or its chain of custody.</p>
-          <p class="body-text">Leaf &amp; Legend is that proof. Not a brand built on story, but a company built on traceability — from seed to pharmacy, from tradition to protocol, from conviction to observation.</p>
-
-          <div class="declaration">
-            <p>"If you cannot trace your product from the field where it grew to the pharmacy where it is dispensed, you do not have a product. You have a story."</p>
-          </div>
-
-          <div class="origin-data-row">
-            <div class="origin-data-item">
-              <div class="data-label">Founder</div>
-              <div class="data-value">Walid Hassani</div>
-            </div>
-            <div class="origin-data-item">
-              <div class="data-label">Heritage</div>
-              <div class="data-value">El Sghiar Family, Ketama</div>
-            </div>
-            <div class="origin-data-item">
-              <div class="data-label">Generations</div>
-              <div class="data-value">Three</div>
+            <div class="problem-stat">
+              <div class="problem-stat-value">10-50x</div>
+              <div class="problem-stat-label">Value multiplier from raw<br>material to finished product</div>
             </div>
           </div>
         </div>
@@ -1988,48 +1361,230 @@
   </section>
 
   <!-- ═══════════════════════════════════════════
-       SECTION 7: PROFESSIONAL PORTAL
+       SECTION 3: THE PRODUCTS
        ═══════════════════════════════════════════ -->
-  <section id="portal">
-    <div class="section-wrap">
-      <div class="section-label reveal">06 — Professional Portal</div>
-      <hr class="copper-rule reveal">
-      <h2 class="reveal" style="font-size: clamp(1.8rem, 4vw, 2.8rem); margin-bottom: 1.5rem;">For Pharmacists. For Physicians. For Professionals.</h2>
-      <p class="body-text reveal">Access clinical monographs, regulatory compliance documentation, ordering protocols, and CHU Marrakech observation data. All resources require professional verification.</p>
+  <section class="products-section" id="products">
+    <div class="section">
+      <div class="section-label reveal">The Products</div>
+      <h2 class="reveal reveal-delay-1">Products That Solve Problems.<br>Not Products That Follow Trends.</h2>
+      <div class="divider reveal reveal-delay-2"></div>
 
-      <div class="resource-grid">
-        <div class="resource-card stagger">
-          <div class="resource-card-icon">📋</div>
-          <div class="resource-card-type">Documentation</div>
-          <div class="resource-card-title">Clinical Monographs</div>
-          <div class="resource-card-arrow">→</div>
-        </div>
-
-        <div class="resource-card stagger">
-          <div class="resource-card-icon">🛡</div>
-          <div class="resource-card-type">Compliance</div>
-          <div class="resource-card-title">Regulatory Compliance Dossier</div>
-          <div class="resource-card-arrow">→</div>
-        </div>
-
-        <div class="resource-card stagger">
-          <div class="resource-card-icon">📦</div>
-          <div class="resource-card-type">Operations</div>
-          <div class="resource-card-title">Ordering &amp; Distribution Protocol</div>
-          <div class="resource-card-arrow">→</div>
-        </div>
-
-        <div class="resource-card stagger">
-          <div class="resource-card-icon">🔬</div>
-          <div class="resource-card-type">Clinical</div>
-          <div class="resource-card-title">CHU Marrakech Observation Data</div>
-          <div class="resource-card-arrow">→</div>
+      <div class="products-disclaimer reveal reveal-delay-2">
+        <div class="products-disclaimer-icon">&#9432;</div>
+        <div class="products-disclaimer-text">
+          <strong>Important:</strong> The products described below are concept-stage formulations under active development. They have not been commercially launched, clinically validated, or approved by any regulatory authority. No batch numbers, certificates of analysis, or registration numbers exist at this time. Information reflects development intent, not commercial availability.
         </div>
       </div>
 
-      <div class="portal-contact reveal">
-        <div class="portal-contact-email">contact@leafandlegend.com</div>
-        <a href="mailto:contact@leafandlegend.com" class="cta-solid">Contact the Team</a>
+      <div class="product-grid">
+        <!-- Product 1: Sleep Support -->
+        <div class="product-card reveal reveal-delay-1">
+          <div class="product-image-wrap">
+            <img src="img/product-sleep-real.jpeg" alt="Sleep support product concept" />
+            <span class="product-category-tag">Concept Under Development</span>
+          </div>
+          <div class="product-body">
+            <h3 class="text-copper">Sleep Support</h3>
+            <p class="product-purpose">
+              A formulation designed to support natural sleep cycles &mdash; combining cannabis-derived compounds with complementary botanical ingredients traditionally used for relaxation and rest.
+            </p>
+            <div class="product-approach-label">Intended Approach</div>
+            <p class="product-approach">
+              Cannabis extract paired with chamomile, valerian root, and other sleep-supportive botanicals. Formulation to be developed with qualified external partners.
+            </p>
+            <div class="product-status">
+              <span class="product-status-dot"></span>
+              In Development
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 2: Muscle/Joint Comfort -->
+        <div class="product-card reveal reveal-delay-2">
+          <div class="product-image-wrap">
+            <img src="img/product-skin-balm-real.jpeg" alt="Muscle and joint comfort product concept" />
+            <span class="product-category-tag">Concept Under Development</span>
+          </div>
+          <div class="product-body">
+            <h3 class="text-copper">Muscle &amp; Joint Comfort</h3>
+            <p class="product-purpose">
+              A topical formulation designed for localized comfort &mdash; targeting sore muscles and joint stiffness with cannabis extract and complementary natural ingredients.
+            </p>
+            <div class="product-approach-label">Intended Approach</div>
+            <p class="product-approach">
+              Cannabis extract combined with arnica, menthol, and essential oils in a topical delivery format. Formulation to be developed with qualified external partners.
+            </p>
+            <div class="product-status">
+              <span class="product-status-dot"></span>
+              In Development
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       SECTION 4: THE APPROACH
+       ═══════════════════════════════════════════ -->
+  <section class="approach-section" id="approach">
+    <div class="section">
+      <div class="section-label reveal">The Approach</div>
+      <h2 class="reveal reveal-delay-1">Build With Partners.<br>Validate Before Scaling.</h2>
+      <div class="divider reveal reveal-delay-2"></div>
+      <p class="problem-text reveal reveal-delay-2" style="max-width: 640px; margin-bottom: 0;">
+        Leaf &amp; Legend does not claim capabilities it has not yet built. We are honest about where we are today and transparent about what comes next. Every step depends on finding the right partners and meeting the right standards.
+      </p>
+
+      <div class="approach-grid">
+        <!-- Pillar 1 -->
+        <div class="approach-pillar reveal reveal-delay-1">
+          <div class="pillar-icon text-copper">&#9881;</div>
+          <h3>External Expertise</h3>
+          <p class="pillar-text">
+            Product development requires specialized knowledge in formulation, delivery systems, and regulatory compliance. We intend to work with qualified external partners &mdash; formulation experts, contract manufacturers, and analytical laboratories &mdash; rather than building every capability in-house.
+          </p>
+          <span class="honest-label label-planned">Partnerships being explored</span>
+        </div>
+
+        <!-- Pillar 2 -->
+        <div class="approach-pillar reveal reveal-delay-2">
+          <div class="pillar-icon text-clinical">&#9879;</div>
+          <h3>Scientific Rigor</h3>
+          <p class="pillar-text">
+            We believe consumer products derived from cannabis must be developed with the same rigor expected of any health-adjacent product. That means analytical testing of raw materials, standardized formulation processes, and quality controls. We intend to work with facilities that meet transformation and extraction requirements, and ultimately with GMP-aligned partners for manufacturing.
+          </p>
+          <span class="honest-label label-planned">GMP alignment intended, not yet achieved</span>
+        </div>
+
+        <!-- Pillar 3 -->
+        <div class="approach-pillar reveal reveal-delay-3">
+          <div class="pillar-icon text-sage">&#9733;</div>
+          <h3>Transparent Development</h3>
+          <p class="pillar-text">
+            We will not market products before they are ready. We will not claim partnerships that do not exist. We will not imply regulatory approvals that have not been obtained. Our development process will be documented and transparent. We are exploring academic collaboration opportunities and are interested in future observation programs &mdash; but none are confirmed at this time.
+          </p>
+          <span class="honest-label label-current">Commitment in practice</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       SECTION 5: THE HERITAGE
+       ═══════════════════════════════════════════ -->
+  <section class="heritage-section" id="heritage">
+    <div class="section">
+      <div class="heritage-grid">
+        <div class="heritage-image-wrap reveal">
+          <img src="img/founder-portrait.jpeg" alt="Walid Hassani, Founder" />
+          <div class="heritage-image-arabic">وليد حساني</div>
+        </div>
+        <div class="heritage-content">
+          <div class="section-label reveal">The Heritage</div>
+          <h2 class="reveal reveal-delay-1">Generations of Knowledge.<br>One Clear Direction.</h2>
+          <div class="divider reveal reveal-delay-2"></div>
+          <p class="problem-text reveal reveal-delay-2">
+            Walid Hassani grew up in a multi-generational Moroccan cannabis family &mdash; not in a laboratory, not in a boardroom, but in the fields and communities where cannabis has been part of life for centuries. That heritage gives an understanding of the plant that cannot be learned from textbooks alone.
+          </p>
+          <p class="problem-text reveal reveal-delay-3" style="margin-top: 1rem;">
+            But heritage without direction is nostalgia. The direction is clear: transform traditional knowledge into modern, useful products. Move from raw material to finished goods. Create value where the plant grows, not just where it is processed.
+          </p>
+          <div class="heritage-quote reveal reveal-delay-3">
+            The vision is not simply to sell cannabis. The vision is to transform a traditional plant into useful products that improve people's lives.
+          </div>
+          <div class="heritage-data-row reveal reveal-delay-4">
+            <div class="heritage-datum">
+              <div class="heritage-datum-value">Walid Hassani</div>
+              <div class="heritage-datum-label">Founder</div>
+            </div>
+            <div class="heritage-datum">
+              <div class="heritage-datum-value">Product Development</div>
+              <div class="heritage-datum-label">Focus</div>
+            </div>
+            <div class="heritage-datum">
+              <div class="heritage-datum-value">Multi-generational</div>
+              <div class="heritage-datum-label">Heritage</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       SECTION 6: THE AMBITION
+       ═══════════════════════════════════════════ -->
+  <section class="ambition-section" id="ambition">
+    <div class="section">
+      <div class="section-label reveal">The Ambition</div>
+      <h2 class="reveal reveal-delay-1">What We Are Building Toward</h2>
+      <div class="divider reveal reveal-delay-2"></div>
+
+      <div class="timeline">
+        <!-- NOW -->
+        <div class="timeline-stage now reveal reveal-delay-1">
+          <div class="timeline-marker now">NOW</div>
+          <div class="timeline-stage-label">Current Phase</div>
+          <h3>Concepts &amp; Conversations</h3>
+          <ul class="timeline-items">
+            <li>Product concepts under development</li>
+            <li>Formulation discussions with potential partners</li>
+            <li>Exploring academic collaboration opportunities</li>
+            <li>Investigating facilities for extraction and transformation</li>
+            <li>Building the foundation &mdash; no products launched yet</li>
+          </ul>
+        </div>
+
+        <!-- NEXT -->
+        <div class="timeline-stage next reveal reveal-delay-2">
+          <div class="timeline-marker next">NEXT</div>
+          <div class="timeline-stage-label">Near-term Goal</div>
+          <h3>Prototypes &amp; Partnerships</h3>
+          <ul class="timeline-items">
+            <li>Develop initial product prototypes</li>
+            <li>Establish manufacturing partnerships with qualified partners</li>
+            <li>Conduct analytical testing of formulations</li>
+            <li>Secure necessary operational partnerships</li>
+            <li>Begin regulatory preparation and documentation</li>
+          </ul>
+        </div>
+
+        <!-- FUTURE -->
+        <div class="timeline-stage future reveal reveal-delay-3">
+          <div class="timeline-marker future">FUTURE</div>
+          <div class="timeline-stage-label">Long-term Vision</div>
+          <h3>Launch &amp; Observation</h3>
+          <ul class="timeline-items">
+            <li>Commercial product launch</li>
+            <li>Explore observation programs for product impact</li>
+            <li>Expanded product line based on market response</li>
+            <li>Contribution to Morocco's value-chain transformation</li>
+            <li>Documented, transparent development track record</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       SECTION 7: CONTACT
+       ═══════════════════════════════════════════ -->
+  <section class="contact-section" id="contact">
+    <div class="section">
+      <div class="section-label reveal">Contact</div>
+      <h2 class="reveal reveal-delay-1">Building something different<br>starts with a conversation.</h2>
+      <div class="divider divider-center reveal reveal-delay-2"></div>
+      <div class="contact-email reveal reveal-delay-2">
+        <a href="mailto:contact@leafandlegend.com">contact@leafandlegend.com</a>
+      </div>
+      <div class="reveal reveal-delay-3">
+        <a href="mailto:contact@leafandlegend.com" class="cta-button">
+          Start a Conversation
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M3 8h10M9 4l4 4-4 4"/>
+          </svg>
+        </a>
       </div>
     </div>
   </section>
@@ -2038,53 +1593,27 @@
        FOOTER
        ═══════════════════════════════════════════ -->
   <footer class="footer">
-    <div class="footer-trust">
-      <span class="footer-trust-item"><span class="dot"></span> Law 13-21 Licensed</span>
-      <span class="footer-trust-item"><span class="dot"></span> Halal Certified</span>
-      <span class="footer-trust-item"><span class="dot"></span> GMP Aligned</span>
-      <span class="footer-trust-item"><span class="dot"></span> COA Per Batch</span>
-      <span class="footer-trust-item"><span class="dot"></span> CHU Marrakech Alliance</span>
-    </div>
-
-    <div class="footer-main">
+    <div class="footer-inner">
       <div class="footer-brand">
-        <div class="footer-brand-logo">
-          <img src="img/logo.png" alt="Leaf & Legend">
-          <span>Leaf &amp; Legend</span>
-        </div>
-        <p class="footer-brand-desc">Morocco's only licensed cannabis company with sovereign custody from Rif Valley cultivation through halal extraction through GMP-aligned formulation through CHU Marrakech observation. The chain is unbroken.</p>
-        <div class="footer-brand-arabic">ورقة وأسطورة</div>
+        <p>Leaf &amp; Legend is a Moroccan product-development company working to move the cannabis industry up the value chain &mdash; from raw material to finished consumer products. All products described are concepts under development.</p>
+        <div class="arabic-footer">ورقة وأسطورة</div>
       </div>
-
-      <div class="footer-links">
-        <div class="footer-links-col">
-          <h4>Navigate</h4>
-          <a href="#chain">The Chain</a>
-          <a href="#pharmacopeia">Pharmacopeia</a>
-          <a href="#evidence">Evidence Room</a>
-          <a href="#alliance">Alliance</a>
-          <a href="#origin">Origin</a>
-          <a href="#portal">Professional Portal</a>
-        </div>
-        <div class="footer-links-col">
-          <h4>Contact</h4>
-          <a href="mailto:contact@leafandlegend.com">contact@leafandlegend.com</a>
-          <a href="#portal">Professional Portal</a>
-          <a href="#portal">Request Documentation</a>
-        </div>
-        <div class="footer-links-col">
-          <h4>Regulatory</h4>
-          <div class="footer-regulatory">
-            ANRPT License No. L13-21-001<br>
-            ONSSA Registration<br>
-            Ministry of Health Authorization
-          </div>
-        </div>
+      <div class="footer-nav">
+        <h4>Navigate</h4>
+        <ul>
+          <li><a href="#vision">Vision</a></li>
+          <li><a href="#problem">Problem</a></li>
+          <li><a href="#products">Products</a></li>
+          <li><a href="#approach">Approach</a></li>
+          <li><a href="#heritage">Heritage</a></li>
+          <li><a href="#ambition">Ambition</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
       </div>
     </div>
-
     <div class="footer-bottom">
-      © 2026 Leaf &amp; Legend &nbsp;|&nbsp; Law 13-21 · Ministry of Health · ONSSA · ANRPT
+      <p>&copy; 2025 Leaf &amp; Legend. All rights reserved.</p>
+      <p>Concepts under development. Not commercially available.</p>
     </div>
   </footer>
 
@@ -2092,80 +1621,35 @@
        JAVASCRIPT
        ═══════════════════════════════════════════ -->
   <script>
-    // ─── Particle System ───
     (function() {
-      const container = document.getElementById('heroParticles');
-      const count = 20;
-      for (let i = 0; i < count; i++) {
-        const p = document.createElement('div');
-        p.className = 'particle';
-        const size = Math.random() * 5 + 3; // 3-8px
-        const left = Math.random() * 100;
-        const top = Math.random() * 100;
-        const duration = Math.random() * 12 + 8; // 8-20s
-        const delay = Math.random() * duration;
-        const driftX = (Math.random() - 0.5) * 100;
-        const driftY = -(Math.random() * 200 + 100);
-        p.style.cssText = `
-          width: ${size}px;
-          height: ${size}px;
-          left: ${left}%;
-          top: ${top}%;
-          --drift-x: ${driftX}px;
-          --drift-y: ${driftY}px;
-          animation-duration: ${duration}s;
-          animation-delay: -${delay}s;
-          opacity: ${Math.random() * 0.3 + 0.1};
-        `;
-        container.appendChild(p);
+      'use strict';
+
+      // ─── HERO PARTICLES ─────────────────────────────
+      const particlesContainer = document.getElementById('heroParticles');
+      if (particlesContainer) {
+        for (let i = 0; i < 20; i++) {
+          const p = document.createElement('div');
+          p.classList.add('particle');
+          p.style.left = Math.random() * 100 + '%';
+          p.style.width = (2 + Math.random() * 3) + 'px';
+          p.style.height = p.style.width;
+          p.style.animationDuration = (8 + Math.random() * 12) + 's';
+          p.style.animationDelay = (Math.random() * 10) + 's';
+          particlesContainer.appendChild(p);
+        }
       }
-    })();
 
-    // ─── Scroll Reveal (IntersectionObserver) ───
-    (function() {
-      const revealElements = document.querySelectorAll('.reveal, .reveal-fade, .reveal-scale, .stagger');
-      const observer = new IntersectionObserver(function(entries) {
-        entries.forEach(function(entry, index) {
-          if (entry.isIntersecting) {
-            // Add stagger delay for .stagger elements
-            const el = entry.target;
-            if (el.classList.contains('stagger')) {
-              const siblings = el.parentElement.querySelectorAll('.stagger');
-              let staggerIndex = 0;
-              siblings.forEach(function(sib, i) {
-                if (sib === el) staggerIndex = i;
-              });
-              setTimeout(function() {
-                el.classList.add('visible');
-              }, staggerIndex * 120);
-            } else {
-              el.classList.add('visible');
-            }
-            observer.unobserve(el);
-          }
-        });
-      }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-
-      revealElements.forEach(function(el) {
-        observer.observe(el);
-      });
-    })();
-
-    // ─── Parallax Hero ───
-    (function() {
+      // ─── PARALLAX HERO ───────────────────────────────
       const heroBg = document.getElementById('heroBg');
-      const hero = document.getElementById('threshold');
       let ticking = false;
 
       function updateParallax() {
-        const scrolled = window.pageYOffset;
-        const heroHeight = hero.offsetHeight;
-        if (scrolled < heroHeight) {
-          const translateY = scrolled * 0.35;
-          const scale = 1 + scrolled * 0.0003;
-          const opacity = 1 - (scrolled / heroHeight) * 0.5;
-          heroBg.style.transform = 'translateY(' + translateY + 'px) scale(' + scale + ')';
-          heroBg.style.opacity = opacity;
+        if (heroBg) {
+          const scrollY = window.scrollY;
+          const heroHeight = heroBg.parentElement.offsetHeight;
+          if (scrollY < heroHeight) {
+            heroBg.style.transform = 'scale(1.05) translateY(' + (scrollY * 0.3) + 'px)';
+          }
         }
         ticking = false;
       }
@@ -2175,111 +1659,107 @@
           requestAnimationFrame(updateParallax);
           ticking = true;
         }
-      });
-    })();
+      }, { passive: true });
 
-    // ─── Chain Step Expand/Collapse ───
-    (function() {
-      const steps = document.querySelectorAll('.chain-step');
-      steps.forEach(function(step) {
-        const header = step.querySelector('.chain-step-header');
-        header.addEventListener('click', function() {
-          const isExpanded = step.classList.contains('expanded');
-          // Close all
-          steps.forEach(function(s) {
-            s.classList.remove('expanded');
-          });
-          // Open clicked if it wasn't already expanded
-          if (!isExpanded) {
-            step.classList.add('expanded');
-          }
-        });
-      });
-    })();
-
-    // ─── Navigation: Scroll Spy ───
-    (function() {
-      const sections = document.querySelectorAll('section[id]');
-      const navLinks = document.querySelectorAll('.nav-links a');
-
-      const observer = new IntersectionObserver(function(entries) {
+      // ─── SCROLL REVEAL ───────────────────────────────
+      const reveals = document.querySelectorAll('.reveal');
+      const revealObserver = new IntersectionObserver(function(entries) {
         entries.forEach(function(entry) {
           if (entry.isIntersecting) {
-            const id = entry.target.getAttribute('id');
+            entry.target.classList.add('revealed');
+            revealObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+      reveals.forEach(function(el) {
+        revealObserver.observe(el);
+      });
+
+      // ─── SCROLL SPY ──────────────────────────────────
+      const sections = document.querySelectorAll('section[id]');
+      const navLinks = document.querySelectorAll('.nav-links a[data-section]');
+      const nav = document.getElementById('nav');
+
+      function updateScrollSpy() {
+        const scrollY = window.scrollY + 120;
+
+        sections.forEach(function(section) {
+          const top = section.offsetTop;
+          const height = section.offsetHeight;
+          const id = section.getAttribute('id');
+
+          if (scrollY >= top && scrollY < top + height) {
             navLinks.forEach(function(link) {
               link.classList.remove('active');
-              if (link.getAttribute('href') === '#' + id) {
+              if (link.getAttribute('data-section') === id) {
                 link.classList.add('active');
               }
             });
           }
         });
-      }, { threshold: 0.2, rootMargin: '-72px 0px -40% 0px' });
 
-      sections.forEach(function(section) {
-        observer.observe(section);
-      });
-    })();
-
-    // ─── Navigation: Smooth Scroll ───
-    (function() {
-      document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
-        anchor.addEventListener('click', function(e) {
-          e.preventDefault();
-          const target = document.querySelector(this.getAttribute('href'));
-          if (target) {
-            const offset = 72; // nav height
-            const top = target.getBoundingClientRect().top + window.pageYOffset - offset;
-            window.scrollTo({ top: top, behavior: 'smooth' });
-            // Close mobile menu if open
-            document.getElementById('mobileMenu').classList.remove('open');
-            document.getElementById('hamburger').classList.remove('active');
-          }
-        });
-      });
-    })();
-
-    // ─── Navigation: Background on Scroll ───
-    (function() {
-      const nav = document.getElementById('nav');
-      let ticking = false;
-
-      function updateNav() {
-        if (window.pageYOffset > 50) {
+        // Nav background
+        if (window.scrollY > 60) {
           nav.classList.add('scrolled');
         } else {
           nav.classList.remove('scrolled');
         }
-        ticking = false;
       }
 
       window.addEventListener('scroll', function() {
-        if (!ticking) {
-          requestAnimationFrame(updateNav);
-          ticking = true;
-        }
+        requestAnimationFrame(updateScrollSpy);
+      }, { passive: true });
+
+      // Initial call
+      updateScrollSpy();
+
+      // ─── SMOOTH SCROLL ───────────────────────────────
+      document.querySelectorAll('a[href^="#"]').forEach(function(link) {
+        link.addEventListener('click', function(e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute('href'));
+          if (target) {
+            const offset = 80;
+            const top = target.getBoundingClientRect().top + window.scrollY - offset;
+            window.scrollTo({ top: top, behavior: 'smooth' });
+          }
+
+          // Close mobile menu if open
+          if (mobileOverlay.classList.contains('open')) {
+            closeMobileMenu();
+          }
+        });
       });
-    })();
 
-    // ─── Mobile Menu ───
-    (function() {
-      const hamburger = document.getElementById('hamburger');
-      const mobileMenu = document.getElementById('mobileMenu');
-      const mobileLinks = mobileMenu.querySelectorAll('a');
+      // ─── MOBILE MENU ─────────────────────────────────
+      const mobileToggle = document.getElementById('mobileToggle');
+      const mobileOverlay = document.getElementById('mobileOverlay');
+      const mobileLinks = mobileOverlay.querySelectorAll('.mobile-link');
 
-      hamburger.addEventListener('click', function() {
-        hamburger.classList.toggle('active');
-        mobileMenu.classList.toggle('open');
-        document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
+      function closeMobileMenu() {
+        mobileOverlay.classList.remove('open');
+        mobileToggle.classList.remove('open');
+        document.body.style.overflow = '';
+      }
+
+      mobileToggle.addEventListener('click', function() {
+        const isOpen = mobileOverlay.classList.contains('open');
+        if (isOpen) {
+          closeMobileMenu();
+        } else {
+          mobileOverlay.classList.add('open');
+          mobileToggle.classList.add('open');
+          document.body.style.overflow = 'hidden';
+        }
       });
 
       mobileLinks.forEach(function(link) {
         link.addEventListener('click', function() {
-          hamburger.classList.remove('active');
-          mobileMenu.classList.remove('open');
-          document.body.style.overflow = '';
+          closeMobileMenu();
         });
       });
+
     })();
   </script>
 </body>
