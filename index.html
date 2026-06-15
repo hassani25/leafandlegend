@@ -1255,6 +1255,74 @@
       .hero-content { padding: 0 1rem; }
       .hero-sub { font-size: 0.9rem; }
     }
+
+    /* ═══════════════════════════════════════════
+       NEW IMAGE STYLES
+       ═══════════════════════════════════════════ */
+
+    /* Problem section - aerial image */
+    .problem-image-wrap {
+      overflow: hidden;
+      border-radius: 2px;
+      aspect-ratio: 4/3;
+    }
+    .problem-image-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .problem-image-wrap:hover img {
+      transform: scale(1.03);
+    }
+    .problem-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: center;
+    }
+    @media (max-width: 768px) {
+      .problem-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+    }
+
+    /* Approach pillar images */
+    .approach-pillar-image {
+      overflow: hidden;
+      border-radius: 2px;
+      aspect-ratio: 16/10;
+      margin-bottom: 1.5rem;
+    }
+    .approach-pillar-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .approach-pillar:hover .approach-pillar-image img {
+      transform: scale(1.04);
+    }
+
+    /* Both products together */
+    .products-together {
+      margin-top: 3rem;
+      overflow: hidden;
+      border-radius: 2px;
+      border: 1px solid var(--border-light);
+    }
+    .products-together img {
+      width: 100%;
+      height: auto;
+      max-height: 500px;
+      object-fit: cover;
+      object-position: center;
+      transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .products-together:hover img {
+      transform: scale(1.02);
+    }
   </style>
 </head>
 <body>
@@ -1300,7 +1368,7 @@
        ═══════════════════════════════════════════ -->
   <section class="hero section-full" id="vision">
     <div class="hero-bg">
-      <img src="img/hero-rif-valley.jpeg" alt="Rif Valley landscape" id="heroBg" />
+      <img src="img/hero.jpeg" alt="Rif Valley landscape" id="heroBg" />
     </div>
     <div class="hero-gradient"></div>
     <div class="hero-particles" id="heroParticles"></div>
@@ -1330,6 +1398,9 @@
     <div class="arabic-watermark">قيمة</div>
     <div class="section">
       <div class="problem-grid">
+        <div class="problem-image-wrap reveal">
+          <img src="img/aerial.jpeg" alt="Aerial view of the Rif Valley" />
+        </div>
         <div>
           <div class="section-label reveal">The Problem</div>
           <h2 class="reveal reveal-delay-1">An Industry Stuck at the Beginning of Its Own Value Chain</h2>
@@ -1380,7 +1451,7 @@
         <!-- Product 1: Sleep Support -->
         <div class="product-card reveal reveal-delay-1">
           <div class="product-image-wrap">
-            <img src="img/product-sleep-real.jpeg" alt="Sleep support product concept" />
+            <img src="img/product-sleep.jpeg" alt="Sleep support product concept" />
             <span class="product-category-tag">Concept Under Development</span>
           </div>
           <div class="product-body">
@@ -1402,7 +1473,7 @@
         <!-- Product 2: Muscle/Joint Comfort -->
         <div class="product-card reveal reveal-delay-2">
           <div class="product-image-wrap">
-            <img src="img/product-skin-balm-real.jpeg" alt="Muscle and joint comfort product concept" />
+            <img src="img/product-topical.jpeg" alt="Muscle and joint comfort product concept" />
             <span class="product-category-tag">Concept Under Development</span>
           </div>
           <div class="product-body">
@@ -1420,6 +1491,11 @@
             </div>
           </div>
         </div>
+      </div>
+
+      <!-- Both products together -->
+      <div class="products-together reveal reveal-delay-3">
+        <img src="img/products-both.jpeg" alt="Both Leaf & Legend product concepts" />
       </div>
     </div>
   </section>
@@ -1439,6 +1515,9 @@
       <div class="approach-grid">
         <!-- Pillar 1 -->
         <div class="approach-pillar reveal reveal-delay-1">
+          <div class="approach-pillar-image">
+            <img src="img/lab.jpeg" alt="Clean laboratory interior" />
+          </div>
           <div class="pillar-icon text-copper">&#9881;</div>
           <h3>External Expertise</h3>
           <p class="pillar-text">
@@ -1449,6 +1528,9 @@
 
         <!-- Pillar 2 -->
         <div class="approach-pillar reveal reveal-delay-2">
+          <div class="approach-pillar-image">
+            <img src="img/macro.jpeg" alt="Cannabis trichome macro photograph" />
+          </div>
           <div class="pillar-icon text-clinical">&#9879;</div>
           <h3>Scientific Rigor</h3>
           <p class="pillar-text">
@@ -1459,6 +1541,9 @@
 
         <!-- Pillar 3 -->
         <div class="approach-pillar reveal reveal-delay-3">
+          <div class="approach-pillar-image">
+            <img src="img/pharmacy.jpeg" alt="Pharmacy interior" />
+          </div>
           <div class="pillar-icon text-sage">&#9733;</div>
           <h3>Transparent Development</h3>
           <p class="pillar-text">
@@ -1477,7 +1562,7 @@
     <div class="section">
       <div class="heritage-grid">
         <div class="heritage-image-wrap reveal">
-          <img src="img/founder-portrait.jpeg" alt="Walid Hassani, Founder" />
+          <img src="img/founder.jpeg" alt="Walid Hassani, Founder" />
           <div class="heritage-image-arabic">وليد حساني</div>
         </div>
         <div class="heritage-content">
