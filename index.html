@@ -9,6 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <style>
 /* ═══════════════════════════════════════════════════════════════
    LEAF & LEGEND — THE TRANSFORMATION ENGINE
@@ -205,6 +206,12 @@ img { max-width: 100%; display: block; }
    No hero image. No cannabis. No product.
    Just a statement so confident it doesn't
    need decoration. The absence IS the statement.
+   
+   3D PARTICLE SYSTEM: Particles float chaotically
+   in the background — representing raw, unformed
+   potential. As the user scrolls toward Chapter 02,
+   particles begin to organize. The 3D IS the
+   transformation, not decoration.
    ═══════════════════════════════════════════ */
 .chapter-01 {
   min-height: 100vh;
@@ -220,6 +227,17 @@ img { max-width: 100%; display: block; }
   overflow: hidden;
 }
 
+/* 3D Canvas — always behind content */
+#three-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+}
+
 /* Subtle grid — like a blueprint under construction */
 .chapter-01::before {
   content: '';
@@ -230,6 +248,12 @@ img { max-width: 100%; display: block; }
     linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
   background-size: 60px 60px;
   pointer-events: none;
+}
+
+/* Sections need z-index above the canvas */
+.chapter-01, .chapter-02, .chapter-03, .chapter-04, .chapter-05, .declaration, .footer {
+  position: relative;
+  z-index: 1;
 }
 
 .entry-label {
@@ -333,7 +357,19 @@ img { max-width: 100%; display: block; }
   padding: clamp(80px, 12vw, 160px) clamp(24px, 4vw, 64px);
   background: var(--off-white);
   position: relative;
+  z-index: 1;
 }
+/* Opaque backgrounds for light sections so 3D canvas doesn't bleed through */
+.chapter-02::before, .chapter-04::before, .chapter-05::before, .declaration::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+}
+.chapter-02::before { background: var(--off-white); }
+.chapter-04::before { background: var(--white); }
+.chapter-05::before { background: var(--cream); }
+.declaration::before { background: var(--white); }
 
 .ch02-header {
   max-width: 640px;
@@ -1511,8 +1547,208 @@ img { max-width: 100%; display: block; }
   </div>
 </footer>
 
+<!-- 3D TRANSFORMATION CANVAS -->
+<canvas id="three-canvas"></canvas>
+
 <!-- JAVASCRIPT -->
 <script>
+// ═══════════════════════════════════════════
+// THREE.JS — THE PARTICLE TRANSFORMATION
+// ═══════════════════════════════════════════
+// Particles morph from chaotic (raw plant)
+// to organized (finished product) as user scrolls.
+// The 3D IS the transformation metaphor.
+// Performance: <2K particles, no textures,
+// mobile-safe with adaptive quality.
+// ═══════════════════════════════════════════
+
+(function() {
+  const canvas = document.getElementById('three-canvas');
+  if (!canvas) return;
+
+  const renderer = new THREE.WebGLRenderer({
+    canvas: canvas,
+    alpha: true,
+    antialias: true,
+    powerPreference: 'high-performance'
+  });
+  renderer.setSize(window.innerWidth, window.innerHeight);
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+
+  const scene = new THREE.Scene();
+  const camera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 0.1, 100);
+  camera.position.z = 8;
+
+  // Adaptive particle count
+  const isMobile = window.innerWidth < 768;
+  const PARTICLE_COUNT = isMobile ? 800 : 1500;
+
+  // Create particle geometry
+  const geometry = new THREE.BufferGeometry();
+  const positions = new Float32Array(PARTICLE_COUNT * 3);
+  const colors = new Float32Array(PARTICLE_COUNT * 3);
+  const sizes = new Float32Array(PARTICLE_COUNT);
+
+  // Chaotic positions (raw plant state)
+  const chaoticPositions = new Float32Array(PARTICLE_COUNT * 3);
+  // Organized positions (finished product state)
+  const organizedPositions = new Float32Array(PARTICLE_COUNT * 3);
+
+  // Color palette derived from logo
+  const emeraldColor = new THREE.Color(0x14915F);
+  const goldColor = new THREE.Color(0xB8943E);
+  const violetColor = new THREE.Color(0x6366F1);
+
+  for (let i = 0; i < PARTICLE_COUNT; i++) {
+    const i3 = i * 3;
+
+    // Chaotic: random sphere distribution (raw, unformed)
+    const radius = 2 + Math.random() * 3;
+    const theta = Math.random() * Math.PI * 2;
+    const phi = Math.acos(2 * Math.random() - 1);
+    chaoticPositions[i3] = radius * Math.sin(phi) * Math.cos(theta);
+    chaoticPositions[i3 + 1] = radius * Math.sin(phi) * Math.sin(theta);
+    chaoticPositions[i3 + 2] = radius * Math.cos(phi);
+
+    // Organized: helix/DNA structure (formulated, precise)
+    const t = (i / PARTICLE_COUNT) * Math.PI * 6;
+    const helixR = 1.5;
+    const strand = i % 2 === 0 ? 1 : -1;
+    organizedPositions[i3] = Math.cos(t) * helixR * strand;
+    organizedPositions[i3 + 1] = (i / PARTICLE_COUNT) * 6 - 3;
+    organizedPositions[i3 + 2] = Math.sin(t) * helixR * strand;
+
+    // Colors: blend based on position in sequence
+    const progress = i / PARTICLE_COUNT;
+    const color = progress < 0.33
+      ? emeraldColor.clone().lerp(goldColor, progress * 3)
+      : progress < 0.66
+        ? goldColor.clone().lerp(violetColor, (progress - 0.33) * 3)
+        : violetColor.clone().lerp(emeraldColor, (progress - 0.66) * 3);
+    colors[i3] = color.r;
+    colors[i3 + 1] = color.g;
+    colors[i3 + 2] = color.b;
+
+    sizes[i] = isMobile ? 2.0 : 3.0;
+  }
+
+  geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+  geometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
+  geometry.setAttribute('size', new THREE.BufferAttribute(sizes, 1));
+
+  // Shader material for round particles with glow
+  const material = new THREE.ShaderMaterial({
+    uniforms: {
+      uTime: { value: 0 },
+      uOpacity: { value: 0.6 }
+    },
+    vertexShader: `
+      attribute float size;
+      varying vec3 vColor;
+      void main() {
+        vColor = color;
+        vec4 mvPosition = modelViewMatrix * vec4(position, 1.0);
+        gl_PointSize = size * (300.0 / -mvPosition.z);
+        gl_Position = projectionMatrix * mvPosition;
+      }
+    `,
+    fragmentShader: `
+      varying vec3 vColor;
+      uniform float uOpacity;
+      void main() {
+        float dist = length(gl_PointCoord - vec2(0.5));
+        if (dist > 0.5) discard;
+        float alpha = smoothstep(0.5, 0.1, dist) * uOpacity;
+        gl_FragColor = vec4(vColor, alpha);
+      }
+    `,
+    transparent: true,
+    depthWrite: false,
+    blending: THREE.AdditiveBlending,
+    vertexColors: true
+  });
+
+  const particles = new THREE.Points(geometry, material);
+  scene.add(particles);
+
+  // Scroll tracking
+  let scrollProgress = 0;
+  let targetScrollProgress = 0;
+
+  window.addEventListener('scroll', () => {
+    const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+    targetScrollProgress = Math.max(0, Math.min(1, window.scrollY / scrollHeight));
+  }, { passive: true });
+
+  // Animation loop
+  const clock = new THREE.Clock();
+
+  function animate() {
+    requestAnimationFrame(animate);
+
+    const elapsed = clock.getElapsedTime();
+
+    // Smooth scroll interpolation
+    scrollProgress += (targetScrollProgress - scrollProgress) * 0.05;
+
+    // Morph positions: chaotic → organized based on scroll
+    const posAttr = geometry.getAttribute('position');
+    for (let i = 0; i < PARTICLE_COUNT; i++) {
+      const i3 = i * 3;
+      // Base: interpolate between chaotic and organized
+      let x = chaoticPositions[i3] + (organizedPositions[i3] - chaoticPositions[i3]) * scrollProgress;
+      let y = chaoticPositions[i3 + 1] + (organizedPositions[i3 + 1] - chaoticPositions[i3 + 1]) * scrollProgress;
+      let z = chaoticPositions[i3 + 2] + (organizedPositions[i3 + 2] - chaoticPositions[i3 + 2]) * scrollProgress;
+
+      // Add organic breathing motion (less when organized)
+      const breathe = 1 - scrollProgress * 0.7;
+      const noise = Math.sin(elapsed * 0.5 + i * 0.01) * 0.15 * breathe;
+      x += Math.sin(elapsed * 0.3 + i * 0.02) * noise;
+      y += Math.cos(elapsed * 0.4 + i * 0.015) * noise;
+      z += Math.sin(elapsed * 0.2 + i * 0.025) * noise;
+
+      posAttr.array[i3] = x;
+      posAttr.array[i3 + 1] = y;
+      posAttr.array[i3 + 2] = z;
+    }
+    posAttr.needsUpdate = true;
+
+    // Slow rotation — faster when chaotic, slower when organized
+    particles.rotation.y = elapsed * 0.05 * (1 - scrollProgress * 0.5);
+    particles.rotation.x = Math.sin(elapsed * 0.1) * 0.1;
+
+    // Fade canvas when in light sections (chapters 02, 04, 05)
+    // Calculate opacity based on which section is visible
+    const ch02Top = document.getElementById('transformation')?.getBoundingClientRect().top || 0;
+    const ch03Top = document.getElementById('reality')?.getBoundingClientRect().top || 0;
+    const ch05Top = document.getElementById('connect')?.getBoundingClientRect().top || 0;
+    
+    let canvasOpacity = 0.6;
+    if (ch02Top < window.innerHeight * 0.5) canvasOpacity = 0.15; // Light section
+    if (ch03Top < window.innerHeight * 0.5) canvasOpacity = 0.4;  // Dark section
+    if (ch05Top < window.innerHeight * 0.5) canvasOpacity = 0.08; // Light section
+    
+    material.uniforms.uOpacity.value += (canvasOpacity - material.uniforms.uOpacity.value) * 0.05;
+    material.uniforms.uTime.value = elapsed;
+
+    renderer.render(scene, camera);
+  }
+
+  animate();
+
+  // Resize handler
+  window.addEventListener('resize', () => {
+    camera.aspect = window.innerWidth / window.innerHeight;
+    camera.updateProjectionMatrix();
+    renderer.setSize(window.innerWidth, window.innerHeight);
+  });
+
+  // Performance: reduce particles on low-end devices
+  if (navigator.hardwareConcurrency && navigator.hardwareConcurrency < 4) {
+    material.uniforms.uOpacity.value = 0.3;
+  }
+})();
+
 // Reveal System
 const revealObserver = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
