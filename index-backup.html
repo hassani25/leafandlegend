@@ -1,0 +1,1572 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Leaf & Legend</title>
+<meta name="description" content="Leaf & Legend — Transforming Morocco's cannabis industry from raw material into finished consumer products.">
+<link rel="icon" href="img/logo-new-favicon.png" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* ═══════════════════════════════════════════════════════════════
+   LEAF & LEGEND — THE TRANSFORMATION ENGINE
+   
+   This is not a website.
+   This is a demonstration of transformation.
+   
+   Emotional Journey:
+   1. DISORIENTATION — "What is this?"
+   2. RECOGNITION — "This is about transformation"
+   3. UNDERSTANDING — "I see the method"
+   4. CONVICTION — "This company has a real vision"
+   5. INVITATION — "I want to be part of this"
+   
+   Visual DNA: Clean. Precise. Intelligent. Alive.
+   Not cannabis. Not pharma. Not startup.
+   Innovation platform.
+   ═══════════════════════════════════════════════════════════════ */
+
+:root {
+  --white: #FFFFFF;
+  --off-white: #FAFAF8;
+  --cream: #F5F3EE;
+  --warm-gray: #E8E5DE;
+  --mid-gray: #9B978F;
+  --dark-gray: #4A4740;
+  --near-black: #1A1917;
+  --black: #0C0C0B;
+  
+  --emerald: #0A6847;
+  --emerald-light: #14915F;
+  --emerald-glow: rgba(10, 104, 71, 0.08);
+  --emerald-ghost: rgba(10, 104, 71, 0.04);
+  
+  --gold: #8B6914;
+  --gold-light: #B8943E;
+  --gold-ghost: rgba(139, 105, 20, 0.06);
+  
+  --violet: #4338CA;
+  --violet-light: #6366F1;
+  --violet-ghost: rgba(67, 56, 202, 0.06);
+  
+  --red-soft: #C53030;
+  
+  --serif: 'Instrument Serif', Georgia, serif;
+  --sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --mono: 'JetBrains Mono', 'SF Mono', Menlo, monospace;
+  
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+::selection { background: rgba(10, 104, 71, 0.12); color: var(--near-black); }
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: var(--off-white); }
+::-webkit-scrollbar-thumb { background: var(--warm-gray); border-radius: 3px; }
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 16px;
+}
+
+body {
+  font-family: var(--sans);
+  background: var(--white);
+  color: var(--near-black);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+a { color: inherit; text-decoration: none; }
+img { max-width: 100%; display: block; }
+
+/* ═══════════════════════════════════════════
+   NAVIGATION — Minimal, purposeful
+   ═══════════════════════════════════════════ */
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 clamp(24px, 4vw, 64px);
+  background: rgba(255,255,255,0.88);
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  border-bottom: 1px solid rgba(0,0,0,0.04);
+  transition: all 0.5s var(--ease-out);
+}
+.nav.dark-mode {
+  background: rgba(12,12,11,0.88);
+  border-bottom-color: rgba(255,255,255,0.06);
+}
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.nav-logo-img {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  overflow: hidden;
+  transition: transform 0.3s var(--ease-out);
+}
+.nav-logo-img:hover { transform: scale(1.08); }
+.nav-logo-img img { width: 100%; height: 100%; object-fit: cover; }
+.nav-logo-text {
+  font-family: var(--serif);
+  font-size: 18px;
+  letter-spacing: -0.01em;
+  transition: color 0.5s;
+}
+.nav.dark-mode .nav-logo-text { color: var(--off-white); }
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 36px;
+  list-style: none;
+}
+.nav-links a {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--mid-gray);
+  letter-spacing: 0.01em;
+  transition: color 0.3s;
+  position: relative;
+}
+.nav-links a:hover { color: var(--near-black); }
+.nav.dark-mode .nav-links a { color: rgba(255,255,255,0.4); }
+.nav.dark-mode .nav-links a:hover { color: rgba(255,255,255,0.9); }
+
+.nav-status {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  border-radius: 100px;
+  background: var(--emerald-glow);
+  border: 1px solid rgba(10, 104, 71, 0.12);
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--emerald);
+  letter-spacing: 0.02em;
+}
+.nav-status-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--emerald);
+  animation: pulse-dot 2s ease-in-out infinite;
+}
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+.nav-mobile-btn {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  width: 24px;
+  height: 20px;
+  position: relative;
+}
+.nav-mobile-btn span {
+  display: block;
+  width: 100%;
+  height: 1.5px;
+  background: var(--near-black);
+  position: absolute;
+  left: 0;
+  transition: all 0.3s;
+}
+.nav.dark-mode .nav-mobile-btn span { background: var(--off-white); }
+.nav-mobile-btn span:nth-child(1) { top: 0; }
+.nav-mobile-btn span:nth-child(2) { top: 50%; transform: translateY(-50%); }
+.nav-mobile-btn span:nth-child(3) { bottom: 0; }
+
+/* ═══════════════════════════════════════════
+   CHAPTER 01 — DISORIENTATION
+   "What is this?"
+   
+   No hero image. No cannabis. No product.
+   Just a statement so confident it doesn't
+   need decoration. The absence IS the statement.
+   ═══════════════════════════════════════════ */
+.chapter-01 {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 120px clamp(24px, 6vw, 120px) 80px;
+  position: relative;
+  background: var(--black);
+  color: var(--off-white);
+  overflow: hidden;
+}
+
+/* Subtle grid — like a blueprint under construction */
+.chapter-01::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+  background-size: 60px 60px;
+  pointer-events: none;
+}
+
+.entry-label {
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--emerald-light);
+  margin-bottom: 40px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.entry-label::before, .entry-label::after {
+  content: '';
+  width: 32px;
+  height: 1px;
+  background: var(--emerald);
+  opacity: 0.3;
+}
+
+.entry-statement {
+  font-family: var(--serif);
+  font-size: clamp(2.8rem, 7vw, 5.5rem);
+  font-weight: 400;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  max-width: 900px;
+  margin-bottom: 48px;
+}
+.entry-statement em {
+  font-style: italic;
+  color: var(--emerald-light);
+}
+
+.entry-sub {
+  font-size: clamp(15px, 1.6vw, 18px);
+  font-weight: 300;
+  color: rgba(255,255,255,0.45);
+  max-width: 560px;
+  line-height: 1.7;
+  margin-bottom: 56px;
+}
+
+.entry-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--mono);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--off-white);
+  padding: 14px 28px;
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 100px;
+  transition: all 0.4s var(--ease-out);
+  cursor: pointer;
+}
+.entry-cta:hover {
+  background: var(--off-white);
+  color: var(--black);
+  border-color: var(--off-white);
+}
+.entry-cta-arrow {
+  transition: transform 0.3s var(--ease-out);
+}
+.entry-cta:hover .entry-cta-arrow {
+  transform: translateX(4px);
+}
+
+/* Transformation chain teaser at bottom */
+.entry-chain {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.15);
+}
+.entry-chain-step { transition: color 0.3s; }
+.entry-chain-sep { color: rgba(255,255,255,0.08); }
+
+/* ═══════════════════════════════════════════
+   CHAPTER 02 — THE TRANSFORMATION ENGINE
+   "This is about transformation"
+   
+   The core visual system. A living diagram
+   that shows how value transforms at each stage.
+   Not explained — demonstrated.
+   ═══════════════════════════════════════════ */
+.chapter-02 {
+  padding: clamp(80px, 12vw, 160px) clamp(24px, 4vw, 64px);
+  background: var(--off-white);
+  position: relative;
+}
+
+.ch02-header {
+  max-width: 640px;
+  margin-bottom: 80px;
+}
+.ch02-eyebrow {
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--emerald);
+  margin-bottom: 20px;
+}
+.ch02-title {
+  font-family: var(--serif);
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin-bottom: 20px;
+}
+.ch02-desc {
+  font-size: 15px;
+  color: var(--dark-gray);
+  line-height: 1.75;
+}
+
+/* The Transformation Pipeline */
+.pipeline {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.pipeline-stage {
+  display: grid;
+  grid-template-columns: 100px 1fr 200px;
+  gap: 32px;
+  align-items: start;
+  padding: 48px 0;
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+  position: relative;
+}
+.pipeline-stage:last-child { border-bottom: none; }
+
+/* Left: Stage indicator */
+.pipeline-indicator {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+.pipeline-dot {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--mono);
+  font-size: 14px;
+  font-weight: 500;
+  position: relative;
+}
+.pipeline-dot::after {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  border: 1px solid;
+  opacity: 0.15;
+}
+.stage-plant .pipeline-dot { background: var(--emerald-glow); color: var(--emerald); border: 1.5px solid rgba(10,104,71,0.2); }
+.stage-plant .pipeline-dot::after { border-color: var(--emerald); }
+.stage-ingredient .pipeline-dot { background: var(--gold-ghost); color: var(--gold); border: 1.5px solid rgba(139,105,20,0.2); }
+.stage-ingredient .pipeline-dot::after { border-color: var(--gold); }
+.stage-formula .pipeline-dot { background: var(--violet-ghost); color: var(--violet); border: 1.5px solid rgba(67,56,202,0.2); }
+.stage-formula .pipeline-dot::after { border-color: var(--violet); }
+.stage-product .pipeline-dot { background: rgba(10,104,71,0.1); color: var(--emerald); border: 1.5px solid rgba(10,104,71,0.25); }
+.stage-product .pipeline-dot::after { border-color: var(--emerald); }
+.stage-benefit .pipeline-dot { background: rgba(139,105,20,0.1); color: var(--gold); border: 1.5px solid rgba(139,105,20,0.25); }
+.stage-benefit .pipeline-dot::after { border-color: var(--gold); }
+
+.pipeline-label {
+  font-family: var(--mono);
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--mid-gray);
+  text-align: center;
+}
+
+/* Connecting line between stages */
+.pipeline-connector {
+  position: absolute;
+  left: 47px;
+  top: 48px;
+  bottom: -1px;
+  width: 1px;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.08), rgba(0,0,0,0.03));
+}
+
+/* Center: Content */
+.pipeline-content { padding-top: 4px; }
+.pipeline-title {
+  font-family: var(--serif);
+  font-size: clamp(1.4rem, 2.5vw, 2rem);
+  font-weight: 400;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  margin-bottom: 12px;
+}
+.pipeline-text {
+  font-size: 14px;
+  color: var(--dark-gray);
+  line-height: 1.75;
+  max-width: 480px;
+}
+
+/* Right: Data point */
+.pipeline-data {
+  text-align: right;
+  padding-top: 4px;
+}
+.pipeline-data-value {
+  font-family: var(--mono);
+  font-size: 28px;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  line-height: 1;
+  margin-bottom: 6px;
+}
+.stage-plant .pipeline-data-value { color: var(--emerald); }
+.stage-ingredient .pipeline-data-value { color: var(--gold); }
+.stage-formula .pipeline-data-value { color: var(--violet); }
+.stage-product .pipeline-data-value { color: var(--emerald); }
+.stage-benefit .pipeline-data-value { color: var(--gold); }
+
+.pipeline-data-label {
+  font-size: 11px;
+  color: var(--mid-gray);
+  line-height: 1.5;
+}
+
+/* ═══════════════════════════════════════════
+   CHAPTER 03 — THE REALITY DASHBOARD
+   "I see the method"
+   
+   Not a team page. Not an about page.
+   A live-style dashboard of current reality.
+   Honest. Precise. No marketing language.
+   ═══════════════════════════════════════════ */
+.chapter-03 {
+  padding: clamp(80px, 12vw, 160px) clamp(24px, 4vw, 64px);
+  background: var(--black);
+  color: var(--off-white);
+}
+
+.ch03-header {
+  max-width: 640px;
+  margin-bottom: 64px;
+}
+.ch03-eyebrow {
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--emerald-light);
+  margin-bottom: 20px;
+}
+.ch03-title {
+  font-family: var(--serif);
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: var(--off-white);
+  margin-bottom: 16px;
+}
+.ch03-desc {
+  font-size: 15px;
+  color: rgba(255,255,255,0.4);
+  line-height: 1.75;
+}
+
+/* Dashboard Grid */
+.dashboard {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 16px;
+}
+
+.dash-card {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 16px;
+  padding: 32px;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s var(--ease-out);
+}
+.dash-card:hover {
+  border-color: rgba(255,255,255,0.12);
+  background: rgba(255,255,255,0.05);
+}
+
+/* Card: Status */
+.dash-status { grid-column: span 5; }
+.dash-status-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 32px;
+}
+.dash-status-title {
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.35);
+}
+.dash-status-badge {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  border-radius: 100px;
+  background: rgba(10, 104, 71, 0.12);
+  border: 1px solid rgba(10, 104, 71, 0.2);
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--emerald-light);
+}
+.dash-status-badge-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--emerald-light);
+  animation: pulse-dot 2s ease-in-out infinite;
+}
+
+.status-rows { display: flex; flex-direction: column; gap: 12px; }
+.status-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+  font-size: 14px;
+}
+.status-row:last-child { border-bottom: none; }
+.status-row-label { color: rgba(255,255,255,0.5); }
+.status-row-value { font-weight: 500; color: var(--off-white); }
+.status-row-value.active { color: var(--emerald-light); }
+.status-row-value.pending { color: var(--gold-light); }
+.status-row-value.future { color: var(--violet-light); }
+
+/* Card: Leadership */
+.dash-leadership { grid-column: span 7; }
+.leadership-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-top: 20px;
+}
+.leader {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+.leader-photo {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  overflow: hidden;
+  flex-shrink: 0;
+  border: 1.5px solid rgba(255,255,255,0.08);
+}
+.leader-photo img { width: 100%; height: 100%; object-fit: cover; }
+.leader-info { flex: 1; }
+.leader-name {
+  font-family: var(--serif);
+  font-size: 18px;
+  margin-bottom: 2px;
+  color: var(--off-white);
+}
+.leader-role {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--emerald-light);
+  margin-bottom: 8px;
+}
+.leader-desc {
+  font-size: 12px;
+  color: rgba(255,255,255,0.4);
+  line-height: 1.6;
+}
+
+/* Card: Capabilities */
+.dash-capabilities { grid-column: span 7; }
+.capability-bars { display: flex; flex-direction: column; gap: 16px; margin-top: 20px; }
+.capability {
+  display: grid;
+  grid-template-columns: 160px 1fr 60px;
+  gap: 12px;
+  align-items: center;
+}
+.capability-label {
+  font-size: 13px;
+  color: rgba(255,255,255,0.5);
+}
+.capability-track {
+  height: 4px;
+  background: rgba(255,255,255,0.06);
+  border-radius: 2px;
+  overflow: hidden;
+  position: relative;
+}
+.capability-fill {
+  height: 100%;
+  border-radius: 2px;
+  transition: width 1.5s var(--ease-out);
+}
+.capability-fill.active { background: var(--emerald-light); }
+.capability-fill.pending { background: var(--gold-light); }
+.capability-fill.future { background: var(--violet-light); }
+.capability-percent {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: rgba(255,255,255,0.35);
+  text-align: right;
+}
+
+/* Card: Trajectory */
+.dash-trajectory { grid-column: span 5; }
+.trajectory-list { display: flex; flex-direction: column; gap: 0; margin-top: 20px; }
+.trajectory-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 14px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+  position: relative;
+}
+.trajectory-item:last-child { border-bottom: none; }
+.trajectory-marker {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  margin-top: 5px;
+}
+.trajectory-marker.done { background: var(--emerald-light); }
+.trajectory-marker.in-progress { background: var(--gold-light); }
+.trajectory-marker.planned { background: var(--violet-light); opacity: 0.5; }
+.trajectory-text {
+  font-size: 13px;
+  color: rgba(255,255,255,0.55);
+  line-height: 1.5;
+}
+.trajectory-phase {
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-top: 4px;
+}
+.trajectory-phase.done { color: var(--emerald-light); }
+.trajectory-phase.in-progress { color: var(--gold-light); }
+.trajectory-phase.planned { color: var(--violet-light); }
+
+/* ═══════════════════════════════════════════
+   CHAPTER 04 — THE METHOD
+   "This company has a real vision"
+   
+   Not a process page. A technical workflow.
+   The MOU-based formulation path.
+   Precise. Sequential. Unembellished.
+   ═══════════════════════════════════════════ */
+.chapter-04 {
+  padding: clamp(80px, 12vw, 160px) clamp(24px, 4vw, 64px);
+  background: var(--white);
+  position: relative;
+}
+
+.ch04-header {
+  max-width: 640px;
+  margin-bottom: 80px;
+}
+.ch04-eyebrow {
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--emerald);
+  margin-bottom: 20px;
+}
+.ch04-title {
+  font-family: var(--serif);
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin-bottom: 16px;
+}
+.ch04-desc {
+  font-size: 15px;
+  color: var(--dark-gray);
+  line-height: 1.75;
+}
+
+/* The Method: Sequential Steps */
+.method {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.method-step {
+  display: grid;
+  grid-template-columns: 80px 1fr;
+  gap: 32px;
+  padding: 40px 0;
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+  position: relative;
+}
+.method-step:last-child { border-bottom: none; }
+
+.method-number {
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  color: var(--mid-gray);
+  padding-top: 6px;
+}
+
+.method-body {}
+.method-title {
+  font-family: var(--serif);
+  font-size: clamp(1.3rem, 2.2vw, 1.8rem);
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  margin-bottom: 12px;
+}
+.method-text {
+  font-size: 14px;
+  color: var(--dark-gray);
+  line-height: 1.75;
+  max-width: 520px;
+}
+.method-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 16px;
+  padding: 5px 12px;
+  border-radius: 100px;
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.method-tag.active {
+  background: var(--emerald-glow);
+  color: var(--emerald);
+  border: 1px solid rgba(10,104,71,0.12);
+}
+.method-tag.pending {
+  background: var(--gold-ghost);
+  color: var(--gold);
+  border: 1px solid rgba(139,105,20,0.12);
+}
+
+/* ═══════════════════════════════════════════
+   CHAPTER 05 — THE INVITATION
+   "I want to be part of this"
+   
+   Not a contact form. A declaration of intent.
+   Who we want to hear from and why.
+   ═══════════════════════════════════════════ */
+.chapter-05 {
+  padding: clamp(80px, 12vw, 160px) clamp(24px, 4vw, 64px);
+  background: var(--cream);
+}
+
+.ch05-layout {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: start;
+}
+
+.ch05-left {}
+.ch05-eyebrow {
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--emerald);
+  margin-bottom: 20px;
+}
+.ch05-title {
+  font-family: var(--serif);
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin-bottom: 20px;
+}
+.ch05-desc {
+  font-size: 15px;
+  color: var(--dark-gray);
+  line-height: 1.75;
+  margin-bottom: 36px;
+}
+
+.ch05-email {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--mono);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--emerald);
+  padding: 14px 24px;
+  background: var(--white);
+  border: 1px solid rgba(10,104,71,0.12);
+  border-radius: 12px;
+  transition: all 0.3s var(--ease-out);
+}
+.ch05-email:hover {
+  background: var(--emerald);
+  color: var(--white);
+  border-color: var(--emerald);
+}
+
+.ch05-right {}
+.ch05-interests {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+.ch05-interest {
+  padding: 20px 0;
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.ch05-interest:first-child { border-top: 1px solid rgba(0,0,0,0.06); }
+.ch05-interest-name {
+  font-size: 15px;
+  font-weight: 500;
+}
+.ch05-interest-type {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--mid-gray);
+  padding: 4px 10px;
+  border: 1px solid rgba(0,0,0,0.08);
+  border-radius: 100px;
+}
+
+/* ═══════════════════════════════════════════
+   THE DECLARATION
+   Honest statement of reality. Always visible.
+   ═══════════════════════════════════════════ */
+.declaration {
+  padding: 48px clamp(24px, 4vw, 64px);
+  background: var(--white);
+  border-top: 1px solid rgba(0,0,0,0.06);
+}
+.declaration-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+.declaration-icon {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--gold-ghost);
+  border: 1px solid rgba(139,105,20,0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  color: var(--gold);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.declaration-text {
+  font-size: 13px;
+  color: var(--dark-gray);
+  line-height: 1.7;
+}
+.declaration-text strong { color: var(--near-black); font-weight: 600; }
+
+/* ═══════════════════════════════════════════
+   FOOTER
+   ═══════════════════════════════════════════ */
+.footer {
+  padding: 40px clamp(24px, 4vw, 64px);
+  background: var(--black);
+  color: rgba(255,255,255,0.3);
+}
+.footer-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.footer-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.footer-logo {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.footer-logo img { width: 100%; height: 100%; object-fit: cover; }
+.footer-name {
+  font-family: var(--serif);
+  font-size: 14px;
+  color: rgba(255,255,255,0.6);
+}
+.footer-legal {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.04em;
+  text-align: right;
+  line-height: 1.8;
+}
+
+/* ═══════════════════════════════════════════
+   REVEAL SYSTEM
+   ═══════════════════════════════════════════ */
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s var(--ease-out), transform 0.8s var(--ease-out);
+}
+[data-reveal].revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+[data-reveal-delay="1"] { transition-delay: 0.08s; }
+[data-reveal-delay="2"] { transition-delay: 0.16s; }
+[data-reveal-delay="3"] { transition-delay: 0.24s; }
+[data-reveal-delay="4"] { transition-delay: 0.32s; }
+[data-reveal-delay="5"] { transition-delay: 0.40s; }
+
+/* ═══════════════════════════════════════════
+   RESPONSIVE
+   ═══════════════════════════════════════════ */
+@media (max-width: 900px) {
+  .nav-links { display: none; }
+  .nav-mobile-btn { display: block; }
+  
+  .pipeline-stage {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .pipeline-indicator { flex-direction: row; gap: 12px; }
+  .pipeline-connector { display: none; }
+  .pipeline-data { text-align: left; }
+  
+  .dashboard {
+    grid-template-columns: 1fr;
+  }
+  .dash-status, .dash-leadership, .dash-capabilities, .dash-trajectory {
+    grid-column: span 1;
+  }
+  .leadership-grid { grid-template-columns: 1fr; }
+  
+  .ch05-layout { grid-template-columns: 1fr; gap: 48px; }
+  
+  .method-step { grid-template-columns: 1fr; gap: 12px; }
+  
+  .declaration-inner { flex-direction: column; }
+  
+  .footer-inner { flex-direction: column; gap: 16px; text-align: center; }
+  .footer-legal { text-align: center; }
+}
+
+@media (max-width: 600px) {
+  .entry-statement { font-size: clamp(2rem, 9vw, 3rem); }
+  .entry-chain { display: none; }
+  .nav-status { display: none; }
+  
+  .capability { grid-template-columns: 120px 1fr 50px; }
+  
+  .ch05-interest { flex-direction: column; align-items: flex-start; gap: 8px; }
+}
+
+/* Mobile nav overlay */
+.mobile-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  background: var(--black);
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+}
+.mobile-overlay.open { display: flex; }
+.mobile-overlay a {
+  font-family: var(--serif);
+  font-size: 28px;
+  color: var(--off-white);
+  transition: color 0.3s;
+}
+.mobile-overlay a:hover { color: var(--emerald-light); }
+.mobile-overlay-close {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  background: none;
+  border: none;
+  color: var(--off-white);
+  font-size: 28px;
+  cursor: pointer;
+}
+</style>
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<nav class="nav" id="nav">
+  <a href="#" class="nav-logo">
+    <div class="nav-logo-img"><img src="img/logo-new-256.png" alt="" width="36" height="36"></div>
+    <span class="nav-logo-text">Leaf & Legend</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#transformation">Transformation</a></li>
+    <li><a href="#reality">Reality</a></li>
+    <li><a href="#method">Method</a></li>
+    <li><a href="#connect">Connect</a></li>
+  </ul>
+  <div class="nav-status"><span class="nav-status-dot"></span>Concept Phase</div>
+  <button class="nav-mobile-btn" id="mobileBtn" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+
+<!-- Mobile Overlay -->
+<div class="mobile-overlay" id="mobileOverlay">
+  <button class="mobile-overlay-close" id="mobileClose">&times;</button>
+  <a href="#transformation" onclick="closeMobile()">Transformation</a>
+  <a href="#reality" onclick="closeMobile()">Reality</a>
+  <a href="#method" onclick="closeMobile()">Method</a>
+  <a href="#connect" onclick="closeMobile()">Connect</a>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     CHAPTER 01 — DISORIENTATION
+     No cannabis imagery. No hero photo.
+     Just a statement that redefines the category.
+     ═══════════════════════════════════════════ -->
+<section class="chapter-01" id="top">
+  <div class="entry-label" data-reveal>Leaf & Legend</div>
+  <h1 class="entry-statement" data-reveal data-reveal-delay="1">
+    Morocco grows the plant.<br>
+    Someone else builds the <em>product</em>.
+  </h1>
+  <p class="entry-sub" data-reveal data-reveal-delay="2">We exist to change that equation. A product-development company transforming Morocco's cannabis from raw material into finished consumer products. Currently in concept phase.</p>
+  <a href="#transformation" class="entry-cta" data-reveal data-reveal-delay="3">
+    See the transformation <span class="entry-cta-arrow">&rarr;</span>
+  </a>
+  <div class="entry-chain" data-reveal data-reveal-delay="4">
+    <span class="entry-chain-step">Plant</span>
+    <span class="entry-chain-sep">&rarr;</span>
+    <span class="entry-chain-step">Ingredient</span>
+    <span class="entry-chain-sep">&rarr;</span>
+    <span class="entry-chain-step">Formula</span>
+    <span class="entry-chain-sep">&rarr;</span>
+    <span class="entry-chain-step">Product</span>
+    <span class="entry-chain-sep">&rarr;</span>
+    <span class="entry-chain-step">Benefit</span>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     CHAPTER 02 — THE TRANSFORMATION ENGINE
+     Each stage of transformation is a distinct
+     visual world with its own color and data.
+     ═══════════════════════════════════════════ -->
+<section class="chapter-02" id="transformation">
+  <div class="ch02-header" data-reveal>
+    <div class="ch02-eyebrow">The Transformation</div>
+    <h2 class="ch02-title">Value changes form.<br>Not just hands.</h2>
+    <p class="ch02-desc">Every transformation in the chain multiplies value. Raw biomass captures 3% of retail price. A finished, formulated product captures 60-80%. The transformation is the margin. The transformation is the future.</p>
+  </div>
+
+  <div class="pipeline">
+    <!-- Stage 1: Plant -->
+    <div class="pipeline-stage stage-plant" data-reveal>
+      <div class="pipeline-indicator">
+        <div class="pipeline-dot">01</div>
+        <div class="pipeline-label">Plant</div>
+      </div>
+      <div class="pipeline-connector"></div>
+      <div class="pipeline-content">
+        <div class="pipeline-title">The starting material</div>
+        <div class="pipeline-text">Morocco's Rif Valley produces some of the world's most distinctive cannabis. Altitude, soil composition, and UV stress create cannabinoid and terpene profiles found nowhere else. Three generations of family stewardship define the land. But a plant alone is not a product.</div>
+      </div>
+      <div class="pipeline-data">
+        <div class="pipeline-data-value">3%</div>
+        <div class="pipeline-data-label">Of retail value<br>captured at source</div>
+      </div>
+    </div>
+
+    <!-- Stage 2: Ingredient -->
+    <div class="pipeline-stage stage-ingredient" data-reveal>
+      <div class="pipeline-indicator">
+        <div class="pipeline-dot">02</div>
+        <div class="pipeline-label">Ingredient</div>
+      </div>
+      <div class="pipeline-connector"></div>
+      <div class="pipeline-content">
+        <div class="pipeline-title">Extraction & specification</div>
+        <div class="pipeline-text">Raw plant material becomes a defined ingredient through controlled extraction. Cannabinoid profiles are measured. Terpene compositions are mapped. Batch specifications are established. The plant becomes data. Data becomes designable.</div>
+      </div>
+      <div class="pipeline-data">
+        <div class="pipeline-data-value">5x</div>
+        <div class="pipeline-data-label">Value increase from<br>plant to ingredient</div>
+      </div>
+    </div>
+
+    <!-- Stage 3: Formula -->
+    <div class="pipeline-stage stage-formula" data-reveal>
+      <div class="pipeline-indicator">
+        <div class="pipeline-dot">03</div>
+        <div class="pipeline-label">Formula</div>
+      </div>
+      <div class="pipeline-connector"></div>
+      <div class="pipeline-content">
+        <div class="pipeline-title">Design & formulation</div>
+        <div class="pipeline-text">An ingredient becomes a formula through expert formulation design. Carrier systems are selected. Co-actives are paired. Delivery mechanisms are engineered. Stability is tested. This is where science transforms potential into precision. The formula is the intellectual property.</div>
+      </div>
+      <div class="pipeline-data">
+        <div class="pipeline-data-value">15x</div>
+        <div class="pipeline-data-label">Value increase from<br>ingredient to formula</div>
+      </div>
+    </div>
+
+    <!-- Stage 4: Product -->
+    <div class="pipeline-stage stage-product" data-reveal>
+      <div class="pipeline-indicator">
+        <div class="pipeline-dot">04</div>
+        <div class="pipeline-label">Product</div>
+      </div>
+      <div class="pipeline-connector"></div>
+      <div class="pipeline-content">
+        <div class="pipeline-title">Manufacturing & compliance</div>
+        <div class="pipeline-text">A formula becomes a product through licensed manufacturing, quality control, and regulatory compliance. Every batch is tested. Every label is honest. Every product is filed at OMPIC under Moroccan IP. The product is the proof that transformation happened.</div>
+      </div>
+      <div class="pipeline-data">
+        <div class="pipeline-data-value">30x</div>
+        <div class="pipeline-data-label">Value increase from<br>formula to product</div>
+      </div>
+    </div>
+
+    <!-- Stage 5: Benefit -->
+    <div class="pipeline-stage stage-benefit" data-reveal>
+      <div class="pipeline-indicator">
+        <div class="pipeline-dot">05</div>
+        <div class="pipeline-label">Benefit</div>
+      </div>
+      <div class="pipeline-content">
+        <div class="pipeline-title">Consumer & impact</div>
+        <div class="pipeline-text">A product becomes a benefit when it reaches the consumer through proper channels and delivers a real, measurable outcome. This is the final transformation. Not a transaction, but an impact on quality of life. The reason every previous step exists.</div>
+      </div>
+      <div class="pipeline-data">
+        <div class="pipeline-data-value">60-80%</div>
+        <div class="pipeline-data-label">Of retail value<br>captured at this stage</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     CHAPTER 03 — THE REALITY DASHBOARD
+     Honest, precise, live-style.
+     No marketing language. No invented anything.
+     ═══════════════════════════════════════════ -->
+<section class="chapter-03" id="reality">
+  <div class="ch03-header" data-reveal>
+    <div class="ch03-eyebrow">Current Reality</div>
+    <h2 class="ch03-title">Where we are.<br>Not where we wish we were.</h2>
+    <p class="ch03-desc">Every status on this dashboard is accurate as of now. No invented capabilities. No projected timelines presented as fact. Future plans are clearly separated from current reality.</p>
+  </div>
+
+  <div class="dashboard">
+    <!-- Status Card -->
+    <div class="dash-card dash-status" data-reveal>
+      <div class="dash-status-header">
+        <div class="dash-status-title">Operational Status</div>
+        <div class="dash-status-badge"><span class="dash-status-badge-dot"></span>Concept Phase</div>
+      </div>
+      <div class="status-rows">
+        <div class="status-row">
+          <span class="status-row-label">Company Entity</span>
+          <span class="status-row-value active">Established</span>
+        </div>
+        <div class="status-row">
+          <span class="status-row-label">Product Concepts</span>
+          <span class="status-row-value active">Defined</span>
+        </div>
+        <div class="status-row">
+          <span class="status-row-label">Formulation Partnership</span>
+          <span class="status-row-value active">MOU Signed</span>
+        </div>
+        <div class="status-row">
+          <span class="status-row-label">Working Model</span>
+          <span class="status-row-value pending">In Progress</span>
+        </div>
+        <div class="status-row">
+          <span class="status-row-label">Laboratory Manufacturing</span>
+          <span class="status-row-value future">Planned</span>
+        </div>
+        <div class="status-row">
+          <span class="status-row-label">Regulatory Submission</span>
+          <span class="status-row-value future">Planned</span>
+        </div>
+        <div class="status-row">
+          <span class="status-row-label">Commercial Launch</span>
+          <span class="status-row-value future">Planned</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Leadership Card -->
+    <div class="dash-card dash-leadership" data-reveal data-reveal-delay="1">
+      <div class="dash-status-title" style="margin-bottom:4px;">Leadership</div>
+      <div class="leadership-grid">
+        <div class="leader">
+          <div class="leader-photo"><img src="img/founder-portrait.jpeg" alt="Mohamed El Sghiar" width="56" height="56"></div>
+          <div class="leader-info">
+            <div class="leader-name">Mohamed El Sghiar</div>
+            <div class="leader-role">Founder</div>
+            <div class="leader-desc">Three generations of family land stewardship in Ketama. The connection between the Rif Valley's botanical heritage and the company's product vision.</div>
+          </div>
+        </div>
+        <div class="leader">
+          <div class="leader-photo" style="background:var(--emerald-glow);display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:20px;color:var(--emerald-light);">W</div>
+          <div class="leader-info">
+            <div class="leader-name">Walid Hassani</div>
+            <div class="leader-role">CEO</div>
+            <div class="leader-desc">Leading the company's transformation from raw material heritage into a product-development organization with long-term vision.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Capabilities Card -->
+    <div class="dash-card dash-capabilities" data-reveal>
+      <div class="dash-status-title" style="margin-bottom:4px;">Capability Map</div>
+      <div class="capability-bars">
+        <div class="capability">
+          <span class="capability-label">Concept Definition</span>
+          <div class="capability-track"><div class="capability-fill active" style="width:100%"></div></div>
+          <span class="capability-percent">100%</span>
+        </div>
+        <div class="capability">
+          <span class="capability-label">Formulation Design</span>
+          <div class="capability-track"><div class="capability-fill active" style="width:75%"></div></div>
+          <span class="capability-percent">75%</span>
+        </div>
+        <div class="capability">
+          <span class="capability-label">Regulatory Analysis</span>
+          <div class="capability-track"><div class="capability-fill pending" style="width:50%"></div></div>
+          <span class="capability-percent">50%</span>
+        </div>
+        <div class="capability">
+          <span class="capability-label">Manufacturing</span>
+          <div class="capability-track"><div class="capability-fill future" style="width:15%"></div></div>
+          <span class="capability-percent">15%</span>
+        </div>
+        <div class="capability">
+          <span class="capability-label">Distribution</span>
+          <div class="capability-track"><div class="capability-fill future" style="width:5%"></div></div>
+          <span class="capability-percent">5%</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Trajectory Card -->
+    <div class="dash-card dash-trajectory" data-reveal data-reveal-delay="1">
+      <div class="dash-status-title" style="margin-bottom:4px;">Trajectory</div>
+      <div class="trajectory-list">
+        <div class="trajectory-item">
+          <div class="trajectory-marker done"></div>
+          <div>
+            <div class="trajectory-text">Company established, product concepts defined</div>
+            <div class="trajectory-phase done">Completed</div>
+          </div>
+        </div>
+        <div class="trajectory-item">
+          <div class="trajectory-marker done"></div>
+          <div>
+            <div class="trajectory-text">MOU signed with formulation partner</div>
+            <div class="trajectory-phase done">Completed</div>
+          </div>
+        </div>
+        <div class="trajectory-item">
+          <div class="trajectory-marker in-progress"></div>
+          <div>
+            <div class="trajectory-text">Working model identification and validation</div>
+            <div class="trajectory-phase in-progress">In Progress</div>
+          </div>
+        </div>
+        <div class="trajectory-item">
+          <div class="trajectory-marker planned"></div>
+          <div>
+            <div class="trajectory-text">Laboratory formulation development</div>
+            <div class="trajectory-phase planned">Planned</div>
+          </div>
+        </div>
+        <div class="trajectory-item">
+          <div class="trajectory-marker planned"></div>
+          <div>
+            <div class="trajectory-text">Regulatory submission and commercial launch</div>
+            <div class="trajectory-phase planned">Planned</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     CHAPTER 04 — THE METHOD
+     Not a process page. A technical specification.
+     ═══════════════════════════════════════════ -->
+<section class="chapter-04" id="method">
+  <div class="ch04-header" data-reveal>
+    <div class="ch04-eyebrow">The Method</div>
+    <h2 class="ch04-title">Five steps.<br>Zero shortcuts.</h2>
+    <p class="ch04-desc">Every product follows a disciplined sequence. No step can be skipped. No step can be reordered. The method is the guarantee that the transformation is real, not claimed.</p>
+  </div>
+
+  <div class="method">
+    <div class="method-step" data-reveal>
+      <div class="method-number">01</div>
+      <div class="method-body">
+        <div class="method-title">Define the Plant</div>
+        <div class="method-text">Identify the specific cultivar and cannabinoid profile rooted in the Rif Valley terroir. The altitude, the soil, the UV stress response. The plant definition sets the entire downstream chain in motion. Without a defined plant, there is no defined product.</div>
+        <div class="method-tag active">Current Phase</div>
+      </div>
+    </div>
+
+    <div class="method-step" data-reveal>
+      <div class="method-number">02</div>
+      <div class="method-body">
+        <div class="method-title">Sign the MOU</div>
+        <div class="method-text">Founder Mohamed El Sghiar formally signs the Memorandum of Understanding with the formulation partner. The MOU establishes formulation design authority, IP ownership (all filings at OMPIC under Leaf & Legend), exclusivity commitment, and compensation framework. This is the legal backbone of every product.</div>
+        <div class="method-tag active">Completed</div>
+      </div>
+    </div>
+
+    <div class="method-step" data-reveal>
+      <div class="method-number">03</div>
+      <div class="method-body">
+        <div class="method-title">Receive the Preparation List</div>
+        <div class="method-text">The formulation partner provides the preparation list: carrier system specifications, co-active ingredient selection, extraction parameters, potency targets, preservation protocols, and stability testing schedules. The list is the operational blueprint that translates formulation science into manufacturing steps.</div>
+        <div class="method-tag pending">In Progress</div>
+      </div>
+    </div>
+
+    <div class="method-step" data-reveal>
+      <div class="method-number">04</div>
+      <div class="method-body">
+        <div class="method-title">Find the Best Working Model</div>
+        <div class="method-text">Evaluate which licensed laboratory partner can execute the formulation. Whether extraction parameters align with available equipment. Which carrier systems perform under Moroccan conditions. Whether potency targets are achievable with current biomass quality. Theory meets production capability.</div>
+        <div class="method-tag pending">Next</div>
+      </div>
+    </div>
+
+    <div class="method-step" data-reveal>
+      <div class="method-number">05</div>
+      <div class="method-body">
+        <div class="method-title">Organize the Work</div>
+        <div class="method-text">Raw material sourcing. Extraction scheduling. Laboratory manufacturing slot booking. Quality control checkpoints. Regulatory filing preparation. Every person, every process, every deadline is assigned. Operational discipline is the difference between a good idea and a product in the market.</div>
+        <div class="method-tag pending">Future</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     CHAPTER 05 — THE INVITATION
+     ═══════════════════════════════════════════ -->
+<section class="chapter-05" id="connect">
+  <div class="ch05-layout">
+    <div class="ch05-left" data-reveal>
+      <div class="ch05-eyebrow">Connect</div>
+      <h2 class="ch05-title">Building the future requires the right partners.</h2>
+      <p class="ch05-desc">We are not looking for investors who want a quick return. We are looking for partners who understand that transforming an industry takes method, patience, and rigor. If that resonates, we want to hear from you.</p>
+      <a href="mailto:contact@leafandlegend.com" class="ch05-email">&rarr; contact@leafandlegend.com</a>
+    </div>
+
+    <div class="ch05-right" data-reveal data-reveal-delay="1">
+      <div class="ch05-interests">
+        <div class="ch05-interest">
+          <span class="ch05-interest-name">Formulation Science</span>
+          <span class="ch05-interest-type">Partnership</span>
+        </div>
+        <div class="ch05-interest">
+          <span class="ch05-interest-name">Licensed Laboratories</span>
+          <span class="ch05-interest-type">Collaboration</span>
+        </div>
+        <div class="ch05-interest">
+          <span class="ch05-interest-name">Regulatory Expertise</span>
+          <span class="ch05-interest-type">Advisory</span>
+        </div>
+        <div class="ch05-interest">
+          <span class="ch05-interest-name">Strategic Investment</span>
+          <span class="ch05-interest-type">Long-term</span>
+        </div>
+        <div class="ch05-interest">
+          <span class="ch05-interest-name">Manufacturing Capability</span>
+          <span class="ch05-interest-type">Operational</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- THE DECLARATION -->
+<div class="declaration" data-reveal>
+  <div class="declaration-inner">
+    <div class="declaration-icon">!</div>
+    <div class="declaration-text">
+      <strong>Honesty Declaration:</strong> Leaf & Legend is a product-development company in concept phase. Products described on this site are concepts under development and are not yet approved, launched, clinically validated, or commercially available. All formulations are in the design phase. Future capabilities are clearly distinguished from current reality throughout this site. No certifications, registrations, or partnerships are claimed beyond what currently exists.
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-left">
+      <div class="footer-logo"><img src="img/logo-new-64.png" alt="" width="28" height="28"></div>
+      <span class="footer-name">Leaf & Legend S.A.R.L.</span>
+    </div>
+    <div class="footer-legal">
+      Moroccan Product-Development Company<br>
+      Products are concepts under development
+    </div>
+  </div>
+</footer>
+
+<!-- JAVASCRIPT -->
+<script>
+// Reveal System
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('revealed');
+    }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -32px 0px' });
+
+document.querySelectorAll('[data-reveal]').forEach(el => revealObserver.observe(el));
+
+// Nav dark mode toggle based on section
+const nav = document.getElementById('nav');
+const darkSections = document.querySelectorAll('.chapter-01, .chapter-03');
+
+const sectionObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      nav.classList.add('dark-mode');
+    } else {
+      nav.classList.remove('dark-mode');
+    }
+  });
+}, { threshold: 0.3 });
+
+darkSections.forEach(section => sectionObserver.observe(section));
+
+// Mobile nav
+const mobileBtn = document.getElementById('mobileBtn');
+const mobileOverlay = document.getElementById('mobileOverlay');
+const mobileClose = document.getElementById('mobileClose');
+
+mobileBtn.addEventListener('click', () => {
+  mobileOverlay.classList.add('open');
+  document.body.style.overflow = 'hidden';
+});
+
+mobileClose.addEventListener('click', closeMobile);
+
+function closeMobile() {
+  mobileOverlay.classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+// Smooth scroll
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function(e) {
+    e.preventDefault();
+    const target = document.querySelector(this.getAttribute('href'));
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  });
+});
+</script>
+</body>
+</html>
